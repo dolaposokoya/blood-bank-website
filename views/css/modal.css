@@ -1,54 +1,53 @@
 .modal {
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
     overflow: auto;
     background: rgba(0, 0, 0, 0.4);
+  }
 
-}
-
-.modal-content {
+  .modal-content {
     background-color: #f4f4f4;
     margin: 10% auto;
     width: 400px;
     animation-name: modalDisplay;
     animation-duration: 2s;
-}
+  }
 
-.modal-footer h3 {
+  .modal-footer h3 {
     margin: 0;
     color: white;
-}
+  }
 
-.modal-header {
+  .modal-header {
     background: #8a0303;
     padding: 15px;
-}
+  }
 
-.modal-body {
+  .modal-body {
     padding: 10px 20px;
-}
+  }
 
-.closeBtn {
+  .closeBtn {
     font-size: 25px;
     color: white;
     float: right;
-}
+  }
 
-.closeBtn:hover,
-.closeBtn:focus {
+  .closeBtn:hover,
+  .closeBtn:focus {
     cursor: pointer;
-}
+  }
 
-@keyframes modalDisplay {
+  @keyframes modalDisplay {
     from {
-        opacity: 0;
+      opacity: 0;
     }
 
     to {
-        opacity: 1;
+      opacity: 1;
     }
-}
+  }
