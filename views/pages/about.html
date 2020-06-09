@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="/views/images/favicon.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/yeti/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="/views/css/main.css" />
+    <!-- <link rel="stylesheet" href="/views/css/modal.css" /> -->
+
+    <title>Admin Page</title>
+  </head>
+  <body class="body-image">
+    <style>
+      .modal {
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        background: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #f4f4f4;
+        margin: 10% auto;
+        width: 400px;
+        animation-name: modalDisplay;
+        animation-duration: 2s;
+      }
+
+      .modal-footer h3 {
+        margin: 0;
+        color: white;
+      }
+
+      .modal-header {
+        background: #8a0303;
+        padding: 15px;
+      }
+
+      .modal-body {
+        padding: 10px 20px;
+      }
+
+      .closeBtn {
+        font-size: 25px;
+        color: white;
+        float: right;
+      }
+
+      .closeBtn:hover,
+      .closeBtn:focus {
+        cursor: pointer;
+      }
+
+      @keyframes modalDisplay {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+    <div>
+      <header>
+        <div class="menu-btn">
+          <div class="btn-line"></div>
+          <div class="btn-line"></div>
+          <div class="btn-line"></div>
+        </div>
+        <nav class="menu">
+          <ul class="menu-nav">
+            <li class="nav-item">
+              <a href="userstatus.html" class="nav-link">Reservation</a>
+            </li>
+            <li class="nav-item current">
+              <a href="userstatus.html" class="nav-link">Request</a>
+            </li>
+            <li class="nav-item">
+              <a href="userstatus.html" class="nav-link">User Status</a>
+            </li>
+            <li class="nav-item">
+              <a href="userstatus.html" class="nav-link">Log Out</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <!-- Modal -->
+      <div id="simpleModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="closeBtn" id="closeBtn">&times;</span>
+          </div>
+          <div>
+            <p class="modal-body">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur
+              alias soluta ducimus, tempore ipsum eius consequuntur distinctio,
+              animi similique ullam itaque ipsam iure. Tempora unde nisi vitae
+              velit odit vel.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <h3 class="footer-text"></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main id="about">
+      <table class="table table-striped mt-5">
+        <thead>
+          <tr class="table-item">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="user-list"></tbody>
+      </table>
+    </main>
+    <footer id="footer">Copyright &copy 2020</footer>
+    <script src="../../script/getUser.js"></script>
+    <script src="../../script/main.js"></script>
+  </body>
+</html>
