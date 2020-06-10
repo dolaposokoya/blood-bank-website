@@ -202,7 +202,7 @@
 }
 
 #footer {
-  background: linear-gradient(#050505, rgba(14, 1, 1, 0.933), rgba(0, 0, 0, 0.904));
+  background: black;
   text-align: center;
   color: white;
   padding: 15px;
