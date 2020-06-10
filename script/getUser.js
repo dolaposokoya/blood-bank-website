@@ -34,7 +34,7 @@ function checkToken() {
         document.querySelector(".back").classList.remove("backPop");
       });
   } else {
-    window.location.assign("/index.html");
+    window.location.assign("/");
   }
 }
 
