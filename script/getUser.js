@@ -1,5 +1,5 @@
-const url = "https://api-bloodbank.herokuapp.com/user/get-all-user";
-// const url = "http://localhost:5000/user/get-all-user";
+// const url = "https://api-bloodbank.herokuapp.com/user/get-all-user";
+const url = "http://localhost:5000/user/get-all-user";
 let token = localStorage.getItem("userToken");
 document.querySelector(".back").classList.add("backPop");
 document.querySelector(".main").classList.add("spinner3");
@@ -28,6 +28,16 @@ function checkToken() {
       <td><i class="fas fa-envelope"></i> ${item.email}</td>
       <td><i class="fas fa-tint"></i> ${item.blood_group}</td>
       <td><a href="#"  class="btn btn-primary btn-sm" id="tableContact" onClick="openModal()">contact</a></td>`;
+          list.appendChild(row);
+        });
+
+        users.forEach((item, index) => {
+          const list = document.querySelector(".userTable");
+          const row = document.createElement("div");
+          row.innerHTML = `<div><i class="fas fa-user"></i> ${item.first_name} ${item.last_name}</td>
+      <div><i class="fas fa-envelope"></i> ${item.email}</div>
+      <div><i class="fas fa-tint"></i> ${item.blood_group}</div>
+      <button class="btn btn-primary btn-sm" id="tableContact" onClick="openModal()">contact</button>`;
           list.appendChild(row);
         });
         document.querySelector(".main").classList.remove("spinner3");

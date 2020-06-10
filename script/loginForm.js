@@ -1,5 +1,5 @@
-// const url = "http://localhost:5000/user/login-user";
-const url = "https://api-bloodbank.herokuapp.com/user/login-user";
+const url = "http://localhost:5000/user/login-user";
+// const url = "https://api-bloodbank.herokuapp.com/user/login-user";
 let token = localStorage.getItem("userToken");
 function showAlert(message, className) {
   const div = document.createElement("div");
