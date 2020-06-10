@@ -360,10 +360,10 @@ header {
 
   .userTable {
     display: grid;
-    grid-template-columns: 2fr;
+    grid-template-columns: 1fr;
     grid-gap: 0.5em;
     grid-auto-rows: minmax(100px, auto);
-    justify-items: center;
+    align-content: center;
   }
 
   .userTable>div {
@@ -407,7 +407,7 @@ header {
     text-align: center;
     background-color: rgb(235, 11, 11);
     border-radius: 10px;
-    width: auto;
+    /* width: auto; */
     padding: 25px;
     margin-bottom: 5px;
     transition: 3s linear;
@@ -415,10 +415,9 @@ header {
 
   .userTable {
     display: grid;
-    grid-template-columns: 2fr;
+    grid-template-columns: 1fr;
     grid-gap: 0.5em;
     grid-auto-rows: minmax(100px, auto);
-    justify-items: center;
   }
 
   #tableContact {
@@ -477,10 +476,9 @@ header {
   .userTable {
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 2fr;
+    grid-template-columns: 1fr;
     grid-gap: 0.5em;
     grid-auto-rows: minmax(100px, auto);
-    justify-items: center;
   }
 
   .userTable>div {
@@ -534,7 +532,6 @@ header {
     text-align: center;
     background-color: rgb(235, 11, 11);
     border-radius: 10px;
-    width: auto;
     padding: 25px;
     margin-bottom: 5px;
     transition: all 4s ease;
@@ -542,10 +539,9 @@ header {
 
   .userTable {
     display: grid;
-    grid-template-columns: 2fr;
+    grid-template-columns: 1fr;
     grid-gap: 0.5em;
     grid-auto-rows: minmax(100px, auto);
-    justify-items: center;
   }
 
   .userTable>div {
