@@ -40,6 +40,12 @@ function checkToken() {
 
 checkToken();
 
+function logOut() {
+  localStorage.removeItem("userToken");
+  localStorage.removeItem("profileId");
+  checkToken();
+}
+
 var modal = document.getElementById("simpleModal");
 var openBtn = document.getElementById("tableContact");
 closeBtn.addEventListener("click", closeModal);
