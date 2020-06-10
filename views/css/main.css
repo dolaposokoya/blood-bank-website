@@ -79,10 +79,6 @@
   margin-bottom: 1px;
 }
 
-.contactDetails {
-  display: none;
-}
-
 /* MAin */
 .menu-btn {
   position: fixed;
@@ -133,7 +129,7 @@
 .menu-nav {
   display: flex;
   flex-flow: column wrap;
-  padding: 15px;
+  padding: 15;
   margin: 0;
   float: left;
   width: 20%;
@@ -195,14 +191,14 @@
 #about {
   align-items: center;
   justify-content: center;
-  margin-left: 18vh;
-  margin-right: 18vh;
-  margin-top: 15vh;
-  min-height: calc(100vh - 70px);
+  /* margin-left: 20vh; */
+  margin-right: 20vh;
+  margin-top: 15.5vh;
+  min-height: calc(85vh - 45px);
 }
 
 #footer {
-  background: black;
+  background: linear-gradient(#050505, rgba(14, 1, 1, 0.933), rgba(0, 0, 0, 0.904));
   text-align: center;
   color: white;
   padding: 15px;
@@ -241,6 +237,11 @@ tr #tableContact:hover {
 
 * {
   box-sizing: border-box;
+}
+
+/* Second user details */
+.wrapper {
+  display: none;
 }
 
 main {
@@ -343,45 +344,31 @@ header {
   background-color: red;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 780px) {
   table {
     display: none;
   }
 
-  .contactDetails {
-    display: block;
-    text-align: center;
-    background-color: rgb(235, 11, 11);
-    border-radius: 10px;
-    padding: 25px;
-    margin-bottom: 5px;
-    transition: 3s linear;
-  }
-
-  .userTable {
+  .wrapper {
+    position: absolute;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 50% 50%;
+    /* grid-template-columns: 2fr; */
     grid-gap: 0.5em;
-    grid-auto-rows: minmax(100px, auto);
-    align-content: center;
+    grid-auto-columns: minmax(100px, auto);
   }
 
-  .userTable>div {
-    background-color: #ddd;
+  .wrapper>div {
+    background-color: #fff;
     padding: 1em;
     border-radius: 10px;
-    font-family: 'Libre Baskerville', serif;
-    font-size: 20px;
-    transition: all 4s ease;
+
   }
 
-  .userTable>div:nth-child(even) {
-    background-color: #fff;
+  .wrapper>div:nth-child(odd) {
+    background-color: #ddd;
   }
 
-  main {
-    align-items: center;
-  }
 
   main div.form-card {
     margin-top: 30%;
@@ -392,50 +379,28 @@ header {
     width: 100%;
   }
 
-  table {
-    grid-template-areas: '';
-  }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 620px) {
   table {
     display: none;
   }
 
-  .contactDetails {
-    display: block;
-    text-align: center;
-    background-color: rgb(235, 11, 11);
-    border-radius: 10px;
-    /* width: auto; */
-    padding: 25px;
-    margin-bottom: 5px;
-    transition: 3s linear;
-  }
-
-  .userTable {
+  .wrapper {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     grid-gap: 0.5em;
-    grid-auto-rows: minmax(100px, auto);
   }
 
-  #tableContact {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 15px;
-  }
-
-  .userTable>div {
-    background-color: #ddd;
-    padding: 1em;
-    border-radius: 10px;
-    font-family: 'Libre Baskerville', serif;
-    font-size: 20px;
-    transition: 3s linear;
-  }
-
-  .userTable>div:nth-child(even) {
+  .wrapper>div {
     background-color: #fff;
+    padding: 1em;
+    /* margin: 0 auto;
+    margin-bottom: 10px; */
+  }
+
+  .wrapper>div:nth-child(odd) {
+    background-color: #ddd;
   }
 
   main {
@@ -443,7 +408,7 @@ header {
   }
 
   main div.form-card {
-    margin-top: 30%;
+    margin-top: 50%;
     width: 90%;
   }
 
@@ -451,56 +416,55 @@ header {
     width: 100%;
   }
 
-  table {
-    grid-template-areas: '';
+  ul.menu-nav {
+    width: 50%;
+  }
+
+  ul.menu-nav a {
+    margin-top: 7px;
+    text-align: center;
+  }
+
+  ul.menu-nav.show {
+    transform: translate3d(0, 0, 0);
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 360px) {
+
+  #about {
+    align-items: center;
+    justify-content: center;
+    margin-top: 15.5vh;
+    min-height: calc(85vh - 45px);
+  }
+
   table {
     display: none;
   }
 
-  .contactDetails {
-    display: block;
-    text-align: center;
-    background-color: rgb(235, 11, 11);
-    border-radius: 10px;
-    width: auto;
-    padding: 25px;
-    margin-bottom: 5px;
-    transition: 3s linear;
+  .wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3fr;
+    grid-auto-columns: minmax(100px, auto);
   }
 
-
-  .userTable {
+  .wrapper>div {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 10px;
+    width: 92vw;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 0.5em;
-    grid-auto-rows: minmax(100px, auto);
+    grid-column: 1/4;
   }
 
-  .userTable>div {
+  .wrapper>div:nth-child(odd) {
     background-color: #ddd;
-    padding: 1em;
-    border-radius: 10px;
-    font-family: 'Libre Baskerville', serif;
-    font-size: 20px;
-    transition: all 4s ease;
-  }
-
-  .userTable>div:nth-child(even) {
-    background-color: #fff;
-  }
-
-
-  main {
-    align-items: center;
   }
 
   main div.form-card {
-    margin-top: 50%;
+    margin-top: 30%;
     width: 90%;
   }
 
@@ -508,118 +472,4 @@ header {
     width: 100%;
   }
 
-  ul.menu-nav {
-    width: 50%;
-  }
-
-  ul.menu-nav a {
-    margin-top: 7px;
-    text-align: center;
-  }
-
-  ul.menu-nav.show {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@media screen and (max-width: 568px) {
-  table {
-    display: none;
-  }
-
-  .contactDetails {
-    display: block;
-    text-align: center;
-    background-color: rgb(235, 11, 11);
-    border-radius: 10px;
-    padding: 25px;
-    margin-bottom: 5px;
-    transition: all 4s ease;
-  }
-
-
-  .userTable {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 0.5em;
-    grid-auto-rows: minmax(100px, auto);
-  }
-
-  .userTable>div {
-    width: 70%;
-    background-color: #ddd;
-    padding: 1em;
-    border-radius: 10px;
-    font-family: 'Libre Baskerville', serif;
-    font-size: 9px;
-    transition: all 4s ease;
-  }
-
-
-  .userTable>div:nth-child(even) {
-    background-color: #fff;
-  }
-}
-
-@media screen and (min-width: 360px) {
-  table {
-    display: none;
-  }
-
-  .contactDetails {
-    display: block;
-    text-align: center;
-    background-color: rgb(235, 11, 11);
-    border-radius: 10px;
-    padding: 25px;
-    margin-bottom: 5px;
-    transition: all 4s ease;
-  }
-
-  .userTable {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 0.5em;
-    grid-auto-rows: minmax(100px, auto);
-  }
-
-  .userTable>div {
-    background-color: #ddd;
-    padding: 1em;
-    border-radius: 10px;
-    font-family: 'Libre Baskerville', serif;
-    font-size: 10px;
-    grid-auto-rows: minmax(100px, auto);
-    transition: all 4s ease;
-  }
-
-  .userTable>div:nth-child(even) {
-    background-color: #fff;
-  }
-
-  main {
-    align-items: center;
-  }
-
-  main div.form-card {
-    margin-top: 50%;
-    width: 90%;
-  }
-
-  main div.form-card .form-group {
-    width: 100%;
-  }
-
-  ul.menu-nav {
-    width: 50%;
-  }
-
-  ul.menu-nav a {
-    margin-top: 7px;
-    text-align: center;
-  }
-
-  ul.menu-nav.show {
-    transform: translate3d(0, 0, 0);
-  }
 }
