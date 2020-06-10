@@ -10,7 +10,7 @@ function showAlert(message, className) {
   container.insertBefore(div, main);
 
   // Vanish in 3 seconds
-  setTimeout(() => document.querySelector(".alert").remove(), 4000);
+  setTimeout(() => document.querySelector(".alert").remove(), 2500);
 }
 
 function checkToken() {
