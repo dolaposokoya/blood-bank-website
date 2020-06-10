@@ -16,7 +16,7 @@ function showAlert(message, className) {
 function checkToken() {
   if (localStorage.getItem("userToken")) {
     console.log("Token", token);
-    window.location.assign("../views/pages/about.html");
+    window.location.assign("../views/pages/contactdonor.html");
   } else {
     submitForm();
   }
@@ -65,7 +65,7 @@ function submitForm() {
           document.querySelector(".back").classList.remove("backPop");
           localStorage.setItem("userToken", data.token);
           localStorage.setItem("profileId", data.profile_id);
-          window.location.assign("../views/pages/about.html");
+          window.location.assign("../views/pages/contactdonor.html");
         }
       });
   }
