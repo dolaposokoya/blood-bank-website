@@ -522,7 +522,46 @@ header {
   }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 568px) {
+  table {
+    display: none;
+  }
+
+  .contactDetails {
+    display: block;
+    text-align: center;
+    background-color: rgb(235, 11, 11);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 5px;
+    transition: all 4s ease;
+  }
+
+
+  .userTable {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0.5em;
+    grid-auto-rows: minmax(100px, auto);
+  }
+
+  .userTable>div {
+    width: 70%;
+    background-color: #ddd;
+    padding: 1em;
+    border-radius: 10px;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 9px;
+    transition: all 4s ease;
+  }
+
+
+  .userTable>div:nth-child(even) {
+    background-color: #fff;
+  }
+}
+
+@media screen and (min-width: 360px) {
   table {
     display: none;
   }
@@ -549,7 +588,8 @@ header {
     padding: 1em;
     border-radius: 10px;
     font-family: 'Libre Baskerville', serif;
-    font-size: 20px;
+    font-size: 10px;
+    grid-auto-rows: minmax(100px, auto);
     transition: all 4s ease;
   }
 
