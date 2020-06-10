@@ -9,7 +9,7 @@ function checkToken() {
     fetch(url, {
       method: "GET",
       headers: {
-        authorization: `Bearer ${token}`,
+        authorization: "Bearer " + token,
         "content-type": "application/json",
         accept: "application/json",
       },
