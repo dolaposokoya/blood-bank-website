@@ -10,19 +10,28 @@
     />
     <link
       rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link
       rel="stylesheet"
-      href="https://bootswatch.com/4/yeti/bootstrap.min.css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/views/css/main.css" />
     <link rel="stylesheet" href="/views/css/modal.css" />
 
     <title>Admin Page</title>
   </head>
   <body class="body-image">
+    <!-- Spinner -->
+    <div class="back">
+      <div class="main"></div>
+    </div>
     <div>
       <header>
         <div class="menu-btn">
@@ -67,19 +76,23 @@
         </div>
       </div>
     </div>
-    <main id="about">
-      <table class="table table-striped mt-5">
-        <thead>
-          <tr class="table-item">
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody id="user-list"></tbody>
-      </table>
-    </main>
+    <div class="container">
+      <main id="about">
+        <div class="table-responsive">
+          <table class="table table-striped" style="z-index: 10;">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Blood Group</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="user-list"></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
     <footer id="footer">Copyright &copy 2020</footer>
     <script src="../../script/getUser.js"></script>
     <script src="../../script/main.js"></script>
