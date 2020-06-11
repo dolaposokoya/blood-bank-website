@@ -1,5 +1,5 @@
-const url = "https://api-bloodbank.herokuapp.com/user/get-all-user";
-// const url = "http://localhost:5000/user/get-all-user";
+// const url = "https://api-bloodbank.herokuapp.com/user/get-all-user";
+const url = "http://localhost:5000/user/get-all-user";
 let token = localStorage.getItem("userToken");
 document.querySelector(".back").classList.add("backPop");
 document.querySelector(".main").classList.add("spinner3");
@@ -32,7 +32,7 @@ function checkToken() {
         });
 
         users.forEach((item, index) => {
-          const list = document.querySelector(".userTable");
+          const list = document.querySelector(".wrapper");
           const row = document.createElement("div");
           row.innerHTML = `<div><i class="fas fa-user"></i> ${item.first_name} ${item.last_name}</td>
       <div><i class="fas fa-envelope"></i> ${item.email}</div>
