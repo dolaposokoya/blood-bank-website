@@ -21,23 +21,17 @@ function checkToken() {
         let users = data.data;
         document.querySelector(".main").classList.remove("spinner3");
         document.querySelector(".back").classList.remove("backPop");
-        users.forEach((item, index) => {
-          const list = document.querySelector("#user-list");
-          const row = document.createElement("tr");
-          row.innerHTML = `<td><i class="fas fa-user"></i> ${item.first_name} ${item.last_name}</td>
-      <td><i class="fas fa-envelope"></i> ${item.email}</td>
-      <td><i class="fas fa-tint"></i> ${item.blood_group}</td>
-      <td><a href="#"  class="btn btn-primary btn-sm" id="tableContact" onClick="openModal()">contact</a></td>`;
-          list.appendChild(row);
-        });
 
         users.forEach((item, index) => {
-          const list = document.querySelector(".wrapper");
+          const list = document.querySelector(".conatiner");
           const row = document.createElement("div");
-          row.innerHTML = `<div><i class="fas fa-user"></i> ${item.first_name} ${item.last_name}</td>
-      <div><i class="fas fa-envelope"></i> ${item.email}</div>
-      <div><i class="fas fa-tint"></i> ${item.blood_group}</div>
-      <button class="btn btn-primary btn-sm" id="tableContact" onClick="openModal()">contact</button>`;
+          row.setAttribute("class", "box");
+          row.innerHTML = `<p><i class="fas fa-user"></i> ${item.first_name} ${item.last_name}</p>
+          <hr>
+      <p><i class="fas fa-envelope"></i> ${item.email}</p> <hr>
+      <p><i class="fas fa-tint"></i> ${item.blood_group}</p> <hr>
+      <p><i class="fa fa-map-marker"></i> ${item.city}</p> <img class="saveImage" src="../images/banner.png" alt="image" style="float: right"/> <hr>
+      <a class="btn btn-primary btn-sm" style="cursor: pointer" id="tableContact" onClick="openModal()">contact</a>`;
           list.appendChild(row);
         });
         document.querySelector(".main").classList.remove("spinner3");
