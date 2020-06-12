@@ -2,111 +2,82 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      type="image/png"
-      href="/views/images/favicon.ico"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
     />
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="shortcut icon"
+      type="image/png"
+      href="/views/images/favicon.ico"
     />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/views/css/main.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/menu.css" />
     <link rel="stylesheet" href="/views/css/modal.css" />
-
     <title>Contact Donor</title>
   </head>
-  <body class="body-image">
-    <!-- Spinner -->
+  <body>
     <div class="back">
       <div class="main"></div>
     </div>
-    <div>
-      <header>
-        <div class="menu-btn">
-          <div class="btn-line"></div>
-          <div class="btn-line"></div>
-          <div class="btn-line"></div>
+    <div id="simpleModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="closeBtn" id="closeBtn">&times;</span>
         </div>
-        <nav class="menu">
-          <ul class="menu-nav">
-            <li class="nav-item">
-              <a href="userstatus.html" class="nav-link">Reservation</a>
-            </li>
-            <li class="nav-item current">
-              <a href="userstatus.html" class="nav-link">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a href="userstatus.html" class="nav-link">Request</a>
-            </li>
-            <li class="nav-item">
-              <a href="userstatus.html" class="nav-link">Status</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" onClick="logOut()">Log Out</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <!-- Modal -->
-      <div id="simpleModal" class="modal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="closeBtn" id="closeBtn">&times;</span>
-          </div>
-          <div>
-            <p class="modal-body">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur
-              alias soluta ducimus, tempore ipsum eius consequuntur distinctio,
-              animi similique ullam itaque ipsam iure. Tempora unde nisi vitae
-              velit odit vel.
-            </p>
-          </div>
-          <div class="modal-footer">
-            <h3 class="footer-text"></h3>
-          </div>
+        <div>
+          <p class="modal-body">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur
+            alias soluta ducimus, tempore ipsum eius consequuntur distinctio,
+            animi similique ullam itaque ipsam iure. Tempora unde nisi vitae
+            velit odit vel.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <h3 class="footer-text"></h3>
         </div>
       </div>
     </div>
-    <div>
-      <main id="about">
-        <section>
-          <div class="conatiner"></div>
-        </section>
-        <section>
-          <div class="table">
-            <div class="bloodImage">
-              <img src="../images/banner2.jpg" alt="image" />
-            </div>
-            <table class="table table-striped" style="z-index: 10;">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Blood Group</th>
-                  <th>City</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="user-list"></tbody>
-            </table>
-          </div>
-        </section>
-      </main>
-    </div>
-    <!-- <footer id="footer">Copyright &copy 2020</footer> -->
+    <section class="header">
+      <img class="banner-image" src="../images/banner.png" alt="banner-image" />
+      <div class="menu-btn">
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+      </div>
+      <nav class="menu-nav">
+        <ul class="menu-items">
+          <li><a href="">Request</a></li>
+        </ul>
+        <ul class="menu-items">
+          <li><a href="">Contact</a></li>
+        </ul>
+        <ul class="menu-items">
+          <li><a href="">Reservation</a></li>
+        </ul>
+        <ul class="menu-items">
+          <li><a href="">Status</a></li>
+        </ul>
+        <ul class="menu-items">
+          <li><a onClick="logOut()">Logout</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section class="content">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Blood Group</th>
+            <th>City</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="user-list"></tbody>
+      </table>
+    </section>
     <script src="../../script/getUser.js"></script>
-    <script src="../../script/main.js"></script>
   </body>
 </html>
