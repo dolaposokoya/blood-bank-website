@@ -1,3 +1,7 @@
+.simpleModal {
+  display: none;
+}
+
 .modal {
   position: fixed;
   z-index: 3;
@@ -13,6 +17,7 @@
   background-color: #f4f4f4;
   margin: 10% auto;
   width: 400px;
+  border-radius: 10px;
   animation-name: modalDisplay;
   animation-duration: 2s;
 }
@@ -24,7 +29,7 @@
 
 .modal-header {
   background: #8a0303;
-  padding: 15px;
+  padding: 15px 10px 45px;
 }
 
 .modal-body {
@@ -33,6 +38,7 @@
 
 .closeBtn {
   font-size: 25px;
+  padding: 1px;
   color: white;
   float: right;
 }
