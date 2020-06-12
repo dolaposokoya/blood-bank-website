@@ -4,6 +4,10 @@
   --shadow: 17px 18px 33px -3px rgba(0,0,0,1);
 }
 
+body {
+  margin: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 * {
   box-sizing: border-box;
 }
@@ -160,10 +164,7 @@ main {
   min-height: calc(100vh-60px);
 }
 
-body {
-  margin: 5px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
+
 
 body.body-image:after {
   content: "";
@@ -286,27 +287,8 @@ main div.form-card {
 
 }
 
-@media screen and (max-width: 620px) {
 
-  main {
-    align-items: center;
-  }
-
-  ul.menu-nav {
-    width: 50%;
-  }
-
-  ul.menu-nav a {
-    margin-top: 7px;
-    text-align: center;
-  }
-
-  ul.menu-nav.show {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@media (max-width: 500px) {
+@media (max-width: 552px) {
 
   table {
     margin-top: 100px;

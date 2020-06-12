@@ -9,6 +9,7 @@ let showMenu = false;
 menuBtn.addEventListener("click", toggleMenu);
 
 function toggleMenu() {
+  console.log('Button clivked')
   if (!showMenu) {
     menuBtn.classList.add("close");
     menu.classList.add("show");
