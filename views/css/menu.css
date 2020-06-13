@@ -15,6 +15,12 @@
     display: none;
 }
 
+.nav-item .current {
+    background-color: var(--hover-blood);
+    height: 100%;
+    padding: 10px 15px;
+}
+
 /* .menu.btn-line {
     top: 50px;
 } */
@@ -44,26 +50,93 @@
 }
 
 
-@media screen and (min-width: 768px) {}
+@media(max-width: 635px) {
 
-@media screen and (max-width: 620px) {
-
-    /* main {
-        align-items: center;
+    table {
+        margin-top: 102px;
     }
 
-    ul.menu-nav {
+    .banner-image {
+        display: block;
+        position: absolute;
+        width: 30%;
+        float: left;
+        height: 100px;
+        padding-bottom: 4px;
+        transition: all 1s ease-out;
+    }
+
+    .menu-btn {
+        display: block;
+        position: absolute;
+        z-index: 3;
+        right: 35px;
+        top: 20px;
+        cursor: pointer;
+        transition: all 1s ease-out;
+    }
+
+    .btn-line {
+        width: 28px;
+        height: 3px;
+        margin: 0 0 5px 0;
+        background: red;
+        transition: all 1s ease-out;
+    }
+
+    /* Rotate to X */
+    .close .btn-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px)
+    }
+
+    .close .btn-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .close .btn-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px)
+    }
+
+    .menu {
+        position: relative;
+        top: 0;
+        bottom: 10px;
+        visibility: hidden;
         width: 50%;
+        height: 0px;
+        opacity: 1;
     }
 
-    ul.menu-nav a {
-        margin-top: 7px;
-        text-align: center;
+    .menu.show {
+        visibility: visible;
     }
 
-    ul.menu-nav.show {
+
+    .menu-nav.show {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        z-index: 1;
+        width: 100%;
+        overflow: hidden;
+        transform: translate3d(0, -100%, 0);
+        transition: all 1s ease-out;
+    }
+
+    .menu-nav.show {
         transform: translate3d(0, 0, 0);
-    } */
+    }
+
+    .show .nav-link {
+        display: block;
+        position: relative;
+        float: none;
+        text-transform: uppercase;
+        transition: all 1s ease-out;
+    }
+
 }
 
 @media(max-width: 552px) {
@@ -167,8 +240,8 @@
 
     .nav-item:nth-child(5) {
         transition-delay: 1.5s;
-    }
-    */
+    } */
+
 
 }
 

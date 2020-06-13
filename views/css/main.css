@@ -1,7 +1,7 @@
 :root {
   --blood: #831a1a;
   --hover-blood: red;
-  --shadow: 17px 18px 33px -3px rgba(0, 0, 0, 1);
+  --shadow: 10px 10px 33px -3px rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -17,7 +17,8 @@ h6 {
   cursor: pointer;
   color: white;
 }
-.register{
+
+.register {
   color: var(--hover-blood);
 }
 
@@ -36,25 +37,6 @@ h6 {
   border-top: 2px solid rgb(235, 11, 11);
   border-right: 2px solid transparent;
   animation: spinner 0.4s linear infinite;
-}
-
-.spinner2:before {
-  content: "";
-  box-sizing: border-box;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 100px;
-  width: 100px;
-  margin-top: -30px;
-  margin-left: -30px;
-  border-radius: 50%;
-  border: 10px solid transparent;
-  border-top-color: rgb(235, 11, 11);
-  border-bottom-color: rgb(172, 13, 13);
-  border-left-color: rgb(231, 77, 77);
-  border-right-color: rgb(190, 66, 66);
-  animation: spinner 0.7s ease-in-out infinite;
 }
 
 .backPop {
@@ -126,7 +108,6 @@ h6 {
   width: 100%;
   float: left;
   overflow: hidden;
-  box-shadow: var(--shadow);
 }
 
 th {
@@ -295,7 +276,7 @@ main div.form-card {
 
 
 /* Media Query */
-@media screen and (min-width: 768px) {
+@media (max-width: 586px) {
   /* .conatiner {
     display: flex;
     flex-wrap: wrap;
@@ -305,6 +286,57 @@ main div.form-card {
 
 }
 
+@media (max-width: 635px) {
+
+  table {
+    margin-top: 90px;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tbody,
+  tr,
+  td {
+    display: block;
+    width: 100%;
+  }
+
+  .table tr {
+    margin-bottom: 15px;
+  }
+
+  .table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  ul.menu-nav {
+    width: 35%;
+  }
+
+  ul.menu-nav a {
+    margin-top: 7px;
+    text-align: left;
+  }
+
+  ul.menu-nav.show {
+    transform: translate3d(0, 0, 0);
+  }
+}
 
 @media (max-width: 552px) {
 
@@ -321,10 +353,6 @@ main div.form-card {
   td {
     display: block;
     width: 100%;
-  }
-
-  .table {
-    box-shadow: var(--shadow);
   }
 
   .table tr {
