@@ -1,0 +1,143 @@
+[{
+  "_id": {
+    "$oid": "5ed6133403d177414477f3e0"
+  },
+  "bloodgroup": [{
+      "group": "A+"
+    },
+    {
+      "group": "A-"
+    },
+    {
+      "group": "B+"
+    },
+    {
+      "group": "B-"
+    },
+    {
+      "group": "AB+"
+    },
+    {
+      "group": "AB-"
+    },
+    {
+      "group": "O+"
+    },
+    {
+      "group": "O-"
+    }
+  ],
+  "state": [
+
+    {
+      "state": "Andaman and Nicobar Islands"
+    },
+    {
+      "state": "Andhra Pradesh"
+    },
+    {
+      "state": "Arunachal Pradesh"
+    },
+    {
+      "state": "Assam"
+    },
+    {
+      "state": "Bihar"
+    },
+    {
+      "state": "Chandigarh"
+    },
+    {
+      "state": "Chhattisgarh"
+    },
+    {
+      "state": "Dadra and Nagar Haveli and Daman and Diu union territory"
+    },
+    {
+      "state": "National Capital Territory of Delhi"
+    },
+    {
+      "state": "Goa"
+    },
+    {
+      "state": "Gujarat"
+    },
+    {
+      "state": "Haryana"
+    },
+    {
+      "state": "Himachal Pradesh"
+    },
+    {
+      "state": "Jammu and Kashmir"
+    },
+    {
+      "state": "Jharkhand"
+    },
+    {
+      "state": "Karnataka"
+    },
+    {
+      "state": "Kerala"
+    },
+    {
+      "state": "Ladakh"
+    },
+    {
+      "state": "Lakshadweep"
+    },
+    {
+      "state": "Madhya Pradesh"
+    },
+    {
+      "state": "Maharashtra"
+    },
+    {
+      "state": "Manipur"
+    },
+    {
+      "state": "Meghalaya"
+    },
+    {
+      "state": "Mizoram"
+    },
+    {
+      "state": "Nagaland"
+    },
+    {
+      "state": "Odisha"
+    },
+    {
+      "state": "Puducherry"
+    },
+    {
+      "state": "Punjab"
+    },
+    {
+      "state": "Rajasthan"
+    },
+    {
+      "state": "Sikkim"
+    },
+    {
+      "state": "Tamil Nadu"
+    },
+    {
+      "state": "Telangana"
+    },
+    {
+      "state": "Tripura"
+    },
+    {
+      "state": "Uttar Pradesh"
+    },
+    {
+      "state": "Uttarakhand"
+    },
+    {
+      "state": "West Bengal"
+    }
+
+  ],
+  "__v": 0
+}]
