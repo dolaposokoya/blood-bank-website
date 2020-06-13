@@ -54,6 +54,7 @@ function submitForm() {
         return response.json();
       })
       .then((data) => {
+        console.log('Data',data)
         if (data.success == false) {
           document.querySelector(".main").classList.remove("spinner3");
           document.querySelector(".back").classList.remove("backPop");

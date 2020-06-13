@@ -1,0 +1,64 @@
+:root {
+    --md: rgba(224, 4, 4, 0.9);
+    --blood: #f70f0f;
+    --hover-blood: rgb(175, 7, 7);
+    --shadow: 10px 15px 15px 3px rgba(0, 0, 0, 1);
+}
+
+body {
+    background-color: #f5f1f1;
+    margin: 10px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h6 {
+
+    color: white;
+}
+
+.register {
+    cursor: pointer;
+    font-size: 15px;
+    padding: 5px;
+    color: red;
+}
+
+form {
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    justify-content: center;
+    background-color: var(--hover-blood);
+    z-index: 10;
+    opacity: 1;
+    padding: 15px;
+    border-radius: 10px;
+}
+form label{
+    color: white;
+}
+
+.btn-primary {
+    margin-left: 15px;
+    border: none;
+    color: black;
+    font-weight: bold;
+    background-color: var(--blood);
+}
+
+.btn-primary:hover {
+    background-color: var(--md);
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+input:focus {
+    outline: none;
+}

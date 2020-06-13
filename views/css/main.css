@@ -1,15 +1,24 @@
 :root {
   --blood: #831a1a;
   --hover-blood: red;
-  --shadow: 17px 18px 33px -3px rgba(0,0,0,1);
+  --shadow: 17px 18px 33px -3px rgba(0, 0, 0, 1);
 }
 
 body {
   margin: 10px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
 * {
   box-sizing: border-box;
+}
+
+h6 {
+  cursor: pointer;
+  color: white;
+}
+.register{
+  color: var(--hover-blood);
 }
 
 /* Spinner 3 */
@@ -25,7 +34,6 @@ body {
   margin-left: -30px;
   border-radius: 50%;
   border-top: 2px solid rgb(235, 11, 11);
-  box-shadow: var(--shadow);
   border-right: 2px solid transparent;
   animation: spinner 0.4s linear infinite;
 }
@@ -71,7 +79,7 @@ body {
 /* Alert button */
 #alertContainer {
   background-color: red;
-  width: 50%;
+  width: 30%;
   margin: 20px auto;
 }
 
@@ -148,6 +156,7 @@ tr td {
 table tr:nth-child(even) {
   background-color: #f3f3f3f3;
 }
+
 table tr.active-row {
   font-weight: bold;
   background-color: #c02222;
@@ -274,7 +283,7 @@ main div.form-card {
 
 .form-button:hover {
   background-color: var(--blood);
-  box-shadow:  var(--shadow);
+  box-shadow: var(--shadow);
 }
 
 
