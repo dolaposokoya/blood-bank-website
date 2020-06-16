@@ -5,19 +5,17 @@
     --shadow: 17px 18px 33px -3px rgba(0, 0, 0, 1);
 }
 
-
 body {
     margin: 10px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  * {
+    background-color: #eee;
+}
+
+* {
     box-sizing: border-box;
-  }
-  
+}
 
 h6 {
-
     color: white;
 }
 
@@ -28,23 +26,26 @@ h6 {
     color: red;
 }
 
-.reserveForm{
+.reserveForm {
     margin: 0 auto;
     display: inline-block;
+    background-color: var(--blood);
 }
+
 .registerForm {
     margin: 0 auto;
     width: 90%;
     margin-top: 100px;
     margin-bottom: 100px;
     justify-content: center;
-    background-color: var(--hover-blood);
+    background-color: var(--blood);
     z-index: 10;
     opacity: 1;
     padding: 15px;
     border-radius: 10px;
 }
-form label{
+
+form label {
     color: white;
 }
 
@@ -53,10 +54,11 @@ form label{
     border: none;
     color: black;
     font-weight: bold;
-    background-color: var(--blood);
+    background-color: var(--hover-blood);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+a:hover {
     background-color: var(--md);
 }
 
