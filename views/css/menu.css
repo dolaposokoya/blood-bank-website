@@ -7,32 +7,32 @@
 
 
 /* My main design */
-.banner-image {
-    display: none;
-}
 
-.menu-btn {
-    display: none;
+header {
+    width: 98%;
+    padding: 0 10px 1000px 10px;
+    margin-bottom: 100px;
 }
-
-.nav-item .current {
-    background-color: var(--hover-blood);
-    height: 100%;
-    padding: 10px 15px;
-}
-
-/* .menu.btn-line {
-    top: 50px;
-} */
 
 .menu-nav {
     overflow: hidden;
     background-color: var(--blood);
-    box-shadow: var(--shadow);
-    /* margin: 10px; */
     text-align: center;
     padding: 10px;
     border-radius: 5px;
+    float: left;
+    width: 100%;
+}
+
+.menu-branding {
+    float: left;
+}
+
+.menu-branding img {
+    display: block;
+    width: 100px;
+    padding: 15px 10px 0 10px;
+    margin: auto;
 }
 
 .nav-item {
@@ -42,30 +42,33 @@
     text-transform: uppercase;
     text-decoration: none;
     padding: 10px 15px;
+    font: 1.1em/1.5 bold;
 }
 
-.nav-item:hover {
+.nav-item a {
+    text-transform: uppercase;
+    font: 1.1em/1.5 bold;
+}
+
+.current a {
+    color: black;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.nav-item:hover,
+.nav-item.current {
     background-color: var(--hover-blood);
     box-shadow: var(--shadow);
 }
 
-
-@media(max-width: 635px) {
-
+@media(max-width: 663px) {
     table {
         margin-top: 102px;
     }
-
-    .banner-image {
-        display: block;
-        position: absolute;
-        width: 30%;
-        float: left;
-        height: 100px;
-        padding-bottom: 4px;
-        transition: all 1s ease-out;
+    .menu-branding img {
+        padding: 15px 10px 10px 10px;
     }
-
     .menu-btn {
         display: block;
         position: absolute;
@@ -75,7 +78,6 @@
         cursor: pointer;
         transition: all 1s ease-out;
     }
-
     .btn-line {
         width: 28px;
         height: 3px;
@@ -83,39 +85,31 @@
         background: red;
         transition: all 1s ease-out;
     }
-
     /* Rotate to X */
     .close .btn-line:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px)
     }
-
     .close .btn-line:nth-child(2) {
         opacity: 0;
     }
-
     .close .btn-line:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px)
+        transform: rotate(-45deg) translate(px, -7px)
     }
-
     .menu {
         position: relative;
         top: 0;
-        bottom: 10px;
+        /* bottom: 10px; */
         visibility: hidden;
         width: 50%;
-        height: 0px;
         opacity: 1;
     }
-
     .menu.show {
         visibility: visible;
     }
-
-
     .menu-nav.show {
         display: flex;
         flex-flow: column wrap;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         float: left;
         z-index: 1;
@@ -124,11 +118,9 @@
         transform: translate3d(0, -100%, 0);
         transition: all 1s ease-out;
     }
-
     .menu-nav.show {
         transform: translate3d(0, 0, 0);
     }
-
     .show .nav-link {
         display: block;
         position: relative;
@@ -136,11 +128,9 @@
         text-transform: uppercase;
         transition: all 1s ease-out;
     }
-
 }
 
 @media(max-width: 552px) {
-
     .banner-image {
         display: block;
         position: absolute;
@@ -150,7 +140,6 @@
         padding-bottom: 4px;
         transition: all 1s ease-out;
     }
-
     .menu-btn {
         display: block;
         position: absolute;
@@ -160,7 +149,6 @@
         cursor: pointer;
         transition: all 1s ease-out;
     }
-
     .btn-line {
         width: 28px;
         height: 3px;
@@ -168,20 +156,16 @@
         background: red;
         transition: all 1s ease-out;
     }
-
     /* Rotate to X */
     .close .btn-line:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px)
     }
-
     .close .btn-line:nth-child(2) {
         opacity: 0;
     }
-
     .close .btn-line:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px)
     }
-
     .menu {
         position: relative;
         top: 0;
@@ -191,16 +175,14 @@
         height: 0px;
         opacity: 1;
     }
-
     .menu.show {
         visibility: visible;
     }
-
-
     .menu-nav.show {
         display: flex;
         flex-flow: column wrap;
-        align-items: center;
+        /* align-items: center; */
+        align-items: flex-start;
         justify-content: center;
         float: left;
         z-index: 1;
@@ -209,11 +191,9 @@
         transform: translate3d(0, -100%, 0);
         transition: all 1s ease-out;
     }
-
     .menu-nav.show {
         transform: translate3d(0, 0, 0);
     }
-
     .show .nav-link {
         display: block;
         position: relative;
@@ -221,7 +201,6 @@
         text-transform: uppercase;
         transition: all 1s ease-out;
     }
-
     /* .nav-item:nth-child(1) {
         transition-delay: 0.3s;
     }
@@ -241,11 +220,19 @@
     .nav-item:nth-child(5) {
         transition-delay: 1.5s;
     } */
-
-
 }
 
+@media(max-width: 359px) {
+    .nav-item a {
+        text-transform: lowercase;
+        font: 1.1em/1.5 bold;
+    }
+}
+
+
 /* MAin */
+
+
 /* .menu-btn {
     position: fixed;
     z-index: 3;

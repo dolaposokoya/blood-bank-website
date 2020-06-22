@@ -313,7 +313,7 @@ main div.form-card {
         font-weight: bold;
         text-align: left;
     }
-    ul.menu-nav {
+    /* ul.menu-nav {
         width: 35%;
     }
     ul.menu-nav a {
@@ -322,7 +322,7 @@ main div.form-card {
     }
     ul.menu-nav.show {
         transform: translate3d(0, 0, 0);
-    }
+    } */
 }
 
 @media (max-width: 552px) {
@@ -356,7 +356,7 @@ main div.form-card {
         font-weight: bold;
         text-align: left;
     }
-    ul.menu-nav {
+    /* ul.menu-nav {
         width: 35%;
     }
     ul.menu-nav a {
@@ -365,7 +365,7 @@ main div.form-card {
     }
     ul.menu-nav.show {
         transform: translate3d(0, 0, 0);
-    }
+    } */
 }
 
 @media screen and (min-width: 411px) {
@@ -398,20 +398,4 @@ main div.form-card {
         margin-top: 10vh;
         min-height: calc(90vh - 45px);
     }
-    /* .conatiner {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 20px;
-    justify-content: space-between;
-  } */
-    /* .conatiner .box {
-    flex-basis: 100%;
-    margin-bottom: 10px;
-    background-color: white;
-  }
-
-  .conatiner .box:hover {
-    background-color: #e3e3e3;
-    cursor: pointer;
-  } */
 }
