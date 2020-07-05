@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="/views/images/ic_launcher.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/menu.css" />
+    <link rel="stylesheet" href="../css/request.css" />
+    <title>Request for blood</title>
+</head>
+
+<body>
+    <div class="headerDiv">
+        <header>
+            <div class="menu-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
+            <!-- <div class="menu-branding">
+                <a href="/"><img src="../images/banner.png" alt="Header Image"></a>
+            </div> -->
+            <nav class="menu">
+    
+                <ul class="menu-nav">
+                    <li class="nav-item">
+                        <a href="./reservation.html" class="nav-link">Reservation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contactdonor.html">Contact</a>
+                    </li>
+                    <li class="nav-item current">
+                        <a href="./requestblood.html" class="nav-link">Request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./mystatus.html" class="nav-link">User Status</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <section>
+        <div class="container">
+            <form action="" class="requestBlood">
+              <div id="step1">
+                <div>
+                    <label for="p_name">Patient Name</label>
+                    <input type="text" id="p_name" placeholder="Patient Name">
+                </div>
+                 <div>
+                     <label for="p_contact">Patient Email</label>
+                     <input type="text" id="p_email" placeholder="Patient Email">
+                 </div>
+                 <div>
+                     <label for="p_contact">Patient Contact</label>
+                     <input type="text" id="p_contact" placeholder="Patient Contact">
+                 </div>
+              </div>
+                <div id="step2">
+                    <div>
+                        <label for="b_group">Blood Group</label>
+                        <input type="text" id="b_group" placeholder="Blood Group">
+                    </div>
+                    <div>
+                        <label for="h_name">Hospital Name</label>
+                        <input type="text" id="h_name" placeholder="Hospital Name">
+                    </div>
+                    <div>
+                        <label for="h_address">Hospital Address</label>
+                        <input type="text" id="h_address" placeholder="Hospital Address">
+                    </div>
+                </div>
+               <div id="step3">
+                <div>
+                    <label for="city">City</label>
+                    <input type="text" id="city" placeholder="City">
+               </div>
+               <div>
+                    <label for="state">State</label>
+                    <input type="text" id="state" placeholder="State">
+               </div>
+               <div>
+                    <label for="h_pincode">Pin Code</label>
+                    <input type="text" id="h_pincode" placeholder="Pin Code">
+               </div>
+               </div>
+               <div id="step4">
+                <div>
+                    <label for="hospital_email">Hospital Email</label>
+                    <input type="text" id="hospital_email" placeholder="Hospital Email">
+               </div>
+               <div>
+                    <label for="h_phone">Hospital Phone</label>
+                    <input type="text" id="h_phone" placeholder="Hospital Phone">
+               </div>
+                <div>
+                     <label for="date">Date Blood is required</label>
+                    <input type="date" id="date" placeholder="Date Blood is required">
+                </div>
+                <div class="requestButton">
+                    <button type="submit" id="request">REQUEST</button>
+                </div>
+               </div>
+                
+                
+            </form>
+        </div>
+        <div class="container1">
+            <div id="stepProgress">
+                <div class="step">
+                    <div class="bullet">1</div>
+                </div>
+                <div class="step">
+                    <div class="bullet">2</div>
+                </div>
+                <div class="step">
+                    <div class="bullet">3</div>
+                </div>
+                <div class="step">
+    
+                    <div class="bullet">4</div>
+                </div>
+            </div>
+            <div id="main">
+                <p id="content">Step Number 1</p>
+                <div class="requestButton">
+                    <button id="previousBtn" disabled>PREVIOUS</button>
+                    <button id="nextBtn">NEXT</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../script/main.js"></script>
+    <script src="../script/request.js"></script>
+</body>
+
+</html>

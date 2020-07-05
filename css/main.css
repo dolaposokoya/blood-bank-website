@@ -206,7 +206,7 @@ main div.form-card {
     max-width: 400px;
     margin: 0 auto;
     margin-top: 100px;
-    padding: 2%;
+    padding: 5%;
     box-shadow: var(--shadow);
     background-color: var(--blood);
     border-radius: 10px;

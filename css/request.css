@@ -1,0 +1,137 @@
+:root{
+    --formColor:  #b41717;
+    --bullet: #28a745
+}
+*{
+    box-sizing: border-box;
+}
+
+.headerDiv{
+    position: fixed;
+}
+.headerDiv header{
+    padding-bottom: 50px;
+}
+.container{
+    max-width: 500px;
+    padding-top: 85px;
+}
+
+.container form{
+    display: grid;
+    grid-template-columns: 1fr;
+    background: var(--formColor);
+    box-shadow: 0 0 20px 0 rgb(143, 9, 9, 0.6);
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 35px;
+}
+
+.container > * {
+    padding: 1.6em;
+}
+
+label {
+    display: block;
+    color: white;
+    padding: 10px 0 10px 0;
+}
+input{
+    padding: 10px;
+    outline: none;
+    width: 100%;
+}
+
+input:focus{
+    outline: none;
+}
+
+.requestButton button{
+    font-weight: bold;
+    color: white;
+    margin: 20px auto;
+    width: 100%;
+    height: 50px;
+}
+
+/* Progress bar */
+.hidden{
+    display: none;
+}
+.container1{
+    padding-top: 10px;
+    max-width: 400px;
+    margin: 20px auto 0 auto
+}
+
+#main button{
+    padding: 5px 10px;
+    margin-left: 40px;
+    transition: 500ms backgroud-color;
+    color: white;
+    width: 35%;
+    border-radius: 3px;
+}
+#main p{
+    text-align: center;
+}
+#main button:disabled:hover{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#stepProgress{
+    display: flex;
+    width: 300px;
+    margin: 0 auto 40px auto;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-radius: 100%;
+}
+
+.step{
+    text-align: center;
+}
+
+.step-text{
+    margin-bottom: 10px;
+    color: var(--formColor);
+}
+
+.bullet{
+    height: 29px;
+    width: 37px;
+    border-radius: 100%;
+    padding: 4.3px;
+    border: 1px solid var(--formColor);
+    color: var(--formColor);
+    display: inline-block;
+    position: relative;
+    transition: background-color 2000ms;
+    line-height: 20px;
+}
+
+.bullet.completed{
+    color: white;
+    background-color: var(--formColor);
+}
+
+.bullet.completed::after{
+    content: '';
+    position: absolute;
+    height: 2.2px;
+    transition: 2000ms;
+    top: 12px;
+    left: 30px;
+    width: 54px;
+    background-color: var(--formColor);
+}
+/* Progress bar ends */
+
+/* Show form based on progress bar */
+
+#step1, #step2, #step3, #step4{
+    display: none;
+}
+
+/* Show form ends */

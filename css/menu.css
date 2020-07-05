@@ -11,7 +11,6 @@
 header {
     width: 98%;
     padding: 0 10px 1000px 10px;
-    margin-bottom: 100px;
 }
 
 .menu-nav {
@@ -28,12 +27,12 @@ header {
     float: left;
 }
 
-.menu-branding img {
-    display: block;
+/* .menu-branding img {
+    display: none;
     width: 100px;
     padding: 15px 10px 0 10px;
     margin: auto;
-}
+} */
 
 .nav-item {
     overflow: hidden;
@@ -67,7 +66,10 @@ header {
         margin-top: 102px;
     }
     .menu-branding img {
-        padding: 15px 10px 10px 10px;
+        display: none;
+        width: 100px;
+        padding: 15px 10px 0 10px;
+        margin: auto;
     }
     .menu-btn {
         display: block;
@@ -131,6 +133,12 @@ header {
 }
 
 @media(max-width: 552px) {
+    .menu-branding img {
+        display: block;
+        width: 100px;
+        padding: 15px 10px 0 10px;
+        margin: auto;
+    }
     .banner-image {
         display: block;
         position: absolute;
@@ -223,6 +231,12 @@ header {
 }
 
 @media(max-width: 359px) {
+    .menu-branding img {
+        display: block;
+        width: 100px;
+        padding: 15px 10px 0 10px;
+        margin: auto;
+    }
     .nav-item a {
         text-transform: lowercase;
         font: 1.1em/1.5 bold;

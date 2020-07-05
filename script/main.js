@@ -26,3 +26,8 @@ function toggleMenu() {
         showMenu = false;
     }
 }
+
+
+function regquestBlood(){
+    
+}

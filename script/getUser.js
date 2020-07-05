@@ -1,5 +1,5 @@
-const url = "https://api-bloodbank.herokuapp.com/user/get-all-user";
-// const url = "http://localhost:5000/user/get-all-user";
+// const url = "https://api-bloodbank.herokuapp.com/user/get-all-user";
+const url = "http://localhost:5000/user/get-all-user";
 let token = localStorage.getItem("userToken");
 document.querySelector(".back").classList.add("backPop");
 document.querySelector(".main").classList.add("spinner3");
