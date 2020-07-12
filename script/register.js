@@ -68,6 +68,5 @@ previousBtn.addEventListener('click', () => {
         step2.style.display = 'none'
         step3.style.display = 'none'
     }
-    content.innerText = `Step Number ${currentStep}`
-    console.log(`currentStep is ${currentStep}`)
+    content.innerText = `Step ${currentStep}`
 })
