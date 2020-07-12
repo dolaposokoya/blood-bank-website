@@ -102,7 +102,7 @@ function makeReservation() {
       document.querySelector(".main").classList.remove("spinner3");
       document.querySelector(".back").classList.remove("backPop");
       showAlert("Weight is empty", "warning");
-    } else if (formData.gender == "") {
+    } else if (formData.gender == "" || formData.gender == "Choose...") {
       document.querySelector(".main").classList.remove("spinner3");
       document.querySelector(".back").classList.remove("backPop");
       showAlert("Gender is empty", "warning");
@@ -111,6 +111,7 @@ function makeReservation() {
       document.querySelector(".back").classList.remove("backPop");
       showAlert("Date is empty", "warning");
     } else {
+      console.log(formData)
       fetch(`${url}/reservation/create-reservation`, {
           method: "POST",
           headers: {

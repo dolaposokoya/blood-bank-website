@@ -50,27 +50,27 @@
 
 <body>
   <div class="back">
-      <div class="main"></div>
+    <div class="main"></div>
   </div>
   <img class="banner-image" src="../images/banner.png" alt="banner-image" />
   <div class="menu-btn">
-      <div class="btn-line"></div>
-      <div class="btn-line"></div>
-      <div class="btn-line"></div>
+    <div class="btn-line"></div>
+    <div class="btn-line"></div>
+    <div class="btn-line"></div>
   </div>
   <nav class="menu">
-      <div class="menu-branding">
-      </div>
-      <ul class="menu-nav">
-          <li class="nav-item"><a class="nav-link" href="./requestblood.html">Request</a></li>
-          <li class="nav-item current">
-              <a class="nav-link " href="./contactdonor.html">Contact</a>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="./reservation.html">Reservation</a></li>
-          <li class="nav-item">
-              <a class="nav-link" onClick="logOut()">Logout</a>
-          </li>
-      </ul>
+    <div class="menu-branding">
+    </div>
+    <ul class="menu-nav">
+      <li class="nav-item"><a class="nav-link" href="./requestblood.html">Request</a></li>
+      <li class="nav-item current">
+        <a class="nav-link " href="./contactdonor.html">Contact</a>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="./reservation.html">Reservation</a></li>
+      <li class="nav-item">
+        <a class="nav-link" onClick="logOut()">Logout</a>
+      </li>
+    </ul>
   </nav>
   <section>
     <div class="container">
@@ -96,7 +96,11 @@
           </div>
           <div>
             <label for="gender">Gender</label>
-            <input type="text" id="gender" placeholder="Gender">
+            <select id="gender" class="form-control">
+              <option id="gender" selected>Choose...</option>
+              <option id="gender">Male</option>
+              <option id="gender">Female</option>
+            </select>
           </div>
           <div>
             <label for="reservation_date">Date</label>
