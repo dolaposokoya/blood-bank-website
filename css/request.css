@@ -46,6 +46,17 @@ input {
   width: 100%;
 }
 
+select {
+  padding: 10px;
+  outline: none;
+  width: 100%;
+}
+
+#myState option,
+#myBlood option {
+  margin: 5px
+}
+
 input:focus {
   outline: none;
 }
@@ -136,7 +147,10 @@ input:focus {
 
 /* Progress bar ends */
 /* Show form based on progress bar */
-#step1, #step2, #step3, #step4 {
+#step1,
+#step2,
+#step3,
+#step4 {
   display: none;
 }
 

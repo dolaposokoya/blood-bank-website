@@ -19,7 +19,8 @@ function checkToken() {
     console.log("Token", token);
     window.location.assign("../pages/contactdonor.html");
   } else {
-    loginForm();
+    // console.log(location)
+    // window.location.origin();
   }
 }
 

@@ -1,5 +1,5 @@
 :root {
-  --blood: #831a1a;
+  --blood: #b41717;
   --hover-blood: red;
   --shadow: 10px 10px 33px -3px rgba(0, 0, 0, 0.1);
 }
@@ -107,7 +107,14 @@ h6 {
   overflow: hidden;
 }
 
-th {
+.table th,
+.table td {
+  padding: 12px 15px;
+  border: 1px solid #e3e3e3;
+  text-align: center;
+}
+
+.table th {
   background-color: #c02222;
   font-family: 'Ubuntu', sans-serif;
   height: 5px;
@@ -118,15 +125,10 @@ th {
   border-bottom: 5px solid #c02222;
 }
 
-th,
-td {
-  padding: 12px 15px;
-  border: 1px solid #e3e3e3;
-  text-align: center;
-}
-
 tr td {
   font-family: 'Ubuntu', sans-serif;
+  font-size: 19px;
+  text-align: left;
 }
 
 table tr:nth-child(even) {
@@ -190,8 +192,6 @@ button:hover {
   background: var(--hover-blood);
   box-shadow: var(--shadow);
 }
-
-
 
 main div.form-card {
   max-width: 400px;
@@ -263,17 +263,15 @@ main div.form-card {
 
 /* Media Query */
 @media (max-width: 586px) {
-  /* .conatiner {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 20px;
-    justify-content: space-evenly;
-  } */
+  table {
+    margin: 0;
+  }
 }
 
 @media (max-width: 635px) {
   table {
-    /* margin-top: 90px; */
+    margin: 0;
+    margin-top: 10px;
   }
 
   .table thead {
@@ -322,7 +320,7 @@ main div.form-card {
 
 @media (max-width: 552px) {
   table {
-    margin-top: 100px;
+    margin: 0;
   }
 
   .table thead {
@@ -355,61 +353,5 @@ main div.form-card {
     font-size: 15px;
     font-weight: bold;
     text-align: left;
-  }
-
-  /* ul.menu-nav {
-        width: 35%;
-    }
-    ul.menu-nav a {
-        margin-top: 7px;
-        text-align: left;
-    }
-    ul.menu-nav.show {
-        transform: translate3d(0, 0, 0);
-    } */
-}
-
-@media screen and (min-width: 438px) {
-  table {
-    margin-top: 1px;
-  }
-
-  .table thead {
-    display: none;
-  }
-
-  #about {
-    align-items: center;
-    justify-content: center;
-    margin-top: 15vh;
-    min-height: calc(85vh - 45px);
-  }
-
-  /* .conatiner div:hover {
-    background-color: #e3e3e3;
-    cursor: pointer;
-  }
-
-  .conatiner .box {
-    flex-basis: 80%;
-    margin-bottom: 10px;
-    margin-left: 32px;
-    background-color: white;
-  }
-
-  .conatiner .box:hover {
-    background-color: #e3e3e3;
-    cursor: pointer;
-  } */
-}
-
-@media screen and (min-width: 320px)and (max-width: 380px) {
-  table {
-    margin: 0;
-  }
-
-  #about {
-    margin-top: 1vh;
-    min-height: calc(90vh - 45px);
   }
 }

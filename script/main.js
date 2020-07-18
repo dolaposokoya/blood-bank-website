@@ -28,6 +28,6 @@ function toggleMenu() {
 }
 
 
-function regquestBlood(){
-    
+function requestBlood() {
+
 }

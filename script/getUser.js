@@ -26,7 +26,7 @@ function checkToken() {
           const row = document.createElement("tr");
           row.innerHTML = `<td data-label="Name"><i class="fas fa-user"></i> ${item.first_name}</td>
       <td data-label="Email"> <i class="fas fa-venus-mars"></i> ${item.gender}</td>
-      <td data-label="Blood Group"><i class="fas fa-tint"></i> ${item.blood_group}</td><td data-label="City"><i class="fas fa-map-marker"></i> ${item.city}</td><td data-label="Action"><button class="btn btn-primary btn-sm"  onClick="openModal()">contact</button></td>`;
+      <td data-label="Blood Group"><i class="fas fa-tint"></i> ${item.blood_group}</td><td data-label="City"><i class="fas fa-map-marker"></i> ${item.city}</td><td data-label="Action"><button class="btn btn-primary btn-lg contact"  onClick="openModal()">contact</button></td>`;
           list.appendChild(row);
         });
         setTimeout(() => document.querySelector(".main").classList.remove("spinner3"), 3000);
@@ -39,11 +39,13 @@ function checkToken() {
 }
 
 checkToken();
-function makeReservation(){
-  if(token){
+
+function makeReservation() {
+  if (token) {
     fetch(`${url}/`)
   }
 }
+
 function logOut() {
   localStorage.removeItem("userToken");
   localStorage.removeItem("profileId");

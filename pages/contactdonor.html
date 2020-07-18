@@ -43,29 +43,27 @@
     <ul class="menu-nav">
       <li class="nav-item"><a class="nav-link" href="./requestblood.html">Request</a></li>
       <li class="nav-item current">
-        <a class="nav-link " href="./contactdonor.html">Contact</a>
+        <a class="nav-link" href="./contactdonor.html">Contact</a>
       </li>
       <li class="nav-item"><a class="nav-link" href="./reservation.html">Reservation</a></li>
-      <i class='fas fa-bell' style='font-size:18px; padding: 15px 15px 0 0; color:red; float: right;'></i>
       <li class="nav-item">
         <a class="nav-link" onClick="logOut()">Logout</a>
       </li>
+      <i class='fas fa-bell'></i>
     </ul>
   </nav>
-  <section class="content">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Blood Group</th>
-          <th>City</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody id="user-list"></tbody>
-    </table>
-  </section>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Blood Group</th>
+        <th>City</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="user-list"></tbody>
+  </table>
   <script src="../script/getUser.js"></script>
   <script src="../script/main.js"></script>
 </body>
