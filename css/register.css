@@ -1,23 +1,26 @@
-:root{
-    --formColor:  #b41717;
+:root {
+    --formColor: #b41717;
     --bullet: #28a745
 }
-*{
+
+* {
     box-sizing: border-box;
 }
 
-.headerDiv{
+.headerDiv {
     position: fixed;
 }
-.headerDiv header{
+
+.headerDiv header {
     padding-bottom: 50px;
 }
-.container{
+
+.container {
     max-width: 500px;
     padding-top: 85px;
 }
 
-.container form{
+.container form {
     display: grid;
     grid-template-columns: 1fr;
     background: var(--formColor);
@@ -27,7 +30,7 @@
     padding-bottom: 35px;
 }
 
-.container > * {
+.container>* {
     padding: 1.6em;
 }
 
@@ -36,39 +39,83 @@ label {
     color: white;
     padding: 10px 0 10px 0;
 }
-input{
+
+input {
     padding: 10px;
     outline: none;
     width: 100%;
 }
 
-input:focus{
+input:focus {
     outline: none;
 }
-.login h6{
+
+.login h6 {
     font-size: 15px;
 }
-.requestButton button{
+
+button:hover, button:focus{
+    border: none;
+}
+/* .requestButton button{
     font-weight: bold;
     color: white;
     margin: 20px auto;
     width: 100%;
     height: 50px;
+} */
+
+.signBtn button {
+    font-weight: bold;
+    background-color: var(--hover-blood);
+    border: none;
+    color: white;
+    margin: 20px auto;
+    border-radius: 7px;
+    width: 100%;
+    height: 50px;
+}
+
+.signBtn button:hover {
+    transform: scale(1.06);
+    transition: 1.5s;
+    /* transform: rotate(360deg); */
+    border: none;
+}
+
+.requestButton#left {
+    font-size: 28px;
+    color: red;
+    position: absolute;
+    top: 55%;
+    left: 30%
+}
+
+.step {
+    font-weight: bold;
+    border: none;
+    background-color: '';
+    color: white;
+    opacity: 0.1;
+    display: none;
 }
 
 /* Progress bar */
-.hidden{
+.hidden {
     display: none;
 }
-.container1{
+
+.container1 {
     padding-top: 10px;
     max-width: 400px;
     margin: 20px auto 0 auto
 }
-#main p{
+
+#main p {
     text-align: center;
 }
-#main button{
+
+#main button {
     padding: 5px 10px;
     margin-left: 40px;
     transition: 500ms backgroud-color;
@@ -76,12 +123,13 @@ input:focus{
     width: 35%;
     border-radius: 3px;
 }
-#main button:disabled:hover{
+
+#main button:disabled:hover {
     opacity: 0.6;
     cursor: not-allowed;
 }
 
-#stepProgress{
+#stepProgress {
     display: flex;
     width: 300px;
     margin: 0 auto 40px auto;
@@ -90,16 +138,16 @@ input:focus{
     border-radius: 100%;
 }
 
-.step{
+.step {
     text-align: center;
 }
 
-.step-text{
+.step-text {
     margin-bottom: 10px;
     color: var(--formColor);
 }
 
-.bullet{
+.bullet {
     height: 29px;
     width: 37px;
     border-radius: 100%;
@@ -112,12 +160,12 @@ input:focus{
     line-height: 20px;
 }
 
-.bullet.completed{
+.bullet.completed {
     color: white;
     background-color: var(--formColor);
 }
 
-.bullet.completed::after{
+.bullet.completed::after {
     content: '';
     position: absolute;
     height: 2.2px;
@@ -127,11 +175,15 @@ input:focus{
     width: 60px;
     background-color: var(--formColor);
 }
+
 /* Progress bar ends */
 
 /* Show form based on progress bar */
 
-#step1, #step2, #step3, #step4{
+#step1,
+#step2,
+#step3,
+#step4 {
     display: none;
 }
 

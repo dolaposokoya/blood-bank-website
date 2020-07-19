@@ -176,22 +176,22 @@ a {
   cursor: pointer;
 }
 
-button {
+/* button {
   background-color: var(--blood);
   text-decoration: none;
   border: none;
   height: 30px;
   cursor: pointer;
-}
+} */
 
 a:hover {
   transition: all 1s ease-out;
 }
-
+/* 
 button:hover {
   background: var(--hover-blood);
   box-shadow: var(--shadow);
-}
+} */
 
 main div.form-card {
   max-width: 400px;

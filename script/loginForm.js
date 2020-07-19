@@ -14,17 +14,15 @@ function showAlert(message, className) {
   setTimeout(() => document.querySelector(".alert").remove(), 2500);
 }
 
-function checkToken() {
-  if (localStorage.getItem("userToken")) {
+// Check if token already exist
+window.addEventListener("load", () => {
+  let token = localStorage.getItem("userToken")
+  if (token) {
     console.log("Token", token);
-    window.location.assign("../pages/contactdonor.html");
-  } else {
-    // console.log(location)
-    // window.location.origin();
+    window.location.assign("../pages/requestblood.html");
   }
-}
+});
 
-checkToken();
 
 function loginForm() {
   setTimeout(() => {
@@ -47,22 +45,22 @@ function loginForm() {
       showAlert("Password is empty", "warning");
     } else {
       fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            accept: "application/json",
-          },
-          body: data,
-        }).then((response) => {
-          if (!response) {
-            setTimeout(() => document.querySelector(".main").remove(), 10000)
-            console.log(response)
-            return response.json();
-          } else {
-            console.log(response)
-            return response.json();
-          }
-        })
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          accept: "application/json",
+        },
+        body: data,
+      }).then((response) => {
+        if (!response) {
+          setTimeout(() => document.querySelector(".main").remove(), 10000)
+          console.log(response)
+          return response.json();
+        } else {
+          console.log(response)
+          return response.json();
+        }
+      })
         .then((data) => {
           console.log('Data', data)
           if (data) {

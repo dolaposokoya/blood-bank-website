@@ -6,7 +6,7 @@
     <link
       rel="shortcut icon"
       type="image/png"
-      href="/views/images/ic_launcher.png"
+      href="../images/ic_launcher.png"
     />
     <link
       rel="stylesheet"
@@ -67,33 +67,52 @@
     </div>
     <section>
       <div class="container">
-        <form action="" class="requestBlood" onsubmit="makeRequest();">
+        <form
+          action=""
+          class="requestBlood"
+          onsubmit="event.preventDefault(); makeRequest();"
+        >
           <div id="step1">
             <div>
               <label for="patient_name">Patient Name</label>
               <input type="text" id="patient_name" placeholder="Patient Name" />
+              <div id="p_name"></div>
             </div>
             <div>
               <label for="patient_email">Patient Email</label>
-              <input type="text" id="patient_email" placeholder="Patient Email" />
+              <input
+                type="text"
+                id="patient_email"
+                placeholder="Patient Email"
+              />
+              <div id="p_email"></div>
             </div>
             <div>
-              <label for="patient_mobile">Patient Contact</label>
-              <input type="text" id="patient_mobile" placeholder="Patient Contact" />
+              <label for="patient_mobile">Patient Mobile</label>
+              <input
+                type="text"
+                id="patient_mobile"
+                placeholder="Patient Mobile"
+              />
+              <div id="p_mobile"></div>
             </div>
           </div>
           <div id="step2">
             <div>
               <label for="blood_group">Blood Group</label>
               <select name="blood_group" id="myBlood">
-                <option value="select" class="blood_group"
-                  >select blood group.....</option
-                >
+                <option id="my-group" class="blood_group">select blood group.....</option>
               </select>
+              <div id="b_group"></div>
             </div>
             <div>
               <label for="hospital_name">Hospital Name</label>
-              <input type="text" id="hospital_name" placeholder="Hospital Name" />
+              <input
+                type="text"
+                id="hospital_name"
+                placeholder="Hospital Name"
+              />
+              <div id="h_name"></div>
             </div>
             <div>
               <label for="hospital_address">Hospital Address</label>
@@ -112,7 +131,7 @@
             <div>
               <label for="state" id="">State</label>
               <select name="state" id="myState">
-                <option value="select" class="state">select state.....</option>
+                <option id="my-state" class="state">select state.....</option>
               </select>
               <!-- <input type="text" id="state" placeholder="State" /> -->
             </div>
@@ -132,7 +151,11 @@
             </div>
             <div>
               <label for="hospital_phone">Hospital Phone</label>
-              <input type="text" id="hospital_phone" placeholder="Hospital Phone" />
+              <input
+                type="text"
+                id="hospital_phone"
+                placeholder="Hospital Phone"
+              />
             </div>
             <div>
               <label for="date_needed">Date Blood is required</label>

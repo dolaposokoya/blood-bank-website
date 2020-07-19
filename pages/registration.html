@@ -1,108 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/menu.css" />
+    <link rel="stylesheet" href="../css/register.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Registration</title>
-  <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="../css/menu.css" />
-  <link rel="stylesheet" href="../css/register.css" />
-</head>
-
-<body>
-  <div class="container">
-    <form class="registerForm" onsubmit="event.preventDefault(); registeruser();" autocomplete="on">
-      <div id="step1">
-        <div>
-          <label for="inputEmail4">First Name</label>
-          <input type="text" class="form-control" id="inputEmail4" placeholder="First Name" />
-        </div>
-        <div>
-          <label for="inputPassword4">Last Name</label>
-          <input type="text" class="form-control" id="inputPassword4" placeholder="Last Name" />
-        </div>
-        <div>
-          <label for="inputState">Gender</label>
-          <select id="gender" class="form-control">
-            <option selected>Choose...</option>
-            <option id="gender">Male</option>
-            <option id="gender">Female</option>
-          </select>
-        </div>
+  <body>
+    <div id="main">
+      <div class="requestButton">
+        <a id="previousBtn" disabled class="left"
+          ><i
+            class="fa fa-chevron-circle-left disabled"
+            style="
+              font-size: 45px;
+              color: #b41717;
+              position: absolute;
+              top: 45%;
+              left: 29%;
+            "
+          ></i
+        ></a>
+        <a id="nextBtn" class="right"
+          ><i
+            class="fa fa-chevron-circle-right"
+            style="
+              font-size: 45px;
+              color: #b41717;
+              position: absolute;
+              top: 45%;
+              right: 29%;
+            "
+          ></i
+        ></a>
       </div>
-      <div id="step2">
-        <div>
-          <label for="inputEmail4">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Email" />
-        </div>
-        <div>
-          <label for="inputPassword4">Password</label>
-          <input type="password" id="inputPassword4" placeholder="Password" />
-        </div>
-        <div>
-          <label for="date">Date of birth</label>
-          <input type="date" id="date" placeholder="Password" />
-        </div>
-      </div>
-      <div id="step3">
-        <div>
-          <label for="inputAddress">Address</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="Address" />
-        </div>
-        <div class="form-row">
+    </div>
+    <div class="container">
+      <form
+        class="registerForm"
+        onsubmit="event.preventDefault(); registerUser();"
+        autocomplete="on"
+      >
+        <div id="step1">
           <div>
-            <label for="inputCity">City</label>
-            <input type="text" class="form-control" placeholder="City" id="inputCity" />
+            <label for="inputEmail4">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="first_name"
+              placeholder="First Name"
+            />
           </div>
           <div>
-            <label for="inputState">State</label>
-            <select id="inputState" class="form-control">
-              <option selected>Choose...</option>
-              <option>...</option>
+            <label for="inputPassword4">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="last_name"
+              placeholder="Last Name"
+            />
+          </div>
+          <div>
+            <label for="inputState">Gender</label>
+            <select id="myGender" class="form-control">
+              <option selected id="gender">Gender...</option>
+              <option id="gender">Male</option>
+              <option id="gender">Female</option>
+              <option id="gender">Other</option>
             </select>
           </div>
           <div>
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" placeholder="Zip Code" id="inputZip" />
+            <label for="inputEmail4">Mobile</label>
+            <input
+              type="text"
+              class="form-control"
+              id="mobile"
+              placeholder="Mobile"
+            />
           </div>
         </div>
-        <div class="requestButton">
-          <button type="submit" id="request">SIGN IN</button>
+        <div id="step2">
+          <div>
+            <label for="inputEmail4">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Email"
+            />
+          </div>
+          <div>
+            <label for="inputPassword4">Password</label>
+            <input type="password" id="password" placeholder="Password" />
+          </div>
+          <div>
+            <label for="date">Date of birth</label>
+            <input type="date" id="date_of_birth" placeholder="Password" />
+          </div>
+          <div>
+            <label for="date">Age</label>
+            <input type="number" id="age" placeholder="Age" />
+          </div>
         </div>
-        <div class="login">
-          <h6>Already a user? <a class="login" href="/">Login</a></h6>
+        <div id="step3">
+          <div>
+            <label for="inputAddress">Address</label>
+            <input
+              type="text"
+              class="form-control"
+              id="address"
+              placeholder="Address"
+            />
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="inputCity">City</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="City"
+                id="city"
+              />
+            </div>
+            <div>
+              <label for="inputState">State</label>
+              <select id="myState" class="form-control">
+                <option selected id="my-state">State...</option>
+              </select>
+            </div>
+            <div>
+              <label for="inputZip">Zip Code</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Zip Code"
+                id="zip_code"
+              />
+            </div>
+          </div>
+          <div class="signBtn">
+            <button type="submit" id="request">SIGN IN</button>
+          </div>
+          <div class="login">
+            <h6>Already a user? <a class="login" href="/">Login</a></h6>
+          </div>
         </div>
-      </div>
-    </form>
-  </div>
-  <div class="container1">
-    <div id="stepProgress">
-      <div class="step">
-        <div class="bullet">1</div>
-      </div>
-      <div class="step">
-        <div class="bullet">2</div>
-      </div>
-      <div class="step">
-        <div class="bullet">3</div>
+      </form>
+    </div>
+    <div class="container1">
+      <div id="stepProgress">
+        <div class="step">
+          <div class="bullet">1</div>
+        </div>
+        <div class="step">
+          <div class="bullet">2</div>
+        </div>
+        <div class="step">
+          <div class="bullet">3</div>
+        </div>
       </div>
     </div>
-    <div id="main">
-      <p id="content">Step 1</p>
-      <div class="requestButton">
-        <button id="previousBtn" disabled>PREVIOUS</button>
-        <button id="nextBtn">NEXT</button>
-      </div>
-
-
-    </div>
-  </div>
-  <script src="../script/register.js"></script>
-</body>
-
+    <script src="../script/register.js"></script>
+  </body>
 </html>
