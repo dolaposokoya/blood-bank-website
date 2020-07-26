@@ -1,20 +1,21 @@
-
 const url = `http://localhost:5000`
 const site_origin = `http://127.0.0.1:5500`;
 
 // Check if token already exist
 window.addEventListener("load", () => {
     let token = localStorage.getItem("userToken")
-    if (token) {
+    if (!token) {
         console.log("Token", token);
-        window.location.assign("../pages/requestblood.html");
-    }
-    else {
         alert('Unauthorized access')
         window.location.assign("/");
     }
 });
 
+function logOut() {
+    localStorage.removeItem("userToken");
+    localStorage.removeItem("profileId");
+    window.location.assign("/");
+}
 
 const previousBtn = document.getElementById('previousBtn')
 const nextBtn = document.getElementById('nextBtn')
@@ -52,15 +53,13 @@ nextBtn.addEventListener('click', () => {
         step1.style.display = 'none'
         step2.style.display = 'block'
         step3.style.display = 'none'
-    }
-    else if (currentStep == 3) {
+    } else if (currentStep == 3) {
         step1.style.display = 'none'
         step2.style.display = 'none'
         step4.style.display = 'none'
         step3.style.display = 'block'
 
-    }
-    else if (currentStep == 4) {
+    } else if (currentStep == 4) {
         step1.style.display = 'none'
         step2.style.display = 'none'
         step3.style.display = 'none'
@@ -86,20 +85,17 @@ previousBtn.addEventListener('click', () => {
         step4.style.display = 'none'
         step3.style.display = 'none'
 
-    }
-    else if (currentStep == 2) {
+    } else if (currentStep == 2) {
         step1.style.display = 'none'
         step3.style.display = 'none'
         step4.style.display = 'none'
         step2.style.display = 'block'
-    }
-    else if (currentStep == 3) {
+    } else if (currentStep == 3) {
         step1.style.display = 'none'
         step2.style.display = 'none'
         step4.style.display = 'none'
         step3.style.display = 'block'
-    }
-    else if (currentStep == 4) {
+    } else if (currentStep == 4) {
         step1.style.display = 'none'
         step2.style.display = 'none'
         step3.style.display = 'none'
@@ -153,7 +149,7 @@ function makeRequest() {
     var state = document.getElementById("myState").selectedIndex;
     const states = document.getElementById("myState").options;
     let statee = states[state].text
-    // const states = document.getElementsByTagName("option")[state].value;
+        // const states = document.getElementsByTagName("option")[state].value;
     const hospital_name = document.getElementById('hospital_name').value;
     const hospital_address = document.getElementById('hospital_address').value;
     const hospital_phone = document.getElementById('hospital_phone').value;
@@ -175,41 +171,29 @@ function makeRequest() {
     let token = localStorage.getItem('userToken')
     if (formData.patient_name == '') {
         alert('Patient Name is empty')
-    }
-    else if (formData.patient_email == '') {
+    } else if (formData.patient_email == '') {
         alert('Patient Email is empty')
-    }
-    else if (formData.patient_mobile == '') {
+    } else if (formData.patient_mobile == '') {
         alert('Patient Mobile is empty')
-    }
-    else if (formData.blood_group == 'select blood group.....') {
+    } else if (formData.blood_group == 'select blood group.....') {
         alert('Blood Group is empty')
-    }
-    else if (formData.hospital_name == '') {
+    } else if (formData.hospital_name == '') {
         alert('Hospital Name is empty')
-    }
-    else if (formData.hospital_address == '') {
+    } else if (formData.hospital_address == '') {
         alert('Hospital Address is empty')
-    }
-    else if (formData.city == '') {
+    } else if (formData.city == '') {
         alert('City is empty')
-    }
-    else if (formData.state == 'select state.....') {
+    } else if (formData.state == 'select state.....') {
         alert('State is empty')
-    }
-    else if (formData.pincode == '') {
+    } else if (formData.pincode == '') {
         alert('Pincode is empty')
-    }
-    else if (formData.hospital_email == '') {
+    } else if (formData.hospital_email == '') {
         alert('Hospital Email is empty')
-    }
-    else if (formData.hospital_phone == '') {
+    } else if (formData.hospital_phone == '') {
         alert('Hospital Phone is empty')
-    }
-    else if (formData.date_needed == '') {
+    } else if (formData.date_needed == '') {
         alert('Date is empty')
-    }
-    else {
+    } else {
         fetch(`${url}/request/create-request`, {
             method: 'POST',
             headers: {
@@ -222,15 +206,12 @@ function makeRequest() {
         }).then(response => response.json()).then(data => {
             if (data.success == true) {
                 alert(data.message)
-            }
-            else {
+            } else {
                 alert(data.message)
+                window.location.assign("../pages/contactdonor.html");
 
             }
         })
     }
 
 }
-
-
-

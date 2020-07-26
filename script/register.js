@@ -28,8 +28,7 @@ nextBtn.addEventListener('click', () => {
         step1.style.display = 'none'
         step2.style.display = 'block'
         step3.style.display = 'none'
-    }
-    else if (currentStep == 3) {
+    } else if (currentStep == 3) {
         step1.style.display = 'none'
         step2.style.display = 'none'
         step3.style.display = 'block'
@@ -53,18 +52,15 @@ previousBtn.addEventListener('click', () => {
         step2.style.display = 'none'
         step3.style.display = 'none'
 
-    }
-    else if (currentStep == 2) {
+    } else if (currentStep == 2) {
         step1.style.display = 'none'
         step3.style.display = 'none'
         step2.style.display = 'block'
-    }
-    else if (currentStep == 3) {
+    } else if (currentStep == 3) {
         step1.style.display = 'none'
         step2.style.display = 'none'
         step3.style.display = 'block'
-    }
-    else if (currentStep == 4) {
+    } else if (currentStep == 4) {
         step1.style.display = 'none'
         step2.style.display = 'none'
         step3.style.display = 'none'
@@ -92,6 +88,7 @@ fetch(`${url}/request/blood-all-group`, {
         })
     })
 })
+
 function registerUser() {
 
     const first_name = document.getElementById('first_name').value;
@@ -132,38 +129,27 @@ function registerUser() {
 
     if (formData.first_name == '') {
         alert('First name is empty')
-    }
-    else if (formData.last_name == '') {
+    } else if (formData.last_name == '') {
         alert('Last name is empty')
-    }
-    else if (formData.genders == 'Gender...') {
+    } else if (formData.genders == 'Gender...') {
         alert('Gender is empty')
-    }
-    else if (formData.mobile == '') {
+    } else if (formData.mobile == '') {
         alert('Mobile is empty')
-    }
-    else if (formData.email == '') {
+    } else if (formData.email == '') {
         alert('Email is empty')
-    }
-    else if (formData.password == '') {
+    } else if (formData.password == '') {
         alert('Password is empty')
-    }
-    else if (formData.date_of_birth == '') {
+    } else if (formData.date_of_birth == '') {
         alert('Date of birth is empty')
-    }
-    else if (formData.age == '') {
+    } else if (formData.age == '') {
         alert('Age is empty')
-    }
-    else if (formData.address == '') {
+    } else if (formData.address == '') {
         alert('Address is empty')
-    }
-    else if (formData.city == '') {
+    } else if (formData.city == '') {
         alert('City is empty')
-    }
-    else if (formData.state == 'State...') {
+    } else if (formData.state == 'State...') {
         alert('State is empty')
-    }
-    else if (formData.zip_code == '') {
+    } else if (formData.zip_code == '') {
         alert('Zip code is empty')
     }
 }
