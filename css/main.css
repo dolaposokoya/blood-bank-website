@@ -129,20 +129,27 @@ h6 {
     overflow: hidden;
     /* Animation requirement */
     position: relative;
-    animation: table 2s ease-in 1s forwards;
-    opacity: 0;
+    /* animation: table 3.5s ease-in 1s forwards;
+    opacity: 0; */
 }
 
-@keyframes table {
+.displayError {
+    display: none;
+}
+
+
+/* @keyframes table {
     0% {
         opacity: 0;
-        left: -900px;
+        pointer-events: none;
+        top: -400px;
     }
     100% {
         opacity: 1;
-        left: 0px;
+        pointer-events: all;
+        top: 0px;
     }
-}
+} */
 
 .table th,
 .table td {
@@ -275,7 +282,7 @@ main div.form-card {
 }
 
 .form-group .form-label {
-    margin: 10px;
+    /* margin: 10px; */
     font-size: 1.2em;
     color: white;
 }
@@ -340,7 +347,7 @@ main div.form-card {
     }
     table {
         margin: 0;
-        margin-top: 10px;
+        margin-top: 100px;
     }
     .table thead {
         display: none;

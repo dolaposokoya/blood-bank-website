@@ -207,8 +207,8 @@ function makeRequest() {
             if (data.success == true) {
                 alert(data.message)
             } else {
-                alert(data.message)
                 window.location.assign("../pages/contactdonor.html");
+                alert(data.message)
 
             }
         })

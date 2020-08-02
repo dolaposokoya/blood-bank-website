@@ -16,7 +16,7 @@
 
 <body>
     <div class="container">
-        <form class="registerForm" onsubmit="event.preventDefault(); registerUser();" autocomplete="on">
+        <form class="registerForm" name="registerForm" onsubmit="event.preventDefault();" autocomplete="on">
             <div id="step1">
                 <div>
                     <label for="inputEmail4">First Name</label>
@@ -28,11 +28,11 @@
                 </div>
                 <div>
                     <label for="gender">Gender</label>
-                    <select id="gender">
-                <option id="gender" selected>Gender...</option>
-                <option id="gender">Male</option>
-                <option id="gender">Female</option>
-                <option id="gender">Other</option>
+                    <select id="myGender">
+              <option id="gender" selected>Gender...</option>
+              <option id="gender">Male</option>
+              <option id="gender">Female</option>
+              <option id="gender">Other</option>
             </select>
                 </div>
                 <div>
@@ -80,7 +80,9 @@
                     </div>
                 </div>
                 <div class="signBtn">
-                    <button type="submit" id="request">SIGN IN</button>
+                    <button type="submit" id="request" onclick="registerUser()">
+              SIGN IN
+            </button>
                 </div>
                 <div class="login">
                     <h6>Already a user? <a class="login" href="/">Login</a></h6>
@@ -109,6 +111,8 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script src="../script/main.js"></script>
     <script src="../script/register.js"></script>
 </body>
 

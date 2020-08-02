@@ -2,44 +2,46 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/png" href="./images/favicon.ico" />
-  <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-  <link rel="stylesheet" href="./css/main.css" />
-  <title>Login Page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="./images/favicon.ico" />
+    <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Login Page</title>
 </head>̥
 
 <body class="body-image">
-  <div class="back">
-    <div class="main">
-      <!-- <h3></h3> -->
+    <div class="back">
+        <div class="main">
+            <!-- <h3></h3> -->
+        </div>
     </div>
-  </div>
-  <div class="container mt-1">
-    <main>
-      <div class="form-card">
-        <form class="form-group" onsubmit="event.preventDefault(); loginForm();" autocomplete="on">
-          <div style="margin-bottom: 10px;">
-            <label for="email" class="form-label">Username / Email</label>
-          </div>
-          <i class="fa fa-user icon" aria-hidden="true"></i><input class="input-field" type="text" placeholder="username or email" id="email" />
-          <div style="margin-bottom: 10px;">
-            <label for="password" class="form-label">Password</label>
-          </div>
-          <i class="fa fa-lock icon" aria-hidden="true"></i><input class="input-field" type="password" placeholder="password" id="password" />
-          <div class="container-button">
-            <button class="form-button">LOGIN</button>
-            <h6>Are you new? <a class="register" href="./pages/registration.html"> click here to register</a>
-              <h6>
-          </div>
-        </form>
-      </div>
-    </main>
-  </div>
-  <script src="script/loginForm.js"></script>
+    <div class="container mt-1">
+        <main>
+            <div class="form-card">
+                <form class="form-group" onsubmit="event.preventDefault(); loginForm();" autocomplete="on">
+                    <div style="margin-bottom: 5px;">
+                        <label for="email" class="form-label">Email</label>
+                    </div>
+                    <i class="fa fa-user icon" aria-hidden="true"></i>
+                    <input class="input-field" type="text" placeholder="username or email" id="email" />
+                    <div style="margin-bottom: 5px;">
+                        <label for="password" class="form-label">Password</label>
+                    </div>
+                    <i class="fa fa-lock icon" aria-hidden="true"></i><input class="input-field" type="password" placeholder="password" id="password" />
+                    <div class="container-button" style="margin-top: 7px;">
+                        <button class="form-button">LOGIN</button>
+                        <h6>Are you new? <a class="register" href="./pages/registration.html"> click here to register</a>
+                            <h6>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script src="script/loginForm.js"></script>
 </body>
 
 </html>

@@ -44,7 +44,7 @@ nextBtn.addEventListener('click', () => {
     previousBtn.disabled = false
     if (currentStep === maxSteps) {
         nextBtn.disabled = true
-        nextBtn.style.cursor = 'not-allowed';
+            // nextBtn.style.cursor = 'not-allowed';
     }
     console.log(`currentStep is ${currentStep}`)
 })
