@@ -120,10 +120,8 @@ async function makeReservation() {
                     } else if (data.success === true) {
                         document.querySelector(".main").classList.remove("spinner3");
                         document.querySelector(".back").classList.remove("backPop");
-                        const successAlert = showAlert(data.message, "success", "check-circle")
-                        console.log('successAlert', successAlert)
-                        if (successAlert)
-                            return myFunction()
+                        showAlert(data.message, "success", "check-circle")
+                        setTimeout(() => myFunction(), 3500)
                     }
                 } else {
                     document.querySelector(".main").classList.remove("spinner3");
