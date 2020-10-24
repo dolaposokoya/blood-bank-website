@@ -22,9 +22,12 @@
 }
 
 body {
-    margin: 10px;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    /* overflow: hidden; */
+    background-color: #eee;
+    font-family: 'Roboto Mono', monospace;
+}
+
+form {
+    background-color: rgb(255, 255, 255);
 }
 
 * {
@@ -43,6 +46,17 @@ h6 {
 
 /* Spinner 3 */
 
+.backPop {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background: rgba(19, 18, 18, 0.4);
+}
+
 .spinner3:before {
     content: "";
     box-sizing: border-box;
@@ -57,17 +71,6 @@ h6 {
     border-top: 2px solid rgb(235, 11, 11);
     border-right: 2px solid transparent;
     animation: spinner 0.4s linear infinite;
-}
-
-.backPop {
-    position: fixed;
-    z-index: 5;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background: rgba(19, 18, 18, 0.4);
 }
 
 @keyframes spinner {
@@ -85,32 +88,53 @@ h6 {
     margin: 20px auto;
 }
 
-.alert-success {
-    background-color: rgb(37, 250, 29);
-    border-radius: 9px;
-    padding: 15px;
-    text-align: left;
-    font-size: 1rem;
-    font-weight: bold;
-    width: 35%;
-    text-align: center;
-    color: black;
-    margin: 20px auto;
-    margin-bottom: 1px;
+.alertMessage {
+    position: fixed;
+    right: 0;
+    margin-right: 10px;
+    border: none;
+    z-index: 900;
 }
 
 .alert-warning {
-    background-color: rgb(247, 144, 27);
-    border-radius: 9px;
-    padding: 15px;
-    text-align: left;
-    font-size: 1rem;
-    font-weight: bold;
-    width: 35%;
-    text-align: center;
     color: black;
-    margin: 20px auto;
-    margin-bottom: 1px;
+    font-size: 17px;
+    border-radius: 7px;
+    background-color: #ffa270;
+    animation-name: alert;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+
+.alert-success {
+    color: black;
+    font-size: 20px;
+    border-radius: 7px;
+    background-color: #59ff80;
+    animation-name: alert;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-direction: a
+}
+
+@keyframes alert {
+    from {
+        right: -600px;
+    }
+    to {
+        right: 0;
+    }
+}
+
+.fa-exclamation-triangle {
+    font-size: 25px;
+    color: rgb(252, 252, 33);
+}
+
+.fa-check-circle {
+    font-size: 25px;
+    color: rgb(20, 218, 20);
 }
 
 #footer {
@@ -127,6 +151,7 @@ h6 {
     width: 100%;
     float: left;
     overflow: hidden;
+    background-color: #ffffff;
     /* Animation requirement */
     position: relative;
     /* animation: table 3.5s ease-in 1s forwards;
@@ -159,14 +184,14 @@ h6 {
 }
 
 .table th {
-    background-color: #c02222;
-    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: #383737;
     height: 5px;
     margin: 10px;
 }
 
 .table tbody tr:last-child {
-    border-bottom: 5px solid #c02222;
+    border-bottom: 5px solid #383737;
 }
 
 tr td {
@@ -197,19 +222,6 @@ table tr.active-row {
     border-radius: 5px;
 }
 
-
-/* .form-button {
-    cursor: pointer;
-    margin: 0 auto;
-    width: 100%;
-    height: 40px;
-    text-align: center;
-    border: none;
-    font-size: 20px;
-    background-color: var(--hover-blood);
-    border-radius: 5px;
-} */
-
 .form-button:focus {
     outline: none;
 }
@@ -227,81 +239,14 @@ main {
     min-height: calc(100vh-60px);
 }
 
-body.body-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
 a {
     color: #fff;
     text-decoration: none;
     cursor: pointer;
 }
 
-
-/* button {
-  background-color: var(--blood);
-  text-decoration: none;
-  border: none;
-  height: 30px;
-  cursor: pointer;
-} */
-
 a:hover {
     transition: all 1s ease-out;
-}
-
-
-/* 
-button:hover {
-  background: var(--hover-blood);
-  box-shadow: var(--shadow);
-} */
-
-main div.form-card {
-    max-width: 400px;
-    margin: 0 auto;
-    margin-top: 100px;
-    padding: 5%;
-    box-shadow: var(--shadow);
-    background-color: var(--blood);
-    border-radius: 10px;
-}
-
-.form-group {
-    width: 100%;
-}
-
-.form-group i {
-    position: absolute;
-}
-
-.form-group .form-label {
-    /* margin: 10px; */
-    font-size: 1.2em;
-    color: white;
-}
-
-.icon {
-    padding: 15px;
-    min-width: 2px;
-}
-
-.input-field {
-    margin-bottom: 10px;
-    border-radius: 9px;
-    width: 100%;
-    border: none;
-    padding: 11px 10px 10px 38px;
-}
-
-.input-field:focus {
-    outline: none;
 }
 
 .saveImage {

@@ -52,6 +52,10 @@ gsap.from(".responsive", { duration: 1.5, ease: "bounce.out" });
 
 // form container
 gsap.from(".requestBlood", { duration: 2.5, x: '-5000px', ease: "power3.out" });
+gsap.from(".container-fluid", { duration: 2.5, x: '-5000px', ease: "power3.out" });
 gsap.from("#previousBtn", { duration: 2.5, x: '-10000px', ease: "power3.out", stagger: .2 });
 gsap.from("#nextBtn", { duration: 3.5, x: '-1300px', ease: "power3.out", stagger: .4 });
+
+// Alert animation
+gsap.from(".alertMessage", { duration: 2.5, y: '-5000px', ease: "power3.out" });
 // gsap.from("#link", { duration: 300, opcaity: 0, delay: 50, stagger: .2 });

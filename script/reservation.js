@@ -1,153 +1,157 @@
-const url = "http://localhost:5000";
-let token = localStorage.getItem("userToken");
+const url = "http://localhost:5000/api";
+const token = localStorage.getItem("userToken");
 
 function logOut() {
     localStorage.removeItem("userToken");
     localStorage.removeItem("profileId");
     window.location.assign("/");
 }
-
-const previousBtn = document.getElementById('previousBtn')
-const nextBtn = document.getElementById('nextBtn')
+const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
+const myState = document.getElementById('myState')
 const submitBtn = document.getElementById('submitBtn')
 const content = document.getElementById('content')
-const step1 = document.getElementById('step1')
-const step2 = document.getElementById('step2')
-const bullets = [...document.querySelectorAll('.bullet')];
 
-function showAlert(message, className) {
-    const div = document.createElement("div");
-    div.className = `alert alert-${className}`;
-    div.appendChild(document.createTextNode(message));
-    const container = document.querySelector(".container");
-    const main = document.querySelector("main");
-    container.insertBefore(div, main);
-
-    // Vanish in 2 seconds
-    setTimeout(() => document.querySelector(".alert").remove(), 2000);
-}
-const maxSteps = 2;
-let currentStep = 1;
-
-if (currentStep == 1) {
-    step1.style.display = 'block'
-    step2.style.display = 'none'
+function showAlert(message, className, iconType) {
+    const alertMessage = document.querySelector(".alertMessage");
+    alertMessage.innerHTML = `<div class="alert alert-${className}" role="alert">
+    <i class="fa fa-${iconType}" aria-hidden="true"></i>  ${message}
+  </div>`
+        // Vanish in 3 seconds
+    setTimeout(() => document.querySelector(".alert").remove(), 3000);
 }
 
-nextBtn.addEventListener('click', () => {
-    bullets[currentStep - 1].classList.add('completed')
-    currentStep++
-    if (currentStep == 2) {
-        step1.style.display = 'none'
-        step2.style.display = 'block'
-    }
-    previousBtn.disabled = false
-    if (currentStep === maxSteps) {
-        nextBtn.disabled = true
-            // nextBtn.style.cursor = 'not-allowed';
-    }
-    console.log(`currentStep is ${currentStep}`)
-})
 
-previousBtn.addEventListener('click', () => {
-    bullets[currentStep - 2].classList.remove('completed')
-    currentStep--
 
-    nextBtn.disabled = false
-    if (currentStep === 1) {
-        previousBtn.disabled = true
-        step1.style.display = 'block'
-        step2.style.display = 'none'
-    } else if (currentStep == 2) {
-        step1.style.display = 'none'
-        step2.style.display = 'block'
-    } else if (currentStep == 3) {
-        step1.style.display = 'none'
-        step2.style.display = 'none'
-    } else if (currentStep == 4) {
-        step1.style.display = 'none'
-        step2.style.display = 'none'
-    }
-})
-
-function makeReservation() {
-    setTimeout(() => {
-        const donor_name = document.getElementById("donor_name").value;
-        const age = document.getElementById("age").value;
-        const donor_mobile = document.getElementById("donor_mobile").value;
-        const weight = document.getElementById("weight").value;
-        const gender = document.getElementById("gender").value;
-        const reservation_date = document.getElementById("reservation_date").value;
-        document.querySelector(".back").classList.add("backPop");
-        document.querySelector(".main").classList.add("spinner3");
-        let formData = {
-            donor_name: donor_name,
-            age: age,
-            donor_mobile: donor_mobile,
-            weight: weight,
-            gender: gender,
-            reservation_date: reservation_date,
-        };
-        let data = JSON.stringify(formData);
-        if (formData.donor_name == "") {
-            document.querySelector(".main").classList.remove("spinner3");
-            document.querySelector(".back").classList.remove("backPop");
-            showAlert("Donor Name is empty", "warning");
-        } else if (formData.age == "") {
-            document.querySelector(".main").classList.remove("spinner3");
-            document.querySelector(".back").classList.remove("backPop");
-            showAlert("Age is empty", "warning");
-        } else if (formData.donor_mobile == "") {
-            document.querySelector(".main").classList.remove("spinner3");
-            document.querySelector(".back").classList.remove("backPop");
-            showAlert("Mobile is empty", "warning");
-        } else if (formData.weight == "") {
-            document.querySelector(".main").classList.remove("spinner3");
-            document.querySelector(".back").classList.remove("backPop");
-            showAlert("Weight is empty", "warning");
-        } else if (formData.gender == "" || formData.gender == "Choose...") {
-            document.querySelector(".main").classList.remove("spinner3");
-            document.querySelector(".back").classList.remove("backPop");
-            showAlert("Gender is empty", "warning");
-        } else if (formData.reservation_date == "") {
-            document.querySelector(".main").classList.remove("spinner3");
-            document.querySelector(".back").classList.remove("backPop");
-            showAlert("Date is empty", "warning");
-        } else {
-            console.log(formData)
-            fetch(`${url}/reservation/create-reservation`, {
-                    method: "POST",
-                    headers: {
-                        authorization: `Bearer ${token}`,
-                        "Content-Type": "application/json",
-                        accept: "application/json",
-                    },
-                    body: data,
-                }).then((response) => {
-                    if (!response) {
-                        setTimeout(() => document.querySelector(".main").remove(), 10000)
-                        console.log(response)
-                        return response.json();
-                    } else {
-                        console.log(response)
-                        return response.json();
-                    }
-                })
-                .then((data) => {
-                    console.log('Data', data)
-                    if (data) {
-                        if (data.success == false) {
-                            document.querySelector(".main").classList.remove("spinner3");
-                            document.querySelector(".back").classList.remove("backPop");
-                            showAlert(data.message, "warning");
-                        } else if (data.success == true) {
-                            showAlert(data.message, "success");
-                            document.querySelector(".main").classList.remove("spinner3");
-                            document.querySelector(".back").classList.remove("backPop");
-                            window.location.assign("../pages/contactdonor.html");
-                        }
-                    }
-                });
+async function makeReservation() {
+    const donor_name = document.getElementById("donor_name").value;
+    const age = document.getElementById("age").value;
+    const donor_mobile = document.getElementById("donor_mobile").value;
+    const weight = document.getElementById("weight").value;
+    const gender = document.getElementById("gender").value;
+    const reservation_date = document.getElementById("reservation_date").value;
+    const hospital_name = document.getElementById("hospital_name").value;
+    const hospital_address = document.getElementById("hospital_address").value;
+    const city = document.getElementById("city").value;
+    const myState = document.getElementById("myState").value;
+    const pincode = document.getElementById("pincode").value;
+    document.querySelector(".back").classList.add("backPop");
+    document.querySelector(".main").classList.add("spinner3");
+    let formData = {
+        donor_name: donor_name,
+        age: age,
+        donor_mobile: donor_mobile,
+        weight: weight,
+        gender: gender,
+        reservation_date: reservation_date,
+        hospital_name: hospital_name,
+        hospital_address: hospital_address,
+        city: city,
+        myState: myState,
+        pincode: pincode
+    };
+    if (formData.donor_name === "" || formData.donor_name === null) {
+        document.querySelector(".main").classList.remove("spinner3");
+        document.querySelector(".back").classList.remove("backPop");
+        showAlert("Donor Name is empty", "warning", "exclamation-triangle");
+    } else if (formData.donor_mobile === "" || formData.donor_mobile === null) {
+        document.querySelector(".main").classList.remove("spinner3");
+        document.querySelector(".back").classList.remove("backPop");
+        showAlert("Mobile is empty", "warning", "exclamation-triangle");
+    } else if (formData.age === "" || formData.age === null) {
+        document.querySelector(".main").classList.remove("spinner3");
+        document.querySelector(".back").classList.remove("backPop");
+        showAlert("Age is empty", "warning", "exclamation-triangle");
+    } else if (formData.weight === "" || formData.weight === null) {
+        document.querySelector(".main").classList.remove("spinner3");
+        document.querySelector(".back").classList.remove("backPop");
+        showAlert("Weight is empty", "warning", "exclamation-triangle");
+    } else if (formData.gender === "" || formData.gender === "Choose...") {
+        document.querySelector(".main").classList.remove("spinner3");
+        document.querySelector(".back").classList.remove("backPop");
+        showAlert("Gender is empty", "warning", "exclamation-triangle");
+    } else if (formData.reservation_date === "" || formData.reservation_date === null) {
+        document.querySelector(".main").classList.remove("spinner3");
+        document.querySelector(".back").classList.remove("backPop");
+        showAlert("Date is empty", "warning", "exclamation-triangle");
+    } else if (formData.hospital_name === "" || formData.hospital_name === null) {
+        document.querySelector(".main").classList.remove("spinner3");
+        document.querySelector(".back").classList.remove("backPop");
+        showAlert("Hospital name is empty", "warning", "exclamation-triangle");
+    } else if (formData.hospital_address === "" || formData.hospital_address === null) {
+        document.querySelector(".main").classList.remove("spinner3");
+        document.querySelector(".back").classList.remove("backPop");
+        showAlert("Hospital address is empty", "warning", "exclamation-triangle");
+    } else if (formData.city == "" || formData.gender == "Choose...") {
+        document.querySelector(".main").classList.remove("spinner3");
+        document.querySelector(".back").classList.remove("backPop");
+        showAlert("City is empty", "warning", "exclamation-triangle");
+    } else if (formData.myState === "" || formData.myState === "Choose...") {
+        document.querySelector(".main").classList.remove("spinner3");
+        document.querySelector(".back").classList.remove("backPop");
+        showAlert("State is empty", "warning", "exclamation-triangle");
+    } else if (formData.pincode === "" || formData.myState === null) {
+        document.querySelector(".main").classList.remove("spinner3");
+        document.querySelector(".back").classList.remove("backPop");
+        showAlert("Pin code is empty", "warning", "exclamation-triangle");
+    } else {
+        const headers = {
+            token: `Bearer ${token}`,
+            "Content-Type": "application/json",
+            accept: "application/json",
         }
-    }, 2000)
+        const response = await fetch(`${url}/reservation/createReservation`, {
+            method: "POST",
+            headers: headers,
+            body: JSON.stringify(formData),
+        })
+        if (!response) {
+            document.querySelector(".main").classList.remove("spinner3");
+            document.querySelector(".back").classList.remove("backPop");
+            return response.json();
+        } else {
+            const data = await response.json();
+            if (data) {
+                if (data.success === false) {
+                    document.querySelector(".main").classList.remove("spinner3");
+                    document.querySelector(".back").classList.remove("backPop");
+                    showAlert(data.message, "warning", "exclamation-triangle");
+                } else if (data.success === true) {
+                    document.querySelector(".main").classList.remove("spinner3");
+                    document.querySelector(".back").classList.remove("backPop");
+                    const successAlert = showAlert(data.message, "success", "check-circle")
+                    console.log('successAlert', successAlert)
+                    if (successAlert)
+                        return myFunction()
+                }
+            }
+        }
+    }
 }
+
+// clear form fields
+function myFunction() {
+    document.getElementById("reservationForm").reset();
+}
+
+// Fetch Some Data
+async function fetchData() {
+    const headers = {
+        "content-type": "application/json",
+        accept: "application/json",
+        'authorization': `Basic ${basicAuth}`,
+    };
+    const request = `${url}/bloodgroup/bloodAllGroup`
+    const response = await fetch(request, { headers: headers, })
+    const data = await response.json()
+    data.data.map(blood => {
+        let states = blood.state
+        states.forEach(bl => {
+            let group = bl.state
+            let myOptions = document.createElement('option')
+            myOptions.textContent = `${group}`;
+            myOptions.id = 'my-state'
+            myState.appendChild(myOptions)
+        })
+    })
+}
+fetchData()

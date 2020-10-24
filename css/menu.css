@@ -9,11 +9,13 @@
 
 * {
     box-sizing: bor;
+    font-family: 'Roboto Mono', monospace;
 }
 
 body {
     margin: 0;
     padding: 0;
+    background-color: #eee;
 }
 
 .fa-bell {
@@ -33,12 +35,12 @@ body {
 
 td .contact {
     outline: none;
-    color: var(--hover-blood);
+    color: black;
     font-size: 17px;
     font-weight: 500;
     cursor: pointer;
     background: none;
-    border: 1px solid var(--hover-blood);
+    border: 1px solid black;
     width: 100px;
     height: 40px;
     opacity: 0;
@@ -72,6 +74,7 @@ td .contact {
 .navbar {
     margin-bottom: 30px;
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     background-color: var(--menu-background);
@@ -112,21 +115,71 @@ td .contact {
 }
 
 .navbar-links li:hover {
-    background-color: var(--blood);
+    background-color: black;
     margin: 0 2px 0 2px;
 }
 
 .navbar-links li.current {
-    background-color: var(--blood);
+    background-color: black;
 }
 
-@media(max-width: 500px) {
-    .fa-bell {
-        font-size: 18px;
-        padding: 15.5px 0;
-        color: var(--bellWhite);
+@media(max-width: 720px) {
+    .banner-image1 {
+        display: flex;
+        width: 100px;
+        padding: 15px 10px 0 10px;
+        margin: auto;
+        padding-bottom: 10px;
+    }
+    .menu-btn {
+        display: block;
+        position: absolute;
+        z-index: 3;
+        right: 35px;
+        top: 20px;
         cursor: pointer;
-        transition: transform 2s;
+        transition: all 1s ease-out;
+    }
+    .btn-line {
+        width: 28px;
+        height: 3px;
+        margin: 0 0 5px 0;
+        background: red;
+        transition: all 0.2s ease-out;
+    }
+    /* Rotate to X */
+    .close .btn-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px)
+    }
+    .close .btn-line:nth-child(2) {
+        opacity: 0;
+    }
+    .close .btn-line:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -7px)
+    }
+    /* After click button change direction of content */
+    .navbar-links {
+        display: none;
+        width: 100%;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+    .navbar-links li,
+    .fa-bell {
+        text-align: center;
+    }
+    .navbar-links li a,
+    .fa-bell {
+        padding: .5rem 1rem;
+    }
+    .navbar-links.active {
+        display: flex;
     }
 }
 

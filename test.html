@@ -1,53 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://bootswatch.com/4/yeti/bootstrap.min.css"
-    />
-    <title>Book List</title>
-  </head>
-  <body>
-    <div class="container mt-4">
-      <h1 class="display-4 text-center">
-        <i class="fas fa-book-open text-primary"></i> My<span
-          class="text-primary"
-          >Book</span
-        >List
-      </h1>
-      <form id="book-form">
-        <div class="form-group">
-          <label for="title">Title</label>
-          <input type="text" id="title" class="form-control" />
+<form name="registerForm" id="userForm" autocomplete="on" class="mt-5">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="first_name">First Name</label>
+            <input type="text" class="form-control" id="first_name" placeholder="First Name" />
+            <div class="first_nameMessage container d-flex justify-content-center">
+            </div>
         </div>
-        <div class="form-group">
-          <label for="author">Author</label>
-          <input type="text" id="author" class="form-control" />
+        <div class="form-group col-md-6">
+            <label for="last_name">Last Name</label>
+            <input type="text" class="form-control" id="last_name" placeholder="Last Name" />
+            <div class="last_nameMessage container d-flex justify-content-center">
+            </div>
         </div>
-        <div class="form-group">
-          <label for="isbn">ISBN#</label>
-          <input type="text" id="isbn" class="form-control" />
-        </div>
-        <input
-          type="submit"
-          value="Add Book"
-          class="btn btn-primary btn-block"
-        />
-      </form>
-      <table class="table table-striped mt-5">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>ISBN#</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="book-list"></tbody>
-      </table>
     </div>
-    <script src="/script/index.js"></script>
-  </body>
-</html>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="gender">Gender</label>
+            <select id="myGender">
+                <option value="Gender" selected>Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <div class="genderMessage container d-flex justify-content-center">
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="date_of_birth">Date of birth</label>
+            <input type="date" class="form-control" id="date_of_birth" />
+            <div class="date_of_birthMessage container d-flex justify-content-center">
+            </div>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="date">Age</label>
+            <input type="number" class="form-control" id="age" placeholder="Age" />
+            <div class="ageMessage container d-flex justify-content-center">
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="mobile">Mobile</label>
+            <input type="text" class="form-control" id="mobile" placeholder="Mobile" />
+            <div class="mobileMessage container d-flex justify-content-center">
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Email" />
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <div class="emailMessage container d-flex justify-content-center">
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password" />
+            <div class="passwordMessage container d-flex justify-content-center">
+            </div>
+        </div>
+    </div>
+    <div id="step3">
+        <div>
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" placeholder="Address" />
+            <div class="addressMessage container d-flex justify-content-center">
+            </div>
+        </div>
+        <div class="form-row">
+            <div>
+                <label for="city">City</label>
+                <input type="text" class="form-control" placeholder="City" id="city" />
+                <div class="cityMessage container d-flex justify-content-center">
+                </div>
+            </div>
+            <div>
+                <label for="State">State</label>
+                <select id="myState" placeholder="State">
+                    <option id="my-state" value="State" selected>State</option>
+                </select>
+                <div class="my-stateMessage container d-flex justify-content-center">
+                </div>
+            </div>
+            <div>
+                <label for="zip_code">Zip Code</label>
+                <input type="text" class="form-control" placeholder="Zip Code" id="zip_code" />
+                <div class="zip_codeMessage container d-flex justify-content-center">
+                </div>
+            </div>
+        </div>
+        <div class="signBtn">
+            <button type="submit" id="request">
+      SIGN IN
+    </button>
+        </div>
+        <div class="login">
+            <h6>Already a user? <a class="login" href="/">Login</a></h6>
+        </div>
+    </div>
+</form>

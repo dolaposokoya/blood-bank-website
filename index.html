@@ -9,38 +9,63 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/request.css" />
     <title>Login Page</title>
 </head>̥
 
-<body class="body-image">
+<body>
+    <style>
+        form .form-control {
+            padding-left: 49px;
+            width: 100%;
+        }
+        
+        form i {
+            position: fixed;
+        }
+        
+        h6 {
+            color: black;
+        }
+        
+        .icon {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            padding: 14px;
+            min-width: 2px;
+        }
+    </style>
+    <div class="alertMessage d-flex justify-content-center">
+    </div>
+
     <div class="back">
         <div class="main">
-            <!-- <h3></h3> -->
         </div>
     </div>
-    <div class="container mt-1">
-        <main>
-            <div class="form-card">
-                <form class="form-group" onsubmit="event.preventDefault(); loginForm();" autocomplete="on">
-                    <div style="margin-bottom: 5px;">
-                        <label for="email" class="form-label">Email</label>
-                    </div>
-                    <i class="fa fa-user icon" aria-hidden="true"></i>
-                    <input class="input-field" type="text" placeholder="username or email" id="email" />
-                    <div style="margin-bottom: 5px;">
-                        <label for="password" class="form-label">Password</label>
-                    </div>
-                    <i class="fa fa-lock icon" aria-hidden="true"></i><input class="input-field" type="password" placeholder="password" id="password" />
-                    <div class="container-button" style="margin-top: 7px;">
-                        <button class="form-button">LOGIN</button>
-                        <h6>Are you new? <a class="register" href="./pages/registration.html"> click here to register</a>
-                            <h6>
-                    </div>
-                </form>
-            </div>
-        </main>
+    <div class="container-fluid col-md-10">
+        <div class="container-fluid col-md-6">
+            <form onsubmit="event.preventDefault(); loginForm();" autocomplete="on" class="mt-5">
+                <div class="form-group">
+                    <label for="email" style="font-size: 15px;">Email</label>
+                    <i class="fa fa-user icon input-group-text" aria-hidden="true"></i>
+                    <input class="form-control mb-2" type="text" placeholder="username or email" id="email" />
+                    <small class="form-text text-muted mt-2">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="password" style="font-size: 15px;">Password</label>
+                    <i class="input-group-text fa fa-lock icon" aria-hidden="true"></i>
+                    <input class="form-control" type="password" placeholder="password" id="password" />
+                </div>
+                <div style="margin-top: 30px;">
+                    <button class="btn btn-outline-primary">LOGIN</button>
+                    <h6>Are you new? <a class="register" href="./pages/registration.html"> click here to register</a>
+                        <h6>
+                </div>
+
+            </form>
+        </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="script/loginForm.js"></script>
 </body>
 

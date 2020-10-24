@@ -2,6 +2,8 @@
     --formColor: #b41717;
     --bullet: #28a745;
     --hover-blood: red;
+    --btn-black: rgb(0, 0, 0);
+    --btn-background: #000000;
 }
 
 * {
@@ -16,32 +18,43 @@
     padding-bottom: 50px;
 }
 
-.container {
-    max-width: 500px;
-    padding-top: 85px;
+body {
+    background-color: #eee;
+    font-family: 'Roboto Mono', monospace;
 }
 
-.container form {
-    display: grid;
-    grid-template-columns: 1fr;
-    background: var(--formColor);
-    box-shadow: 0 0 20px 0 rgb(143, 9, 9, 0.6);
+.form-control,
+select {
+    border-radius: 10px;
+    height: 45px;
+    width: 100%;
+}
+
+.form-control:focus,
+select:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: black;
+}
+
+label {
+    color: black;
+    display: block;
+    padding: 5px 0 5px 0;
+    font-size: 15px;
+}
+
+.container-fluid form {
+    padding: 15px;
+    width: 100%;
+    box-shadow: 0 0 20px 0 rgba(199, 43, 43, 0.6);
     border-radius: 5px;
     padding-top: 20px;
     padding-bottom: 35px;
 }
 
-.container>* {
-    padding: 1.6em;
-}
 
-label {
-    display: block;
-    color: white;
-    padding: 10px 0 10px 0;
-}
-
-input {
+/* input {
     padding: 12px 0 12px 15px;
     border-radius: 10px;
     border: none;
@@ -55,7 +68,7 @@ select {
     border: none;
     outline: none;
     width: 100%;
-}
+} */
 
 
 /* #myState option,
@@ -67,28 +80,20 @@ input:focus {
     outline: none;
 }
 
-.requestButton button {
-    background: #d4d4d4;
-    background: -moz-linear-gradient(left, #d4d4d4 12%, #cccccc 47%, #c4c4c4 59%, #c5c5c5 60%, #c7c7c7 65%, #d9d9d9 96%, #d9d9d9 100%);
-    background: -webkit-gradient(left top, right top, color-stop(12%, #d4d4d4), color-stop(47%, #cccccc), color-stop(59%, #c4c4c4), color-stop(60%, #c5c5c5), color-stop(65%, #c7c7c7), color-stop(96%, #d9d9d9), color-stop(100%, #d9d9d9));
-    background: -webkit-linear-gradient(left, #d4d4d4 12%, #cccccc 47%, #c4c4c4 59%, #c5c5c5 60%, #c7c7c7 65%, #d9d9d9 96%, #d9d9d9 100%);
-    background: -o-linear-gradient(left, #d4d4d4 12%, #cccccc 47%, #c4c4c4 59%, #c5c5c5 60%, #c7c7c7 65%, #d9d9d9 96%, #d9d9d9 100%);
-    background: -ms-linear-gradient(left, #d4d4d4 12%, #cccccc 47%, #c4c4c4 59%, #c5c5c5 60%, #c7c7c7 65%, #d9d9d9 96%, #d9d9d9 100%);
-    background: linear-gradient(to right, #d4d4d4 12%, #cccccc 47%, #c4c4c4 59%, #c5c5c5 60%, #c7c7c7 65%, #d9d9d9 96%, #d9d9d9 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#d4d4d4', endColorstr='#d9d9d9', GradientType=1);
-    border: none;
-    outline: none;
-    color: var(--hover-blood);
-    font-weight: bold;
-    font-size: 17px;
-    margin: 20px auto;
-    width: 100%;
-    height: 50px;
+.btn-outline-primary {
+    background: rgb(253, 253, 253);
+    color: var(--btn-black);
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    border: 2px solid black;
 }
 
-.requestButton button:hover {
-    outline: none;
-    transform: scale(1.09);
+.btn-outline-primary:hover {
+    color: var(--btn-black);
+    border-color: black;
+    background: rgb(250, 249, 249);
+    transform: scale(1.02);
     transition-timing-function: ease-in-out;
     transition: 1s;
 }
@@ -100,28 +105,8 @@ input:focus {
     display: none;
 }
 
-.container1 {
-    padding-top: 10px;
-    max-width: 400px;
-    margin: 20px auto 0 auto
-}
-
-#main button {
-    padding: 5px 10px;
-    margin-left: 40px;
-    transition: 500ms backgroud-color;
-    color: white;
-    width: 35%;
-    border-radius: 3px;
-}
-
 #main p {
     text-align: center;
-}
-
-#main button:disabled:hover {
-    opacity: 0.6;
-    cursor: not-allowed;
 }
 
 #stepProgress {

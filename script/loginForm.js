@@ -1,85 +1,79 @@
-const url = "http://localhost:5000/user/login-user";
-// const url = "https://api-bloodbank.herokuapp.com/user/login-user";
-let token = localStorage.getItem("userToken");
+const url = "http://localhost:5000/api";
+// const url = "https://api-bloodbank.herokuapp.com/api";
+const token = localStorage.getItem("userToken");
 gsap.from(".form-card", { duration: 2.5, x: '-4500px', ease: "power4.out" });
 
-function showAlert(message, className) {
-    const div = document.createElement("div");
-    div.className = `alert alert-${className}`;
-    div.appendChild(document.createTextNode(message));
-    const container = document.querySelector(".container");
-    const main = document.querySelector("main");
-    container.insertBefore(div, main);
 
-    // Vanish in 3 seconds
-    setTimeout(() => document.querySelector(".alert").remove(), 2500);
+function showAlert(message, className, iconType) {
+    const alertMessage = document.querySelector(".alertMessage");
+    alertMessage.innerHTML = `<div class="alert alert-${className}" role="alert">
+    <i class="fa fa-${iconType}" aria-hidden="true"></i>  ${message}
+  </div>`
+        // Vanish in 5 seconds
+    setTimeout(() => document.querySelector(".alert").remove(), 5000);
 }
+
+
 
 // Check if token already exist
 window.addEventListener("load", () => {
-    let token = localStorage.getItem("userToken")
-    if (token) {
-        console.log("Token", token);
-        window.location.assign("../pages/requestblood.html");
+    const token = localStorage.getItem("userToken")
+    console.log(localStorage.getItem("userToken"))
+    if (token === undefined || token === null || token === '') {
+        localStorage.removeItem("userToken");
+        localStorage.removeItem("profileId");
     }
 });
 
+const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
 
-function loginForm() {
-    setTimeout(() => {
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        document.querySelector(".back").classList.add("backPop");
-        document.querySelector(".main").classList.add("spinner3");
-        let formData = {
-            email: email,
-            password: password,
-        };
-        let data = JSON.stringify(formData);
-        if (formData.email == "") {
-            document.querySelector(".main").classList.remove("spinner3");
-            document.querySelector(".back").classList.remove("backPop");
-            showAlert("Email is empty", "warning");
-        } else if (formData.password == "") {
-            document.querySelector(".main").classList.remove("spinner3");
-            document.querySelector(".back").classList.remove("backPop");
-            showAlert("Password is empty", "warning");
-        } else {
-            fetch(url, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        accept: "application/json",
-                    },
-                    body: data,
-                }).then((response) => {
-                    if (!response) {
-                        setTimeout(() => document.querySelector(".main").remove(), 10000)
-                        console.log(response)
-                        return response.json();
-                    } else {
-                        console.log(response)
-                        return response.json();
-                    }
-                })
-                .then((data) => {
-                    console.log('Data', data)
-                    if (data) {
-                        if (data.success == false) {
-                            document.querySelector(".main").classList.remove("spinner3");
-                            document.querySelector(".back").classList.remove("backPop");
-                            showAlert(data.message, "warning");
-                            // alert(data.message);
-                        } else if (data.success == true) {
-                            showAlert(data.message, "success");
-                            document.querySelector(".main").classList.remove("spinner3");
-                            document.querySelector(".back").classList.remove("backPop");
-                            localStorage.setItem("userToken", data.token);
-                            localStorage.setItem("profileId", data.profile_id);
-                            window.location.assign("../pages/contactdonor.html");
-                        }
-                    }
-                });
+async function loginForm() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    document.querySelector(".back").classList.add("backPop");
+    document.querySelector(".main").classList.add("spinner3");
+    let formData = {
+        email: email,
+        password: password,
+    };
+    if (formData.email === "" || formData.email === null) {
+        document.querySelector(".main").classList.remove("spinner3");
+        document.querySelector(".back").classList.remove("backPop");
+        showAlert("Email is empty", "warning", "exclamation-triangle");
+    } else if (formData.password == "") {
+        document.querySelector(".main").classList.remove("spinner3");
+        document.querySelector(".back").classList.remove("backPop");
+        showAlert("Password is empty", "warning", "exclamation-triangle");
+    } else {
+        try {
+            const apiURl = `${url}/user/loginUser`
+            const headers = {
+                "authorization": `Basic ${basicAuth}`,
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+            }
+            const body = JSON.stringify(formData)
+            const response = await fetch(apiURl, { method: "POST", headers: headers, body: body });
+            const data = await response.json()
+            if (data) {
+                console.log(data)
+                if (data.success == false) {
+                    document.querySelector(".main").classList.remove("spinner3");
+                    document.querySelector(".back").classList.remove("backPop");
+                    showAlert(data.message, "warning", "exclamation-triangle");
+                } else if (data.success == true) {
+                    showAlert(data.message, "success", "check-circle");
+                    document.querySelector(".main").classList.remove("spinner3");
+                    document.querySelector(".back").classList.remove("backPop");
+                    localStorage.setItem("userToken", data.data.token);
+                    localStorage.setItem("profileId", data.data.profile_id);
+                    window.location.assign("../pages/contactdonor.html");
+                }
+            } else {
+                showAlert('Unable to load data', "warning", "exclamation-triangle");
+            }
+        } catch (error) {
+            showAlert('Something went wrong!', 'warning', "exclamation-triangle");
         }
-    }, 2000)
+    }
 }
