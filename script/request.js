@@ -109,7 +109,7 @@ async function makeRequest() {
 
 // clear form fields
 function myFunction() {
-    document.getElementById("reservationForm").reset();
+    document.getElementById("requestForm").reset();
 }
 
 // Fetch Some Data
