@@ -1,5 +1,5 @@
 // const url = `http://localhost:5000/api`
-const url = `https://api-bloodbank-v1.herokuapp.com`
+const url = `https://api-bloodbank-v1.herokuapp.com/api`
 const site_origin = `http://127.0.0.1:5500`;
 const form = document.getElementById('userForm');
 const gender = document.getElementById("myGender");
@@ -79,7 +79,7 @@ form.addEventListener('submit', async(event) => {
             })
             const data = await response.json()
             if (!response) {
-                showAlert('Something went wrong', 'warning', 'exclamation-triangle')
+                showAlert('No response', 'warning', 'exclamation-triangle')
             } else {
                 if (data.success === false) {
                     showAlert(data.message, 'warning', 'exclamation-triangle')

@@ -1,4 +1,4 @@
-const url = `https://api-bloodbank-v1.herokuapp.com`
+const url = `https://api-bloodbank-v1.herokuapp.com/api`
     // const url = "http://localhost:5000/api";
 const token = localStorage.getItem("userToken");
 document.querySelector(".back").classList.add("backPop");
@@ -41,10 +41,9 @@ function getUser() {
                 }
             } else if (this.status !== 200) {
                 const dataError = JSON.parse(this.responseText)
-                showAlert(dataError, 'warning')
+                showAlert('Something went wrong', 'warning')
                 console.log('dataError', dataError)
                 console.log(`$statusText ${this.statusText}`)
-                    // error.innerHTML = `${this.statusText}`
                 document.querySelector(".table").style.display = 'none';
                 document.querySelector(".main").classList.remove("spinner3");
                 document.querySelector(".back").classList.remove("backPop");
@@ -54,6 +53,8 @@ function getUser() {
         xhr.send()
     } catch (error) {
         showAlert('Something went wrong', 'warning')
+        document.querySelector(".main").classList.remove("spinner3");
+        document.querySelector(".back").classList.remove("backPop");
     }
 }
 

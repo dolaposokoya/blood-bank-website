@@ -1,5 +1,5 @@
 // const url = "http://localhost:5000/api";
-const url = `https://api-bloodbank-v1.herokuapp.com`
+const url = `https://api-bloodbank-v1.herokuapp.com/api`
 const token = localStorage.getItem("userToken");
 
 function logOut() {
@@ -95,36 +95,46 @@ async function makeReservation() {
         document.querySelector(".back").classList.remove("backPop");
         showAlert("Pin code is empty", "warning", "exclamation-triangle");
     } else {
-        const headers = {
-            token: `Bearer ${token}`,
-            "Content-Type": "application/json",
-            accept: "application/json",
-        }
-        const response = await fetch(`${url}/reservation/createReservation`, {
-            method: "POST",
-            headers: headers,
-            body: JSON.stringify(formData),
-        })
-        if (!response) {
-            document.querySelector(".main").classList.remove("spinner3");
-            document.querySelector(".back").classList.remove("backPop");
-            return response.json();
-        } else {
-            const data = await response.json();
-            if (data) {
-                if (data.success === false) {
+        try {
+            const headers = {
+                token: `Bearer ${token}`,
+                "Content-Type": "application/json",
+                accept: "application/json",
+            }
+            const response = await fetch(`${url}/reservation/createReservation`, {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(formData),
+            })
+            if (!response) {
+                document.querySelector(".main").classList.remove("spinner3");
+                document.querySelector(".back").classList.remove("backPop");
+                return response.json();
+            } else {
+                const data = await response.json();
+                if (data) {
+                    if (data.success === false) {
+                        document.querySelector(".main").classList.remove("spinner3");
+                        document.querySelector(".back").classList.remove("backPop");
+                        showAlert(data.message, "warning", "exclamation-triangle");
+                    } else if (data.success === true) {
+                        document.querySelector(".main").classList.remove("spinner3");
+                        document.querySelector(".back").classList.remove("backPop");
+                        const successAlert = showAlert(data.message, "success", "check-circle")
+                        console.log('successAlert', successAlert)
+                        if (successAlert)
+                            return myFunction()
+                    }
+                } else {
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
-                    showAlert(data.message, "warning", "exclamation-triangle");
-                } else if (data.success === true) {
-                    document.querySelector(".main").classList.remove("spinner3");
-                    document.querySelector(".back").classList.remove("backPop");
-                    const successAlert = showAlert(data.message, "success", "check-circle")
-                    console.log('successAlert', successAlert)
-                    if (successAlert)
-                        return myFunction()
+                    showAlert('No response', "warning", "exclamation-triangle");
                 }
             }
+        } catch (error) {
+            document.querySelector(".main").classList.remove("spinner3");
+            document.querySelector(".back").classList.remove("backPop");
+            showAlert('Something went wrong', "warning", "exclamation-triangle");
         }
     }
 }
