@@ -1,4 +1,5 @@
-const url = "http://localhost:5000/api";
+// const url = "http://localhost:5000/api";
+const url = `https://api-bloodbank-v1.herokuapp.com`
 const token = localStorage.getItem("userToken");
 
 function logOut() {

@@ -17,32 +17,6 @@ menuBtn.addEventListener("click", () => {
         showMenu = false
     }
 });
-//Set initial state of menu
-// let showMenu = false;
-
-// menuBtn.addEventListener("click", toggleMenu);
-
-// previous function for navigation
-// function toggleMenu() {
-//     console.log('Button clicked')
-//     if (!showMenu) {
-//         menuBtn.classList.add("close");
-//         menu.classList.add("show");
-//         navBarLinks.classList.add("show");
-//         menuNav.classList.add("show");
-//         navItem.forEach((item) => item.classList.add("show"));
-
-//         showMenu = true;
-//     } else {
-//         menuBtn.classList.remove("close");
-//         menu.classList.remove("show");
-//         navBarLinks.classList.remove("show");
-//         menuNav.classList.add("show");
-//         navItem.forEach((item) => item.classList.remove("show"));
-
-//         showMenu = false;
-//     }
-// }
 
 // Animate Header
 gsap.from(".table", { duration: 3, y: '-300px', ease: "bounce.out" });

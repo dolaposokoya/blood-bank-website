@@ -1,4 +1,5 @@
-const url = `http://localhost:5000/api`;
+// const url = `http://localhost:5000/api`;
+const url = `https://api-bloodbank-v1.herokuapp.com`
 let myBlood = document.getElementById('get-blood');
 let check = document.getElementById('check');
 
@@ -31,11 +32,10 @@ myBlood.addEventListener('submit', (e) => {
 })
 
 var channel = pusher.subscribe('blood');
-channel.bind('my-blood', function (data) {
+channel.bind('my-blood', function(data) {
     data.data.map(blood => {
         // console.log('Pushwer', JSON.stringify(blood.bloodgroup));
         alert(JSON.stringify(blood.bloodgroup));
     })
 
 });
-
