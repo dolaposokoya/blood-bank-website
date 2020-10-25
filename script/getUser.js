@@ -29,14 +29,12 @@ function getUser() {
                 } else {
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
-                    console.log('First load', users.data.docs)
-                    displayData(users.data.docs)
+                    const totalPages = users.data.totalPages
+                    displayData(users.data.docs, totalPages)
                 }
             } else if (this.status !== 200) {
                 const dataError = JSON.parse(this.responseText)
                 showAlert('Something went wrong', 'warning')
-                console.log('dataError', dataError)
-                console.log(`$statusText ${this.statusText}`)
                 document.querySelector(".table").style.display = 'none';
                 document.querySelector(".main").classList.remove("spinner3");
                 document.querySelector(".back").classList.remove("backPop");
@@ -74,14 +72,11 @@ function filterUser(search) {
                 } else {
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
-                    console.log('Key up', users.data.docs)
-                    displayData(users.data.docs)
+                    displayData(users.data.docs, totalPages)
                 }
             } else if (this.status !== 200) {
                 const dataError = JSON.parse(this.responseText)
                 showAlert('Something went wrong', 'warning')
-                console.log('dataError', dataError)
-                console.log(`$statusText ${this.statusText}`)
                 document.querySelector(".table").style.display = 'none';
                 document.querySelector(".main").classList.remove("spinner3");
                 document.querySelector(".back").classList.remove("backPop");
@@ -95,7 +90,7 @@ function filterUser(search) {
     }
 }
 
-function displayData(data) {
+function displayData(data, totalPage) {
     const list = document.querySelector("#user-list");
     list.innerHTML = ''
     data.map((item, index) => {
@@ -105,15 +100,15 @@ function displayData(data) {
 <td data-label="Blood Group"><i class="fas fa-tint"></i> ${item.blood_group}</td><td data-label="City"><i class="fas fa-map-marker"></i> ${item.city}</td><td data-label="Action"><button class="btn btn-outline-primary"  onClick="openModal()">contact</button></td>`;
         list.appendChild(row);
     });
-    const totalPages = $('.totalPages')
-    totalPages.html = `Number of pages ${data.totalPages}`
+
+    const totalPages = document.querySelector(".pageNumber");
+    totalPages.innerHTML = `<small>Number of pages ${totalPage}</small>`
 }
 
 
 $("#search").on('keyup', () => {
     const search = $('#search').val();
     filterUser(search)
-    console.log('search', search)
     if (search === null || search === '') {
         getUser();
     }
