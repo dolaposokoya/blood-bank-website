@@ -178,26 +178,23 @@ h6 {
 
 .table th,
 .table td {
-    padding: 12px 15px;
     border: 1px solid #e3e3e3;
     text-align: center;
 }
 
 .table th {
     color: white;
-    background-color: #383737;
+    background-color: #000000;
     height: 5px;
     margin: 10px;
 }
 
 .table tbody tr:last-child {
-    border-bottom: 5px solid #383737;
+    border-bottom: 5px solid #000000;
 }
 
 tr td {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 19px;
-    text-align: left;
+    text-align: center;
 }
 
 table tr:nth-child(even) {
@@ -207,6 +204,14 @@ table tr:nth-child(even) {
 table tr.active-row {
     font-weight: bold;
     background-color: #c02222;
+}
+
+table tr:hover {
+    border: 1px solid;
+    padding: 10px;
+    /* box-shadow: inset 0 0 10px #000000; */
+    box-shadow: 5px 5px 5px rgb(230, 225, 225);
+    transform: scale(1.05);
 }
 
 .form-button {
@@ -226,10 +231,11 @@ table tr.active-row {
     outline: none;
 }
 
-.form-button:hover {
+
+/* .form-button:hover {
     transition: 1.5s ease-out;
     transform: scale(1.09);
-}
+} */
 
 * {
     box-sizing: border-box;

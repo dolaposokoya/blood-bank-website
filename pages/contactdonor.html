@@ -5,16 +5,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" />
     <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/menu.css" />
     <link rel="stylesheet" href="../css/modal.css" />
+    <link rel="stylesheet" href="../css/request.css" />
 
     <title>Contact Donor</title>
 </head>
 
 <body>
+    <style>
+        .form-control {
+            border-radius: 1px;
+            height: 30px;
+            width: 20px;
+        }
+    </style>
     <div class="back">
         <div class="main"></div>
     </div>
@@ -60,20 +70,43 @@
             </ul>
         </div>
     </nav>
-    <div class="alertMessage container d-flex justify-content-center">
+    <div class="alertMessage d-flex justify-content-center">
     </div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Blood Group</th>
-                <th>City</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody id="user-list"></tbody>
-    </table>
+    <div class="container-fluid col-md-7 float-left">
+        <table class="table mb-3">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Blood Group</th>
+                    <th>City</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="user-list">
+                <tr class="dateRow">
+
+                </tr>
+            </tbody>
+            <tbody id="search-list"> </tbody>
+            <div class="form-inline mb-3">
+                <label for="search">Search: </label>
+                <input class="form-control mr-sm-2" type="search" id="search" placeholder="Search" aria-label="Search">
+            </div>
+        </table>
+        <div class="pageNumber float-left">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="../script/getUser.js"></script>
     <script src="../script/main.js"></script>
