@@ -29,19 +29,8 @@ function getUser() {
                 } else {
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
-                    users.data.docs.map((item, index) => {
-                        // const list = document.querySelector("#user-list");
-                        const row = document.querySelector(".dateRow");
-                        // const row = document.createElement("tr");
-                        row.innerHTML = `<td data-label="Name"><i class="fas fa-user"></i> ${item.first_name}</td>
-          <td data-label="Email"> <i class="fas fa-venus-mars"></i> ${item.gender}</td>
-          <td data-label="Blood Group"><i class="fas fa-tint"></i> ${item.blood_group}</td><td data-label="City"><i class="fas fa-map-marker"></i> ${item.city}</td><td data-label="Action"><button class="btn btn-outline-primary"  onClick="openModal()">contact</button></td>`;
-                        // list.appendChild(row);
-                    });
-                    const pages = document.createElement("div");
-                    const pageNumber = document.querySelector(".pageNumber");
-                    pages.innerHTML = `<small class="totalPages">Number of pages ${users.data.totalPages}<small>`
-                    pageNumber.appendChild(pages)
+                    console.log('First load', users.data.docs)
+                    displayData(users.data.docs)
                 }
             } else if (this.status !== 200) {
                 const dataError = JSON.parse(this.responseText)
@@ -65,7 +54,6 @@ function getUser() {
 
 function filterUser(search) {
     try {
-        $('#user-list').hide();
         const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
         var xhr = new XMLHttpRequest()
         xhr.open('GET', `${url}/user/filterUser?search=${search}`, true)
@@ -86,18 +74,8 @@ function filterUser(search) {
                 } else {
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
-                    console.log('users.data.docs', users.data.docs)
-                    users.data.docs.map((item, index) => {
-                        // const list = $("#search-list");
-                        // const row = document.createElement("tr");
-                        const row = $('.row');
-                        row.innerHTML = `<td data-label="Name"><i class="fas fa-user"></i> ${item.first_name}</td>
-          <td data-label="Email"> <i class="fas fa-venus-mars"></i> ${item.gender}</td>
-          <td data-label="Blood Group"><i class="fas fa-tint"></i> ${item.blood_group}</td><td data-label="City"><i class="fas fa-map-marker"></i> ${item.city}</td><td data-label="Action"><button class="btn btn-outline-primary"  onClick="openModal()">contact</button></td>`;
-                        // list.appendChild(row);
-                    });
-                    const totalPages = $('.totalPages')
-                    totalPages.html = `Number of pages ${users.data.totalPages}`
+                    console.log('Key up', users.data.docs)
+                    displayData(users.data.docs)
                 }
             } else if (this.status !== 200) {
                 const dataError = JSON.parse(this.responseText)
@@ -116,18 +94,30 @@ function filterUser(search) {
         document.querySelector(".back").classList.remove("backPop");
     }
 }
-$("#search").keyup(function() {
+
+function displayData(data) {
+    const list = document.querySelector("#user-list");
+    list.innerHTML = ''
+    data.map((item, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td data-label="Name"><i class="fas fa-user"></i> ${item.first_name}</td>
+<td data-label="Email"> <i class="fas fa-venus-mars"></i> ${item.gender}</td>
+<td data-label="Blood Group"><i class="fas fa-tint"></i> ${item.blood_group}</td><td data-label="City"><i class="fas fa-map-marker"></i> ${item.city}</td><td data-label="Action"><button class="btn btn-outline-primary"  onClick="openModal()">contact</button></td>`;
+        list.appendChild(row);
+    });
+    const totalPages = $('.totalPages')
+    totalPages.html = `Number of pages ${data.totalPages}`
+}
+
+
+$("#search").on('keyup', () => {
     const search = $('#search').val();
-    $('#user-list').hide();
-    console.log('searchg', search)
     filterUser(search)
+    console.log('search', search)
     if (search === null || search === '') {
         getUser();
-        $('#user-list').show();
-        $('#search-list').hide();
     }
-});
-
+})
 async function checkToken() {
     if (token) {
         getUser()
