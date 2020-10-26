@@ -72,6 +72,7 @@ function filterUser(search) {
                 } else {
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
+                      const totalPages = users.data.totalPages;
                     displayData(users.data.docs, totalPages)
                 }
             } else if (this.status !== 200) {
