@@ -97,8 +97,8 @@ function displayData(data, totalPage) {
     data.map((item, index) => {
         const row = document.createElement("tr");
         row.innerHTML = `<td data-label="Name"><i class="fas fa-user"></i> ${item.first_name}</td>
-<td data-label="Email"> <i class="fas fa-venus-mars"></i> ${item.gender}</td>
-<td data-label="Blood Group"><i class="fas fa-tint"></i> ${item.blood_group}</td><td data-label="City"><i class="fas fa-map-marker"></i> ${item.city}</td><td data-label="Action"><button class="btn btn-outline-primary"  onClick="openModal()">contact</button></td>`;
+<td data-label="Gender"> <i class="fas fa-venus-mars"></i> ${item.gender}</td>
+<td data-label="Blood Group"><i class="fas fa-tint"></i> ${item.blood_group}</td><td data-label="City"><i class="fas fa-map-marker"></i> ${item.city}</td><td data-label="View Deatils"><button class="btn btn-outline-primary"  onClick="openModal()">contact</button></td>`;
         list.appendChild(row);
     });
 
