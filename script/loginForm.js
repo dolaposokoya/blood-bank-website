@@ -3,27 +3,30 @@ const url = `https://api-bloodbank-v1.herokuapp.com/api`
 const token = localStorage.getItem("userToken");
 gsap.from(".form-card", { duration: 2.5, x: '-4500px', ease: "power4.out" });
 
-
+checkToken()
 function showAlert(message, className, iconType) {
     const alertMessage = document.querySelector(".alertMessage");
     alertMessage.innerHTML = `<div class="alert alert-${className}" role="alert">
     <i class="fa fa-${iconType}" aria-hidden="true"></i>  ${message}
   </div>`
-        // Vanish in 5 seconds
+    // Vanish in 5 seconds
     setTimeout(() => document.querySelector(".alert").remove(), 5000);
 }
 
 
 
 // Check if token already exist
-window.addEventListener("load", () => {
+function checkToken() {
     const token = localStorage.getItem("userToken")
     console.log(localStorage.getItem("userToken"))
     if (token === undefined || token === null || token === '') {
         localStorage.removeItem("userToken");
         localStorage.removeItem("profileId");
     }
-});
+    else {
+        window.location.assign("../pages/contactdonor.html");
+    }
+};
 
 const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
 
