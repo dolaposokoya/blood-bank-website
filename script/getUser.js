@@ -1,5 +1,5 @@
 const url = `https://api-bloodbank-v1.herokuapp.com/api`
-    // const url = "http://localhost:5000/api";
+// const url = "http://localhost:5000/api";
 const token = localStorage.getItem("userToken");
 document.querySelector(".back").classList.add("backPop");
 document.querySelector(".main").classList.add("spinner3");
@@ -14,15 +14,15 @@ function getUser() {
         xhr.open('GET', `${url}/user/getAllUser`, true)
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
         xhr.setRequestHeader('token', `Bearer ${token}`)
-        xhr.setRequestHeader('authorization', `Basic ${basicAuth}`, )
-        xhr.onload = function() {
+        xhr.setRequestHeader('authorization', `Basic ${basicAuth}`,)
+        xhr.onload = function () {
             const users = JSON.parse(this.responseText)
             if (users.success === false && users.message === 'Unauthorized Access') {
-                showAlert(users.message, 'warning')
+                showAlert(users.message, 'warning', "exclamation-triangle")
                 logOut()
             } else if (this.status === 200) {
                 if (users.success === false) {
-                    showAlert(users.message, 'warning')
+                    showAlert(users.message, 'warning', "exclamation-triangle")
                     document.querySelector(".table").style.display = 'none';
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
@@ -34,7 +34,7 @@ function getUser() {
                 }
             } else if (this.status !== 200) {
                 const dataError = JSON.parse(this.responseText)
-                showAlert('Something went wrong', 'warning')
+                showAlert('Something went wrong', 'warning', "exclamation-triangle")
                 document.querySelector(".table").style.display = 'none';
                 document.querySelector(".main").classList.remove("spinner3");
                 document.querySelector(".back").classList.remove("backPop");
@@ -43,7 +43,7 @@ function getUser() {
 
         xhr.send()
     } catch (error) {
-        showAlert('Something went wrong', 'warning')
+        showAlert('Something went wrong', 'warning', "exclamation-triangle")
         document.querySelector(".main").classList.remove("spinner3");
         document.querySelector(".back").classList.remove("backPop");
     }
@@ -57,27 +57,28 @@ function filterUser(search) {
         xhr.open('GET', `${url}/user/filterUser?search=${search}`, true)
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
         xhr.setRequestHeader('token', `Bearer ${token}`)
-        xhr.setRequestHeader('authorization', `Basic ${basicAuth}`, )
-        xhr.onload = function() {
+        xhr.setRequestHeader('authorization', `Basic ${basicAuth}`,)
+        xhr.onload = function () {
             const users = JSON.parse(this.responseText)
             if (users.success === false && users.message === 'Unauthorized Access') {
-                showAlert(users.message, 'warning')
+                showAlert(users.message, 'warning', "exclamation-triangle")
                 logOut()
             } else if (this.status === 200) {
                 if (users.success === false) {
-                    showAlert(users.message, 'warning')
+                    showAlert(users.message, 'warning', "exclamation-triangle")
                     document.querySelector(".table").style.display = 'none';
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
                 } else {
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
-                      const totalPages = users.data.totalPages;
+                    showAlert(users.message, 'success', "check-circle")
+                    const totalPages = users.data.totalPages;
                     displayData(users.data.docs, totalPages)
                 }
             } else if (this.status !== 200) {
                 const dataError = JSON.parse(this.responseText)
-                showAlert('Something went wrong', 'warning')
+                showAlert('Something went wrong', 'warning', "exclamation-triangle")
                 document.querySelector(".table").style.display = 'none';
                 document.querySelector(".main").classList.remove("spinner3");
                 document.querySelector(".back").classList.remove("backPop");
@@ -85,7 +86,7 @@ function filterUser(search) {
         }
         xhr.send()
     } catch (error) {
-        showAlert('Something went wrong', 'warning')
+        showAlert('Something went wrong', 'warning', "exclamation-triangle")
         document.querySelector(".main").classList.remove("spinner3");
         document.querySelector(".back").classList.remove("backPop");
     }
@@ -118,6 +119,7 @@ async function checkToken() {
     if (token) {
         getUser()
     } else {
+        showAlert(users.message, 'warning', "exclamation-triangle")
         logOut()
     }
 }
@@ -146,6 +148,6 @@ function showAlert(message, className, iconType) {
     alertMessage.innerHTML = `<div class="alert alert-${className}" role="alert">
     <i class="fa fa-${iconType}" aria-hidden="true"></i>  ${message}
   </div>`
-        // Vanish in 5 seconds
+    // Vanish in 5 seconds
     setTimeout(() => document.querySelector(".alert").remove(), 5000);
 }
