@@ -4,8 +4,6 @@ const token = localStorage.getItem("userToken");
 document.querySelector(".back").classList.add("backPop");
 document.querySelector(".main").classList.add("spinner3");
 const list = document.querySelector("#user-list");
-const errorDiv = document.querySelector('.errorDiv')
-errorDiv.style.display = 'none'
 checkToken();
 
 

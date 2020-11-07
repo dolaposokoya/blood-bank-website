@@ -10,7 +10,7 @@ const myChart = new Chart(ctx, {
         labels: ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'],
         datasets: [{
             label: 'Blood group',
-            data: [2000.8, 0.57, 3800.14, 100.79, 2700.85, 100.43, 800.93, 100.49],
+            data: [20.8, 0.57, 38.14, 1.79, 27.85, 1.43, 8.93, 0.49],
             // data: ['20.8%', '0.57%', '38.14%', '1.79%', '27.85%', '	1.43%', '8.93%', '0.49%'],
             weight: 5,
             backgroundColor: [
@@ -47,6 +47,7 @@ const myChart = new Chart(ctx, {
         legend: {
             position: 'right',
             labels: {
+                text:"Yes",
                 fontColor: 'black',
                 fontStyle: 'bold',
                 fontSize: 25
@@ -55,16 +56,21 @@ const myChart = new Chart(ctx, {
         tooltips:{
             enable: true
         },
-        scales: {
-            yAxes: [{
-                gridLines: {
-                    color: "rgba(0, 0, 0, 0)",
-                },
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
+        // scales: {
+        //     xAxes: [{
+        //         gridLines: {
+        //             color: "rgba(0, 0, 0, 0)",
+        //         },
+        //     }],
+        //     yAxes: [{
+        //         gridLines: {
+        //             color: "rgba(0, 0, 0, 0)",
+        //         },
+        //         ticks: {
+        //             beginAtZero: true
+        //         }
+        //     }]
+        // }
     }
 });
 
