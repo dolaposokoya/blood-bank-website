@@ -3,10 +3,23 @@ const url = `https://api-bloodbank-v1.herokuapp.com/api`
 const token = localStorage.getItem("userToken");
 document.querySelector(".back").classList.add("backPop");
 document.querySelector(".main").classList.add("spinner3");
-
+const list = document.querySelector("#user-list");
+const errorDiv = document.querySelector('.errorDiv')
+errorDiv.style.display = 'none'
 checkToken();
 
 
+const state = {
+    data: '',
+    page: 1,
+    rows: 5,
+    window: 5
+}
+
+
+/**
+ * Get user from database
+ */
 function getUser() {
     try {
         const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
@@ -20,7 +33,7 @@ function getUser() {
             if (users.success === false && users.message === 'Unauthorized Access') {
                 showAlert(users.message, 'warning', "exclamation-triangle")
                 logOut()
-            } else if (this.status === 200) {
+            } else {
                 if (users.success === false) {
                     showAlert(users.message, 'warning', "exclamation-triangle")
                     document.querySelector(".table").style.display = 'none';
@@ -29,27 +42,24 @@ function getUser() {
                 } else {
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
-                    const totalPages = users.data.totalPages
-                    displayData(users.data.docs, totalPages)
+                    state.data = users.data
+                    displayData()
                 }
-            } else if (this.status !== 200) {
-                const dataError = JSON.parse(this.responseText)
-                showAlert('Something went wrong', 'warning', "exclamation-triangle")
-                document.querySelector(".table").style.display = 'none';
-                document.querySelector(".main").classList.remove("spinner3");
-                document.querySelector(".back").classList.remove("backPop");
             }
         }
 
         xhr.send()
     } catch (error) {
-        showAlert('Something went wrong', 'warning', "exclamation-triangle")
+        showAlert('Something went wrongdssss', 'warning', "exclamation-triangle")
         document.querySelector(".main").classList.remove("spinner3");
         document.querySelector(".back").classList.remove("backPop");
     }
 }
 
-
+/**
+ * 
+ * @param {filter user by search parameters} search
+ */
 function filterUser(search) {
     try {
         const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
@@ -72,8 +82,8 @@ function filterUser(search) {
                 } else {
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
-                    const totalPages = users.data.totalPages;
-                    displayData(users.data.docs, totalPages)
+                    state.data = users.data.docs
+                    displayData()
                 }
             } else if (this.status !== 200) {
                 const dataError = JSON.parse(this.responseText)
@@ -91,35 +101,100 @@ function filterUser(search) {
     }
 }
 
-function displayData(data, totalPage) {
-    const list = document.querySelector("#user-list");
-    list.innerHTML = ''
-    data.map((item, index) => {
+// Trim the date to be displayed page by page
+function pagination(data, page, rows) {
+    let trimStart = (page - 1) * rows
+    let trimEnd = trimStart + rows
+    let trimmedData = data.slice(trimStart, trimEnd)
+    let pages = Math.ceil(data.length / rows)
+    return {
+        data: trimmedData,
+        pages: pages
+    }
+}
+
+
+/**
+ * 
+ * @param {data to be displayed} data 
+ * @param {number of pages} totalPage 
+ * @param {next page } hasNextPage 
+ * @param {previous page} hasPrevPage 
+ * Function to populate table with data
+ */
+function displayData() {
+    $('#user-list').empty()
+    const newData = pagination(state.data, state.page, state.rows)
+
+    newData.data.map((item, index) => {
         const row = document.createElement("tr");
         row.innerHTML = `<td data-label="Name"><i class="fas fa-user"></i> ${item.first_name}</td>
 <td data-label="Gender"> <i class="fas fa-venus-mars"></i> ${item.gender}</td>
 <td data-label="Blood Group"><i class="fas fa-tint"></i> ${item.blood_group}</td><td data-label="City"><i class="fas fa-map-marker"></i> ${item.city}</td><td data-label="View Deatils"><button class="btn btn-outline-primary"  onClick="openModal()">contact</button></td>`;
         list.appendChild(row);
     });
-
-    const totalPages = document.querySelector(".pageNumber");
-    totalPages.innerHTML = `<small>Number of pages ${totalPage}</small>`
+    paginationButtons(newData.pages)
 }
 
 
+// Add page button
+function paginationButtons(pages) {
+    const pagination = document.querySelector('.pagination');
+    pagination.innerHTML = ''
+    let maxLeft = (state.page - Math.floor(state.window / 2))
+    let maxRight = (state.page + Math.floor(state.window / 2))
+    if (maxLeft <= 1) {
+        maxLeft = 1;
+        maxRight = state.window
+    }
+    if (maxRight >= pages) {
+        maxLeft = pages - (state.window - 1);
+        maxRight = pages
+
+        if (maxLeft <= 1) {
+            maxLeft = 1
+        }
+    }
+
+    for (let page = maxLeft; page <= maxRight; page++) {
+        const button = document.createElement("div");
+        button.classList.add('"page-item')
+        button.innerHTML = `<button class="btn page page-link mr-1"  value=${parseInt(page)}>${parseInt(page)}</button>`
+        pagination.appendChild(button)
+    }
+    if (state.page !== 1) {
+        const button = document.createElement("div");
+        button.innerHTML = `<button class="btn page page-link mr-1"  value=${parseInt(1)}>&#171 first</button>`
+        pagination.appendChild(button)
+    }
+
+    if (state.page !== pages) {
+        const button = document.createElement("div");
+        button.innerHTML = `<button class="btn page page-link mr-1" value=${parseInt(pages)}>last &#187</button>`
+        pagination.appendChild(button)
+    }
+    $('.page').on('click', function () {
+        $('#user-list').empty()
+        state.page = Number($(this).val());
+        displayData();
+    })
+}
+
+// filter user
 $("#search").on('keyup', () => {
     const search = $('#search').val();
     filterUser(search)
     if (search === null || search === '') {
         getUser();
     }
-})
+});
+
+// Check if token is present
 async function checkToken() {
-    if (token) {
-        getUser()
-    } else {
-        showAlert(users.message, 'warning', "exclamation-triangle")
+    if (token === undefined || token === null || token === '') {
         logOut()
+    } else {
+        getUser();
     }
 }
 

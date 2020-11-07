@@ -1,5 +1,5 @@
-// const url = "http://localhost:5000/api";
-const url = `https://api-bloodbank-v1.herokuapp.com/api`
+const url = "http://localhost:5000/api";
+// const url = `https://api-bloodbank-v1.herokuapp.com/api`
 const token = localStorage.getItem("userToken");
 gsap.from(".form-card", { duration: 2.5, x: '-4500px', ease: "power4.out" });
 
