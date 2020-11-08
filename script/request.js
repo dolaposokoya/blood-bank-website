@@ -1,5 +1,5 @@
-// const url = `http://localhost:5000/api`
-const url = `https://api-bloodbank-v1.herokuapp.com/api`
+const url = "http://localhost:5000/api" || `https://api-bloodbank-v1.herokuapp.com/api`;
+// const url = `https://api-bloodbank-v1.herokuapp.com/api`
 const site_origin = `http://127.0.0.1:5500`;
 const token = localStorage.getItem("userToken")
 

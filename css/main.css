@@ -1,30 +1,23 @@
 :root {
-    --blood: #b41717;
+    --blood: #f50a0a;
     --hover-blood: red;
-    --shadow: 10px 10px 33px -3px rgba(0, 0, 0, 0.1);
+    --shadow: 10px 1px 3px -3px rgba(0, 0, 0, 0.1);
     --search-shadow: 5px 5px 33px -3px rgba(0, 0, 0, 0.1);
     --whiteButton: rgb(247, 240, 240);
     --table-color: #f8f6f6;
 }
 
-#previousBtn {
-    font-size: 45px;
-    color: #b41717;
-    position: absolute;
-    left: 42%;
-    margin: 0 0 40px 0;
+* {
+    box-sizing: border-box;
 }
 
-#nextBtn {
-    font-size: 45px;
-    color: #b41717;
-    position: absolute;
-    right: 42%;
-    margin: 0 0 40px 0;
+body, html{
+    height: 100%;
 }
-
 body {
-    background-color: #eee;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: rgb(201, 201, 201);
     font-family: 'Roboto Mono', monospace;
 }
 
@@ -32,8 +25,26 @@ form {
     background-color: rgb(255, 255, 255);
 }
 
-* {
-    box-sizing: border-box;
+.grid-main{
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 2fr));
+    grid-auto-rows: minmax(100px, auto);
+    margin: 10px;
+}
+
+.grid-main > div{
+    box-shadow: var(--shadow);
+    padding: 20px;
+    background-color: #e3e3e3;
+}
+.grid-main > div:nth-child(odd){
+    box-shadow: var(--shadow);
+    background-color: #ddd;
+}
+
+.grid-main > div img{
+   width: 100%;
 }
 
 h6 {
@@ -146,75 +157,12 @@ h6 {
     padding: 15px;
     position: relative;
 }
+
+
 #search{
     box-shadow: var(--search-shadow);
 }
-.table {
-    box-shadow: var(--shadow);
-    border-radius: 10px;
-    border-collapse: collapse;
-    width: 100%;
-    float: left;
-    overflow: hidden;
-    background-color: #ffffff;
-    /* Animation requirement */
-    position: relative;
-    /* animation: table 3.5s ease-in 1s forwards;
-    opacity: 0; */
-}
 
-.displayError {
-    display: none;
-}
-
-
-/* @keyframes table {
-    0% {
-        opacity: 0;
-        pointer-events: none;
-        top: -400px;
-    }
-    100% {
-        opacity: 1;
-        pointer-events: all;
-        top: 0px;
-    }
-} */
-
-.table th,
-.table td {
-    border: 1px solid #e3e3e3;
-    text-align: center;
-}
-
-.table th {
-    color: rgb(0, 0, 0);
-    background-color:  var(--table-color);
-    height: 5px;
-    margin: 10px;
-}
-
-
-/* tr td {
-    text-align: center;
-} */
-
-table tr:nth-child(even) {
-    background-color: #f3f3f3f3;
-}
-
-table tr.active-row {
-    font-weight: bold;
-    background-color: #c02222;
-}
-
-table tr:hover {
-    border: 1px solid;
-    padding: 10px;
-    /* box-shadow: inset 0 0 10px #000000; */
-    box-shadow: 5px 5px 5px rgb(230, 225, 225);
-    transform: scale(1.05);
-}
 
 .form-button {
     cursor: pointer;
@@ -232,12 +180,6 @@ table tr:hover {
 .form-button:focus {
     outline: none;
 }
-
-
-/* .form-button:hover {
-    transition: 1.5s ease-out;
-    transform: scale(1.09);
-} */
 
 * {
     box-sizing: border-box;
@@ -266,38 +208,8 @@ a:hover {
 
 /* Media Query */
 
-@media (max-width: 586px) {
-    #previousBtn {
-        font-size: 45px;
-        color: #b41717;
-        position: absolute;
-        left: 32%;
-        margin: 0 0 40px 0;
-    }
-    #nextBtn {
-        font-size: 45px;
-        color: #b41717;
-        position: absolute;
-        right: 32%;
-        margin: 0 0 40px 0;
-    }
-}
 
 @media (max-width: 730px) {
-    #previousBtn {
-        font-size: 45px;
-        color: #b41717;
-        position: absolute;
-        left: 32%;
-        margin: 0 0 40px 0;
-    }
-    #nextBtn {
-        font-size: 45px;
-        color: #b41717;
-        position: absolute;
-        right: 32%;
-        margin: 0 0 40px 0;
-    }
     table {
         margin: 0;
         margin-top: 100px;

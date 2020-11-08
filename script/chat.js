@@ -1,5 +1,5 @@
-// const url = `http://localhost:5000/api`;
-const url = `https://api-bloodbank-v1.herokuapp.com/api`
+const url = "http://localhost:5000/api" || `https://api-bloodbank-v1.herokuapp.com/api`;
+// const url = `https://api-bloodbank-v1.herokuapp.com/api`
 let myBlood = document.getElementById('get-blood');
 let check = document.getElementById('check');
 

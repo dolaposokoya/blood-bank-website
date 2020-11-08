@@ -7,7 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" />
     <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
     <link rel="stylesheet" href="../css/main.css" />
@@ -23,13 +24,15 @@
         .form-control {
             border-radius: 1px;
             height: 30px;
-            /* width: 20px; */
         }
-        .table td, .table th{
+
+        .table td,
+        .table th {
             text-align: center;
             vertical-align: top !important;
         }
-        .errorDiv{
+
+        .errorDiv {
             /* display: none; */
             margin: auto;
             background-color: rgb(230, 227, 223);
@@ -37,10 +40,10 @@
             padding: 10px;
             padding-top: 30px;
         }
-        .text-center{
+
+        .text-center {
             font-size: 20px;
         }
-
     </style>
     <div class="back">
         <div class="main"></div>
@@ -52,7 +55,9 @@
             </div>
             <div>
                 <p class="modal-body">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur alias soluta ducimus, tempore ipsum eius consequuntur distinctio, animi similique ullam itaque ipsam iure. Tempora unde nisi vitae velit odit vel.
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur alias soluta ducimus, tempore
+                    ipsum eius consequuntur distinctio, animi similique ullam itaque ipsam iure. Tempora unde nisi vitae
+                    velit odit vel.
                 </p>
             </div>
             <div class="modal-footer">
@@ -60,12 +65,17 @@
             </div>
         </div>
     </div>
-    <div class="menu-btn">
+    <!-- <div class="menu-btn navbar-fixed-top">
         <div class="btn-line"></div>
         <div class="btn-line"></div>
         <div class="btn-line"></div>
-    </div>
-    <nav class="menu navbar">
+    </div> -->
+    <nav class="menu navbar navbar-fixed-top">
+        <div class="menu-btn navbar-fixed-top">
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+        </div>
         <div class="menu-branding">
             <img class="banner-image1" src="../images/banner.png" alt="banner-image" />
         </div>
@@ -91,38 +101,99 @@
     <div class="alertMessage d-flex justify-content-center">
     </div>
 
-    <div class="container-fluid col-md-10 ml-2">
-        <table class="table mb-3">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Blood Group</th>
-                    <th scope="col">City</th>
-                    <th scope="col">View Deatils</th>
-                </tr>
-            </thead>
-            <tbody id="user-list">
-            </tbody>
-            <tbody id="search-list"> </tbody>
-           <div class="form-inline">
+    <div class="container-fluid col-md-10 pb-5">
+        <div class="form-inline">
             <div class="input-group input-group-md mb-3 ">
-                <input class="form-control mb-2" type="search" id="search" placeholder="Search" aria-label="Search" style="border-radius: 7px; height: 40px;
-                outline: hidden;">
+                <input class="form-control mb-2 card" type="search" id="search" placeholder="Search" aria-label="Search"
+                    style="border-radius: 7px; height: 40px;
+            outline: hidden;" />
             </div>
-           </div>
-
-        </table>
-        <div class="float-left pb-5">
+        </div>
+        <div class="container-fluid card mb-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Blood Group</th>
+                        <th scope="col">City</th>
+                        <th scope="col">View Deatils</th>
+                    </tr>
+                </thead>
+                <tbody id="user-list">
+                </tbody>
+            </table>
+        </div>
+        <div class="text-left pb-5" style="width: 100%;">
             <div class="pagination mb-2">
             </div>
         </div>
     </div>
-    <div class="float-left col-md-10">
+
+    <div class="grid-main mb-5">
         <div>
-            <h5 class="" style="padding-top: 50px;">Population of different blood group by percentage in India</h5>
-        <canvas id="myChart" width="370" height="370"></canvas>
-    </div>
+            <p>
+                Deserunt perferendis ab, accusantium minima et dolorem assumenda nam ratione, esse a porro iusto tempore
+                possimus at repellat exercitationem quibusdam recusandae qui similique dolorum error, maxime amet nisi
+                debitis. Non?
+                ipsum, magni culpa voluptatibus eius ad accusantium unde quidem! Dicta veritatis veniam illum molestias
+                recusandae obcaecati perspiciatis fugiat.
+            </p>
+            <img src="https://images.unsplash.com/photo-1536856136534-bb679c52a9aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                alt="">
+        </div>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium fugiat qui tempora enim porro
+                voluptatum placeat voluptates, numquam atque omnis maiores animi dolore, facilis, hic ullam ipsam!
+                Repellendus, quas? Quidem?
+                consequatur sunt blanditiis vel dolorem sequi praesentium eveniet exercitationem. Tempora saepe vero a
+                enim optio voluptatem pariatur.
+            </p>
+            <img src="https://images.unsplash.com/photo-1582719366794-4d27cd0a34a0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                alt="">
+        </div>
+        <div>
+            <p>
+                Hic officia itaque aliquid amet commodi qui voluptatibus quibusdam blanditiis nesciunt ipsa pariatur
+                porro tempore quod, unde, atque voluptas iusto, nam quaerat dolores doloribus at. Rem accusantium sunt
+                alias impedit.
+                atque necessitatibus. Architecto odit sed asperiores aliquid veritatis, facilis explicabo consectetur
+                eveniet assumenda saepe? Natus, quo?
+            </p>
+            <img src="https://images.unsplash.com/photo-1591635579375-b3fadafc58ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                alt="">
+        </div>
+        <div>
+            <p>Population of different blood group by percentage in India
+                Quisquam explicabo consectetur sunt eius veniam doloribus molestias et corporis quibusdam! Cumque
+                laboriosam tempora dolores beatae cum alias enim magnam velit official
+                Itaque cumque esse ratione nihil vero corporis optio non maxime aperiam accusantium saepe similique,
+            </p>
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+        <div>
+            <p>
+                Natus et dolorem, pariatur excepturi delectus laudantium at culpa voluptatum consectetur velit molestias
+                aut fugit tempore, distinctio porro sapiente nihil. Sunt magnam vel repellendus repellat maiores eaque
+                quod modi a.
+                Amet ducimus at quasi? hic, eaque ullam laboriosam magni sequi iste provident, ipsam a quisquam odit
+                esse animi.
+            </p>
+            <img src="https://images.unsplash.com/photo-1588615419957-bf66d53c6b49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                alt="">
+        </div>
+        <div>
+            <p>
+                Commodi vel modi sit, dolorem repudiandae recusandae ut necessitatibus odit! Architecto aperiam iusto
+                ducimus et quibusdam!
+                Doloribus perferendis voluptates, qui tempore consequuntur excepturi hic temporibus ducimus minus quas
+                saepe debitis assumenda nesciunt aliquam laboriosam quod magni. Quisquam atque harum rem repellat dicta
+                numquam quae sint beatae!
+            </p>
+            <img src="https://images.unsplash.com/photo-1584452964155-ef139340f0db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                alt="">
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="../script/getUser.js"></script>
@@ -131,5 +202,3 @@
 </body>
 
 </html>
-
-

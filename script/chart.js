@@ -50,27 +50,12 @@ const myChart = new Chart(ctx, {
                 text:"Yes",
                 fontColor: 'black',
                 fontStyle: 'bold',
-                fontSize: 25
+                fontSize: 15
             }
         },
         tooltips:{
             enable: true
         },
-        // scales: {
-        //     xAxes: [{
-        //         gridLines: {
-        //             color: "rgba(0, 0, 0, 0)",
-        //         },
-        //     }],
-        //     yAxes: [{
-        //         gridLines: {
-        //             color: "rgba(0, 0, 0, 0)",
-        //         },
-        //         ticks: {
-        //             beginAtZero: true
-        //         }
-        //     }]
-        // }
     }
 });
 

@@ -1,5 +1,5 @@
-const url = `https://api-bloodbank-v1.herokuapp.com/api`
-// const url = "http://localhost:5000/api";
+const url = "http://localhost:5000/api" || `https://api-bloodbank-v1.herokuapp.com/api`;
+// const url = ;
 const token = localStorage.getItem("userToken");
 document.querySelector(".back").classList.add("backPop");
 document.querySelector(".main").classList.add("spinner3");
@@ -13,7 +13,7 @@ const state = {
     rows: 5,
     window: 5
 }
-
+console.log('URL',url)
 
 /**
  * Get user from database

@@ -1,5 +1,5 @@
 :root {
-    --menu-background: rgba(156, 20, 20, 0.9);
+    --menu-background: rgba(165, 21, 21, 0.9);
     --blood: #8d0707;
     --bellWhite: white;
     --hover-blood: red;
@@ -133,7 +133,7 @@ td .contact {
     }
     .menu-btn {
         display: block;
-        position: absolute;
+        /* position: absolute; */
         z-index: 3;
         right: 35px;
         top: 20px;
