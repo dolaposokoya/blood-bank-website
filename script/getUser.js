@@ -5,6 +5,7 @@ const token = localStorage.getItem("userToken");
 document.querySelector(".back").classList.add("backPop");
 document.querySelector(".main").classList.add("spinner3");
 document.querySelector(".grid-main").style.display = 'none';
+document.querySelector(".footer").style.display = 'none';
 const list = document.querySelector("#user-list");
 checkToken();
 
@@ -37,10 +38,12 @@ function getUser() {
                     showAlert(users.message, 'warning', "exclamation-triangle")
                     document.querySelector(".table").style.display = 'none';
                     document.querySelector(".grid-main").style.display = 'grid';
+                    document.querySelector(".footer").style.display = 'grid';
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
                 } else {
                     document.querySelector(".grid-main").style.display = 'grid';
+                    document.querySelector(".footer").style.display = 'grid';
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
                     state.data = users.data
@@ -78,10 +81,12 @@ function filterUser(search) {
                     showAlert(users.message, 'warning', "exclamation-triangle")
                     document.querySelector(".table").style.display = 'none';
                     document.querySelector(".grid-main").style.display = 'grid';
+                    document.querySelector(".footer").style.display = 'grid';
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
                 } else {
                     document.querySelector(".grid-main").style.display = 'grid';
+                    document.querySelector(".footer").style.display = 'grid';
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
                     state.data = users.data.docs
@@ -92,6 +97,7 @@ function filterUser(search) {
                 showAlert('Something went wrong', 'warning', "exclamation-triangle")
                 document.querySelector(".table").style.display = 'none';
                 document.querySelector(".grid-main").style.display = 'grid';
+                document.querySelector(".footer").style.display = 'grid';
                 document.querySelector(".main").classList.remove("spinner3");
                 document.querySelector(".back").classList.remove("backPop");
             }
