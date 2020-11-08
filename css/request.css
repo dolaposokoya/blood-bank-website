@@ -53,29 +53,6 @@ label {
     padding-bottom: 35px;
 }
 
-
-/* input {
-    padding: 12px 0 12px 15px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    width: 100%;
-}
-
-select {
-    padding: 12px 0 12px 15px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    width: 100%;
-} */
-
-
-/* #myState option,
-#myBlood option {
-    margin: 5px
-} */
-
 input:focus {
     outline: none;
 }
@@ -107,67 +84,6 @@ input:focus {
 
 #main p {
     text-align: center;
-}
-
-#stepProgress {
-    display: flex;
-    width: 300px;
-    margin: 0 auto 40px auto;
-    justify-content: space-between;
-    align-items: flex-end;
-    border-radius: 100%;
-}
-
-.step {
-    text-align: center;
-    display: none;
-}
-
-.step-text {
-    margin-bottom: 10px;
-    color: var(--formColor);
-}
-
-.bullet {
-    height: 29px;
-    width: 37px;
-    border-radius: 100%;
-    padding: 4.3px;
-    border: 1px solid var(--formColor);
-    color: var(--formColor);
-    display: inline-block;
-    position: relative;
-    transition: background-color 2000ms;
-    line-height: 20px;
-}
-
-.bullet.completed {
-    color: white;
-    background-color: var(--formColor);
-}
-
-.bullet.completed::after {
-    content: '';
-    position: absolute;
-    height: 2.2px;
-    transition: 2000ms;
-    top: 12px;
-    left: 30px;
-    width: 54px;
-    background-color: var(--formColor);
-}
-
-
-/* Progress bar ends */
-
-
-/* Show form based on progress bar */
-
-#step1,
-#step2,
-#step3,
-#step4 {
-    display: none;
 }
 
 
