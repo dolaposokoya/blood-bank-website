@@ -1,59 +1,81 @@
 #simpleModal {
-  display: none;
+    display: none;
 }
 
 .modal {
-  position: fixed;
-  z-index: 3;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
-  background-color: #f4f4f4;
-  margin: 10% auto;
-  width: 400px;
-  border-radius: 10px;
-  animation-name: modalDisplay;
-  animation-duration: 2s;
+    background-color: #f4f4f4;
+    margin: auto;
+    transform: translateY(40%);
+    max-width: 500px;
+    border-radius: 10px;
+    animation-name: modalDisplay;
+    animation-duration: 2s;
 }
 
 .modal-footer h3 {
-  margin: 0;
-  color: white;
+    margin: auto;
+    color: white;
 }
 
 .modal-header {
-  background: #8a0303;
-  padding: 15px 10px 45px;
+    background: #8a0303;
+    float: right;
+    /* padding: 15px 10px 45px; */
 }
 
 .modal-body {
-  padding: 10px 20px;
+    padding: 10px 20px;
 }
 
 .closeBtn {
-  font-size: 25px;
-  padding: 1px;
-  color: white;
-  float: right;
+    font-size: 25px;
+    padding: 1px;
+    color: white;
+    float: right;
 }
 
 .closeBtn:hover,
 .closeBtn:focus {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 @keyframes modalDisplay {
-  from {
-    opacity: 0;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
-  to {
-    opacity: 1;
-  }
+
+/* Media Query */
+
+@media (max-width: 730px) {
+    .modal-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 665px) {
+    .modal-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 552px) {
+    .modal-content {
+        width: 90%;
+    }
 }

@@ -1,5 +1,6 @@
-const url = "http://localhost:5000/api" || `https://api-bloodbank-v1.herokuapp.com/api`;
-// const url = ;
+const url = `https://api-bloodbank-v1.herokuapp.com/api`;
+// const url = "http://localhost:5000/api"
+const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
 const token = localStorage.getItem("userToken");
 document.querySelector(".back").classList.add("backPop");
 document.querySelector(".main").classList.add("spinner3");
@@ -13,20 +14,19 @@ const state = {
     rows: 5,
     window: 5
 }
-console.log('URL',url)
+
 
 /**
  * Get user from database
  */
 function getUser() {
     try {
-        const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
         var xhr = new XMLHttpRequest()
         xhr.open('GET', `${url}/user/getAllUser`, true)
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
         xhr.setRequestHeader('token', `Bearer ${token}`)
-        xhr.setRequestHeader('authorization', `Basic ${basicAuth}`,)
-        xhr.onload = function () {
+        xhr.setRequestHeader('authorization', `Basic ${basicAuth}`, )
+        xhr.onload = function() {
             const users = JSON.parse(this.responseText)
             if (users.success === false && users.message === 'Unauthorized Access') {
                 showAlert(users.message, 'warning', "exclamation-triangle")
@@ -60,13 +60,12 @@ function getUser() {
  */
 function filterUser(search) {
     try {
-        const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
         var xhr = new XMLHttpRequest()
         xhr.open('GET', `${url}/user/filterUser?search=${search}`, true)
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
         xhr.setRequestHeader('token', `Bearer ${token}`)
-        xhr.setRequestHeader('authorization', `Basic ${basicAuth}`,)
-        xhr.onload = function () {
+        xhr.setRequestHeader('authorization', `Basic ${basicAuth}`, )
+        xhr.onload = function() {
             const users = JSON.parse(this.responseText)
             if (users.success === false && users.message === 'Unauthorized Access') {
                 showAlert(users.message, 'warning', "exclamation-triangle")
@@ -128,13 +127,59 @@ function displayData() {
         const row = document.createElement("tr");
         row.innerHTML = `<td data-label="Name"><i class="fas fa-user"></i> ${item.first_name}</td>
 <td data-label="Gender"> <i class="fas fa-venus-mars"></i> ${item.gender}</td>
-<td data-label="Blood Group"><i class="fas fa-tint"></i> ${item.blood_group}</td><td data-label="City"><i class="fas fa-map-marker"></i> ${item.city}</td><td data-label="View Deatils"><button class="btn btn-outline-primary"  onClick="openModal()">contact</button></td>`;
+<td data-label="Blood Group"><i class="fas fa-tint"></i> ${item.blood_group}</td><td data-label="City"><i class="fas fa-map-marker"></i> ${item.city}</td><td data-label="View Deatils"><button class="contact-btn btn-outline-primary" value=${item._id} >Contact</button></td>`;
         list.appendChild(row);
     });
     paginationButtons(newData.pages)
 }
 
+const closeBtn = document.getElementById('closeBtn')
+const close = document.getElementById('close')
+const modal = document.getElementById('simpleModal')
+closeBtn.addEventListener("click", closeModal);
+close.addEventListener("click", closeModal);
 
+// Get user
+$(document).on('click', '.contact-btn', function() {
+    try {
+        const item = $(this).val();
+        var xhr = new XMLHttpRequest()
+        xhr.open('GET', `${url}/user/getUserById?id=${item}`, true)
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+        xhr.setRequestHeader('token', `Bearer ${token}`)
+        xhr.setRequestHeader('authorization', `Basic ${basicAuth}`)
+        xhr.onload = function() {
+            const users = JSON.parse(this.responseText)
+            if (users.success === false && users.message === 'Unauthorized Access') {
+                showAlert(users.message, 'warning', "exclamation-triangle")
+                logOut()
+            } else {
+                if (users.success === false) {
+                    showAlert(users.message, 'warning', "exclamation-triangle")
+                } else {
+                    $(".email").html(`<i class="fas fa-envelope ml-3"></i> ${users.data.email}`)
+                    $(".state").html(`<i class="far fa-compass ml-3"></i> ${users.data.state}`)
+                    $(".city").html(` <i class="fas fa-map-marker ml-3"></i> ${users.data.city}`)
+                    $("#simpleModal").show();
+                }
+            }
+        }
+        xhr.send()
+    } catch (error) {
+        showAlert('Something went wrong', 'warning', "exclamation-triangle")
+        document.querySelector(".main").classList.remove("spinner3");
+        document.querySelector(".back").classList.remove("backPop");
+    }
+});
+
+// Close modal
+function closeModal() {
+    modal.style.display = "none";
+    document.querySelector(".email").innerHTML = ''
+    document.querySelector(".blood_group").innerHTML = ''
+    document.querySelector(".state").innerHTML = ''
+    document.querySelector(".city").innerHTML = ''
+}
 // Add page button
 function paginationButtons(pages) {
     const pagination = document.querySelector('.pagination');
@@ -171,7 +216,7 @@ function paginationButtons(pages) {
         button.innerHTML = `<button class="btn page page-link mr-1" value=${parseInt(pages)}>last &#187</button>`
         pagination.appendChild(button)
     }
-    $('.page').on('click', function () {
+    $('.page').on('click', function() {
         $('#user-list').empty()
         state.page = Number($(this).val());
         displayData();
@@ -202,24 +247,11 @@ function logOut() {
     window.location.assign("/");
 }
 
-var modal = document.getElementById("simpleModal");
-var openBtn = document.getElementById("tableContact");
-closeBtn.addEventListener("click", closeModal);
-
-function openModal() {
-    modal.style.display = "block";
-}
-
-function closeModal() {
-    modal.style.display = "none";
-}
-
-
 function showAlert(message, className, iconType) {
     const alertMessage = document.querySelector(".alertMessage");
     alertMessage.innerHTML = `<div class="alert alert-${className}" role="alert">
     <i class="fa fa-${iconType}" aria-hidden="true"></i>  ${message}
   </div>`
-    // Vanish in 5 seconds
+        // Vanish in 5 seconds
     setTimeout(() => document.querySelector(".alert").remove(), 5000);
 }

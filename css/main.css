@@ -11,9 +11,11 @@
     box-sizing: border-box;
 }
 
-body, html{
+body,
+html {
     height: 100%;
 }
+
 body {
     margin: 0;
     overflow-x: hidden;
@@ -25,26 +27,30 @@ form {
     background-color: rgb(255, 255, 255);
 }
 
-.grid-main{
+.grid-main {
     display: grid;
     grid-gap: 15px;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     grid-auto-rows: minmax(100px, auto);
     margin: 10px;
 }
 
-.grid-main > div{
+.grid-main>div {
     box-shadow: var(--shadow);
     padding: 20px;
     background-color: #e3e3e3;
 }
-.grid-main > div:nth-child(odd){
+
+.grid-main>div:nth-child(odd) {
     box-shadow: var(--shadow);
     background-color: #ddd;
 }
 
-.grid-main > div img{
-   width: 100%;
+.grid-main>div img,
+canvas {
+    padding-top: 20px;
+    transform: translateY(-20px);
+    width: 100%;
 }
 
 h6 {
@@ -158,11 +164,9 @@ h6 {
     position: relative;
 }
 
-
-#search{
+#search {
     box-shadow: var(--search-shadow);
 }
-
 
 .form-button {
     cursor: pointer;
@@ -207,7 +211,6 @@ a:hover {
 
 
 /* Media Query */
-
 
 @media (max-width: 730px) {
     table {

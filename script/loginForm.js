@@ -1,15 +1,16 @@
-const url = "http://localhost:5000/api" || `https://api-bloodbank-v1.herokuapp.com/api`;
-// const url = `https://api-bloodbank-v1.herokuapp.com/api`
+const url = `https://api-bloodbank-v1.herokuapp.com/api`;
+// const url = "http://localhost:5000/api"
 const token = localStorage.getItem("userToken");
 gsap.from(".form-card", { duration: 2.5, x: '-4500px', ease: "power4.out" });
 
 checkToken()
+
 function showAlert(message, className, iconType) {
     const alertMessage = document.querySelector(".alertMessage");
     alertMessage.innerHTML = `<div class="alert alert-${className}" role="alert">
     <i class="fa fa-${iconType}" aria-hidden="true"></i>  ${message}
   </div>`
-    // Vanish in 5 seconds
+        // Vanish in 5 seconds
     setTimeout(() => document.querySelector(".alert").remove(), 5000);
 }
 
@@ -22,8 +23,7 @@ function checkToken() {
     if (token === undefined || token === null || token === '') {
         localStorage.removeItem("userToken");
         localStorage.removeItem("profileId");
-    }
-    else {
+    } else {
         window.location.assign("../pages/contactdonor.html");
     }
 };
