@@ -8,14 +8,37 @@
 }
 
 * {
-    box-sizing: bor;
+    box-sizing: border-box;
     font-family: 'Roboto Mono', monospace;
 }
 
 body {
     margin: 0;
     padding: 0;
-    /* background-color: #eee; */
+}
+
+.footer {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); */
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    grid-auto-rows: minmax(50px, auto);
+    background-color: rgb(36, 36, 36);
+    box-shadow: var(--shadow);
+}
+
+.footer>div {
+    padding: 55px;
+    float: left;
+    width: 100%;
+}
+
+.footer>div p {
+    font-size: 12px;
+}
+
+.footer>div p,
+h3 {
+    color: white;
 }
 
 .fa-bell {
