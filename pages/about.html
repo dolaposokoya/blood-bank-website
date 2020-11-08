@@ -41,51 +41,51 @@
                         <a href="userstatus.html" class="nav-link">User Status</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="cursor: pointer;" onClick="logOut()">Log Out</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <!-- Modal -->
-      <div id="simpleModal" class="modal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="closeBtn" id="closeBtn">&times;</span>
-          </div>
-          <div>
-            <p class="modal-body">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur
-              alias soluta ducimus, tempore ipsum eius consequuntur distinctio,
-              animi similique ullam itaque ipsam iure. Tempora unde nisi vitae
-              velit odit vel.
-            </p>
-          </div>
-          <div class="modal-footer">
-            <h3 class="footer-text"></h3>
-          </div>
+                        <img src="../images/user-image.png" style="border-radius: 50%; width: 40px; height: 40px; transform: translateY(5px); cursor: pointer;" alt="user image">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" type="submit" onclick="logOut()" style="color: white;">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <!-- Modal -->
+        <div id="simpleModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="closeBtn" id="closeBtn">&times;</span>
+                </div>
+                <div>
+                    <p class="modal-body">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur alias soluta ducimus, tempore ipsum eius consequuntur distinctio, animi similique ullam itaque ipsam iure. Tempora unde nisi vitae velit odit vel.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="footer-text"></h3>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <div class="container">
-      <main id="about">
-        <div class="table-responsive">
-          <table class="table table-striped" style="z-index: 10;">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Blood Group</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody id="user-list"></tbody>
-          </table>
-        </div>
-      </main>
+        <main id="about">
+            <div class="table-responsive">
+                <table class="table table-striped" style="z-index: 10;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Blood Group</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="user-list"></tbody>
+                </table>
+            </div>
+        </main>
     </div>
     <footer id="footer">Copyright &copy 2020</footer>
     <script src="../script/getUser.js"></script>
     <script src="../script/main.js"></script>
-  </body>
+</body>
+
 </html>
