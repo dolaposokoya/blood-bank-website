@@ -4,6 +4,7 @@ const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1
 const token = localStorage.getItem("userToken");
 document.querySelector(".back").classList.add("backPop");
 document.querySelector(".main").classList.add("spinner3");
+document.querySelector(".grid-main").style.display = 'none';
 const list = document.querySelector("#user-list");
 checkToken();
 
@@ -35,9 +36,11 @@ function getUser() {
                 if (users.success === false) {
                     showAlert(users.message, 'warning', "exclamation-triangle")
                     document.querySelector(".table").style.display = 'none';
+                    document.querySelector(".grid-main").style.display = 'block';
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
                 } else {
+                    document.querySelector(".grid-main").style.display = 'block';
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
                     state.data = users.data
@@ -74,9 +77,11 @@ function filterUser(search) {
                 if (users.success === false) {
                     showAlert(users.message, 'warning', "exclamation-triangle")
                     document.querySelector(".table").style.display = 'none';
+                    document.querySelector(".grid-main").style.display = 'block';
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
                 } else {
+                    document.querySelector(".grid-main").style.display = 'block';
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
                     state.data = users.data.docs
@@ -86,6 +91,7 @@ function filterUser(search) {
                 const dataError = JSON.parse(this.responseText)
                 showAlert('Something went wrong', 'warning', "exclamation-triangle")
                 document.querySelector(".table").style.display = 'none';
+                document.querySelector(".grid-main").style.display = 'block';
                 document.querySelector(".main").classList.remove("spinner3");
                 document.querySelector(".back").classList.remove("backPop");
             }
