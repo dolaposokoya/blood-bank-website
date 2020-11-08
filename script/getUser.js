@@ -36,11 +36,11 @@ function getUser() {
                 if (users.success === false) {
                     showAlert(users.message, 'warning', "exclamation-triangle")
                     document.querySelector(".table").style.display = 'none';
-                    document.querySelector(".grid-main").style.display = 'block';
+                    document.querySelector(".grid-main").style.display = 'grid';
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
                 } else {
-                    document.querySelector(".grid-main").style.display = 'block';
+                    document.querySelector(".grid-main").style.display = 'grid';
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
                     state.data = users.data
@@ -77,11 +77,11 @@ function filterUser(search) {
                 if (users.success === false) {
                     showAlert(users.message, 'warning', "exclamation-triangle")
                     document.querySelector(".table").style.display = 'none';
-                    document.querySelector(".grid-main").style.display = 'block';
+                    document.querySelector(".grid-main").style.display = 'grid';
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
                 } else {
-                    document.querySelector(".grid-main").style.display = 'block';
+                    document.querySelector(".grid-main").style.display = 'grid';
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
                     state.data = users.data.docs
@@ -91,7 +91,7 @@ function filterUser(search) {
                 const dataError = JSON.parse(this.responseText)
                 showAlert('Something went wrong', 'warning', "exclamation-triangle")
                 document.querySelector(".table").style.display = 'none';
-                document.querySelector(".grid-main").style.display = 'block';
+                document.querySelector(".grid-main").style.display = 'grid';
                 document.querySelector(".main").classList.remove("spinner3");
                 document.querySelector(".back").classList.remove("backPop");
             }
