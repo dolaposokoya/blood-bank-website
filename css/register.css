@@ -1,6 +1,7 @@
 :root {
     --formColor: #b41717;
-    --bullet: #28a745
+    --bullet: #28a745;
+    --font: 'Roboto Mono', monospace;
 }
 
 * {
