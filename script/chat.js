@@ -1,9 +1,9 @@
-const url = `https://api-bloodbank-v1.herokuapp.com/api`;
-// const url = "http://localhost:5000/api"
+const env = `production`; 
+const url = env === 'development' ? `http://localhost:5000/api` : `https://api-bloodbank-v1.herokuapp.com/api`
 let myBlood = document.getElementById('get-blood');
 let check = document.getElementById('check');
 
-// Enable pusher logging - don't include this in production
+// Enable pusher logging - don't include this in development
 Pusher.logToConsole = true;
 
 var pusher = new Pusher('d8cb17462a316c94f1de', {
@@ -31,7 +31,7 @@ myBlood.addEventListener('submit', (e) => {
 })
 
 var channel = pusher.subscribe('blood');
-channel.bind('my-blood', function(data) {
+channel.bind('my-blood', function (data) {
     data.data.map(blood => {
         // console.log('Pushwer', JSON.stringify(blood.bloodgroup));
         alert(JSON.stringify(blood.bloodgroup));

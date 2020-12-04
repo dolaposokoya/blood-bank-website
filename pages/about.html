@@ -24,30 +24,23 @@
     </div>
     <div>
         <header>
-            <div class="menu-btn">
-                <div class="btn-line"></div>
-                <div class="btn-line"></div>
-                <div class="btn-line"></div>
+            <!-- New navigation -->
+            <div class="icon fas fa-bars"> </div>
+            <div class="navContainer">
+                <nav class="mainNav">
+                    <img class="navImage" src="../images/logo.jpg" alt="banner-image" />
+                    <!-- <img src="./egg.png" alt="logo" class="navImage"> -->
+                    <ul class="mainMenu">
+                        <li><a href="./requestblood.html">Request</a></li>
+                        <li><a class=" current" href="./contactdonor.html">Contact</a></li>
+                        <li><a href="./reservation.html">Reservation</a></li>
+                        <li><a onclick="logOut()" class="logOut" style="color: black; cursor: pointer;">Logout</a></li>
+                    </ul>
+                    <!-- <img src="../images/img.jpg" alt="profile image" class="profileImage"> -->
+                    <img src="../images/img.jpg" class="profileImage" alt="profile image" onclick="userProfile()">
+                </nav>
             </div>
-            <nav class="menu">
-                <ul class="menu-nav">
-                    <li class="nav-item">
-                        <a href="userstatus.html" class="nav-link">Reservation</a>
-                    </li>
-                    <li class="nav-item current">
-                        <a href="userstatus.html" class="nav-link">Request</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="userstatus.html" class="nav-link">User Status</a>
-                    </li>
-                    <li class="nav-item">
-                        <img src="../images/user-image.png" style="border-radius: 50%; width: 40px; height: 40px; transform: translateY(5px); cursor: pointer;" alt="user image">
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" type="submit" onclick="logOut()" style="color: white;">Logout</a>
-                    </li>
-                </ul>
-            </nav>
+            <!-- Ends Her -->
         </header>
         <!-- Modal -->
         <div id="simpleModal" class="modal">
@@ -57,7 +50,9 @@
                 </div>
                 <div>
                     <p class="modal-body">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur alias soluta ducimus, tempore ipsum eius consequuntur distinctio, animi similique ullam itaque ipsam iure. Tempora unde nisi vitae velit odit vel.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur alias soluta ducimus, tempore
+                        ipsum eius consequuntur distinctio, animi similique ullam itaque ipsam iure. Tempora unde nisi
+                        vitae velit odit vel.
                     </p>
                 </div>
                 <div class="modal-footer">
@@ -94,7 +89,8 @@
         <div>
             <h3>About Us</h3>
             <p>
-                Deserunt perferendis ab, accusantium minima et dolorem assumenda nam ratione, esse a porro iusto tempore possimus at repellat exercitationem.
+                Deserunt perferendis ab, accusantium minima et dolorem assumenda nam ratione, esse a porro iusto tempore
+                possimus at repellat exercitationem.
             </p>
         </div>
         <div>

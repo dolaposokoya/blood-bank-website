@@ -6,22 +6,31 @@ const profileLinks = document.querySelector(".profile-links");
 const menuNav = document.querySelector(".menu-nav");
 const table = document.querySelector(".table");
 const navItem = document.querySelectorAll(".nav-item");
+const scrollUp = document.querySelector('.scrollUp')
 
-let showMenu = false;
 
-menuBtn.addEventListener("click", () => {
-    if (!showMenu) {
-        console.log('!showMenu')
-        navBarLinks.classList.add('active')
-        menuBtn.classList.add("close");
-        showMenu = true
+document.querySelector('.icon').addEventListener('click', () => {
+    document.querySelector('.mainMenu').classList.toggle('show')
+})
+
+function userProfile() {
+window.location.assign('../pages/profile.html')
+}
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollUp.style.display = "block";
     } else {
-        console.log('showMenu')
-        navBarLinks.classList.remove('active')
-        menuBtn.classList.remove("close");
-        showMenu = false
+        scrollUp.style.display = "none";
     }
-});
+}
+
+
+function topButton() {
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0;
+}
 
 // Animate Header
 gsap.from(".table", { duration: 3, y: '-300px', ease: "bounce.out" });

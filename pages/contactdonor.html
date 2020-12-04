@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="../css/menu.css" />
     <link rel="stylesheet" href="../css/modal.css" />
     <link rel="stylesheet" href="../css/request.css" />
-    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -47,10 +46,6 @@
         .text-center {
             font-size: 20px;
         }
-
-        .dropdown-item {
-            cursor: pointer;
-        }
     </style>
     <div class="back">
         <div class="main"></div>
@@ -80,49 +75,23 @@
         </div>
     </div>
 
-    <nav class="menu navbar navbar-fixed-top pt-2">
-        <div class="menu-btn">
-            <div class="btn-line"></div>
-            <div class="btn-line"></div>
-            <div class="btn-line"></div>
-        </div>
-        <div class="menu-branding">
-            <img class="banner-image1" src="../images/banner.png" alt="banner-image" />
-        </div>
-        <div class="navbar-links">
-            <ul class="menu-nav responsive">
-                <li class="nav-item dropdown">
-                    <!-- <a> -->
-                    <img src="../images/img.jpg"
-                        style="border-radius: 50%; width: 40px; height: 40px; transform: translateY(5px); cursor: pointer;"
-                        alt="user image" class="mb-2 dropdown-toggle" id="navbarDropdownMenuLink"
-                        data-toggle="dropdown">
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item text-dark" href="#">Action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-dark" href="#" style="cursor: pointer;">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-dark" href="#">Something else here</a>
-                    </div>
-                    <!-- </a> -->
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./requestblood.html">Request</a>
-                </li>
-                <li class="nav-item current">
-                    <a class="nav-link" href="./contactdonor.html">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./reservation.html">Reservation</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" type="submit" onclick="logOut()" style="color: white;">Logout</a>
-                </li>
+    <!-- New navigation -->
+    <div class="icon fas fa-bars"> </div>
+    <div class="navContainer">
+        <nav class="mainNav">
+            <img class="navImage" src="../images/logo.jpg" alt="banner-image" />
+            <!-- <img src="./egg.png" alt="logo" class="navImage"> -->
+            <ul class="mainMenu">
+                <li><a href="./requestblood.html">Request</a></li>
+                <li><a class=" current" href="./contactdonor.html">Contact</a></li>
+                <li><a href="./reservation.html">Reservation</a></li>
+                <li><a onclick="logOut()" class="logOut" style="color: black; cursor: pointer;">Logout</a></li>
             </ul>
-        </div>
-    </nav>
-
-
+            <!-- <img src="../images/img.jpg" alt="profile image" class="profileImage"> -->
+            <img src="../images/img.jpg" class="profileImage" alt="profile image" onclick="userProfile()">
+        </nav>
+    </div>
+    <!-- Ends Her -->
     <div class="alertMessage d-flex justify-content-center">
     </div>
 
@@ -262,6 +231,7 @@
             <img src="../images/banner2.jpg" alt="">
             <p class="mt-5" style="font-size: 20px;">Copyright &copy 2020</p>
         </div>
+        <i class="fas fa-angle-up scrollUp" onclick="topButton()"></i>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

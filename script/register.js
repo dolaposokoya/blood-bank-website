@@ -1,5 +1,5 @@
-const url = `https://api-bloodbank-v1.herokuapp.com/api`;
-// const url = "http://localhost:5000/api"
+const env = `production`;
+const url = env === 'development' ? `http://localhost:5000/api` : `https://api-bloodbank-v1.herokuapp.com/api`
 const site_origin = `http://127.0.0.1:5500`;
 const form = document.getElementById('userForm');
 const gender = document.getElementById("myGender");
@@ -15,6 +15,23 @@ const address = document.getElementById('address');
 const zip_code = document.getElementById('zip_code');
 const city = document.getElementById('city');
 const state = document.getElementById("state");
+const scrollUp = document.querySelector('.scrollUp')
+
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollUp.style.display = "block";
+    } else {
+        scrollUp.style.display = "none";
+    }
+}
+
+
+function topButton() {
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0;
+}
 
 
 const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)

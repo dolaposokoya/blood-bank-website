@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" type="image/png" href="../images/ic_launcher.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="../css/menu.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/request.css" />
+  <title>Chat with socket.io</title>
+</head>
+
+<body>
+  <!-- New navigation -->
+  <div class="icon fas fa-bars"> </div>
+  <div class="navContainer">
+    <nav class="mainNav">
+      <img class="navImage" src="../images/logo.jpg" alt="banner-image" />
+      <!-- <img src="./egg.png" alt="logo" class="navImage"> -->
+      <ul class="mainMenu">
+        <li><a href="./requestblood.html">Request</a></li>
+        <li><a class=" current" href="./contactdonor.html">Contact</a></li>
+        <li><a href="./reservation.html">Reservation</a></li>
+        <li><a onclick="logOut()" class="logOut" style="color: black; cursor: pointer;">Logout</a></li>
+      </ul>
+      <!-- <img src="../images/img.jpg" class="profileImage" alt="profile image"> -->
+    </nav>
+  </div>
+  <!-- Ends Her -->
+  <div class="header">
+    <h2>Chat Message</h2>
+
+    <p>
+      Try publishing an event to channel <code>my-channel</code> with event
+      name <code>my-event</code>.
+    </p>
+    <form id="get-blood">
+      <!-- <input type="checkbox" name="Check" id="check"> -->
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
+  <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
+  <script src="../script/chat.js"></script>
+  <script src="../script/main.js"></script>
+</body>
+
+</html>

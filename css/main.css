@@ -8,20 +8,9 @@
     --table-color: #f8f6f6;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 body,
 html {
     height: 100%;
-}
-
-body {
-    margin: 0;
-    overflow-x: hidden;
-    background-color: rgb(201, 201, 201);
-    font-family: var(--font);
 }
 
 form {
@@ -185,23 +174,13 @@ h6 {
     outline: none;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 main {
     min-height: calc(100vh-60px);
 }
 
-a {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-a:hover {
+/* a:hover {
     transition: all 1s ease-out;
-}
+} */
 
 .saveImage {
     float: right;
