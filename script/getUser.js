@@ -1,5 +1,5 @@
-const url = `https://api-bloodbank-v1.herokuapp.com/api`;
-// const url = "http://localhost:5000/api"
+// const url = `https://api-bloodbank-v1.herokuapp.com/api`;
+const url = "http://localhost:5000/api"
 const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
 const token = localStorage.getItem("userToken");
 document.querySelector(".back").classList.add("backPop");
@@ -9,7 +9,7 @@ document.querySelector(".footer").style.display = 'none';
 const list = document.querySelector("#user-list");
 checkToken();
 
-
+// var intials = $('#firstName').text().charAt(0) + $('#lastName').text().charAt(0); set user image Icon
 const state = {
     data: '',
     page: 1,
@@ -27,8 +27,8 @@ function getUser() {
         xhr.open('GET', `${url}/user/getAllUser`, true)
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
         xhr.setRequestHeader('token', `Bearer ${token}`)
-        xhr.setRequestHeader('authorization', `Basic ${basicAuth}`, )
-        xhr.onload = function() {
+        xhr.setRequestHeader('authorization', `Basic ${basicAuth}`,)
+        xhr.onload = function () {
             const users = JSON.parse(this.responseText)
             if (users.success === false && users.message === 'Unauthorized Access') {
                 showAlert(users.message, 'warning', "exclamation-triangle")
@@ -70,8 +70,8 @@ function filterUser(search) {
         xhr.open('GET', `${url}/user/filterUser?search=${search}`, true)
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
         xhr.setRequestHeader('token', `Bearer ${token}`)
-        xhr.setRequestHeader('authorization', `Basic ${basicAuth}`, )
-        xhr.onload = function() {
+        xhr.setRequestHeader('authorization', `Basic ${basicAuth}`,)
+        xhr.onload = function () {
             const users = JSON.parse(this.responseText)
             if (users.success === false && users.message === 'Unauthorized Access') {
                 showAlert(users.message, 'warning', "exclamation-triangle")
@@ -152,7 +152,7 @@ closeBtn.addEventListener("click", closeModal);
 close.addEventListener("click", closeModal);
 
 // Get user
-$(document).on('click', '.contact-btn', function() {
+$(document).on('click', '.contact-btn', function () {
     try {
         const item = $(this).val();
         var xhr = new XMLHttpRequest()
@@ -160,7 +160,7 @@ $(document).on('click', '.contact-btn', function() {
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
         xhr.setRequestHeader('token', `Bearer ${token}`)
         xhr.setRequestHeader('authorization', `Basic ${basicAuth}`)
-        xhr.onload = function() {
+        xhr.onload = function () {
             const users = JSON.parse(this.responseText)
             if (users.success === false && users.message === 'Unauthorized Access') {
                 showAlert(users.message, 'warning', "exclamation-triangle")
@@ -228,7 +228,7 @@ function paginationButtons(pages) {
         button.innerHTML = `<button class="btn page page-link mr-1" value=${parseInt(pages)}>last &#187</button>`
         pagination.appendChild(button)
     }
-    $('.page').on('click', function() {
+    $('.page').on('click', function () {
         $('#user-list').empty()
         state.page = Number($(this).val());
         displayData();
@@ -264,6 +264,6 @@ function showAlert(message, className, iconType) {
     alertMessage.innerHTML = `<div class="alert alert-${className}" role="alert">
     <i class="fa fa-${iconType}" aria-hidden="true"></i>  ${message}
   </div>`
-        // Vanish in 5 seconds
+    // Vanish in 5 seconds
     setTimeout(() => document.querySelector(".alert").remove(), 5000);
 }

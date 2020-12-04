@@ -1,4 +1,5 @@
 :root {
+    --font: 'Roboto Mono', monospace;
     --formColor: #b41717;
     --bullet: #28a745;
     --hover-blood: red;
@@ -20,7 +21,7 @@
 
 body {
     background-color: #eee;
-    font-family: 'Roboto Mono', monospace;
+    font-family: var(--font);
 }
 
 .form-control,

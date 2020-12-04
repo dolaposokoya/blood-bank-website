@@ -1,4 +1,5 @@
 :root {
+    /* --font: 'Roboto Mono', monospace; */
     --blood: #f50a0a;
     --hover-blood: red;
     --shadow: 10px 1px 3px -3px rgba(0, 0, 0, 0.1);
@@ -20,7 +21,7 @@ body {
     margin: 0;
     overflow-x: hidden;
     background-color: rgb(201, 201, 201);
-    font-family: 'Roboto Mono', monospace;
+    font-family: var(--font);
 }
 
 form {
@@ -130,11 +131,10 @@ h6 {
     color: black;
     font-size: 20px;
     border-radius: 7px;
-    background-color: #59ff80;
     animation-name: alert;
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
-    animation-direction: a
+    animation-direction: alternate
 }
 
 @keyframes alert {
