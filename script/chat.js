@@ -33,7 +33,6 @@ myBlood.addEventListener('submit', (e) => {
 var channel = pusher.subscribe('blood');
 channel.bind('my-blood', function (data) {
     data.data.map(blood => {
-        // console.log('Pushwer', JSON.stringify(blood.bloodgroup));
         // alert(JSON.stringify(blood.bloodgroup));
     })
 
