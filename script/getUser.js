@@ -1,5 +1,5 @@
-// const url = `https://api-bloodbank-v1.herokuapp.com/api`;
-const url = "http://localhost:5000/api"
+const url = `https://api-bloodbank-v1.herokuapp.com/api`;
+// const url = "http://localhost:5000/api"
 const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
 const token = localStorage.getItem("userToken");
 document.querySelector(".back").classList.add("backPop");
