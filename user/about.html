@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="/views/images/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
+
+    <title>Contact Donor</title>
+</head>
+
+<body class="body-image">
+    <!-- Spinner -->
+    <div class="back">
+        <div class="main"></div>
+    </div>
+    <div>
+        <header>
+            <!-- New navigation -->
+            <div class="icon fas fa-bars"> </div>
+            <div class="navContainer">
+                <nav class="mainNav">
+                    <img class="navImage" src="../images/logo.jpg" alt="banner-image" />
+                    <!-- <img src="./egg.png" alt="logo" class="navImage"> -->
+                    <ul class="mainMenu">
+                        <li><a href="./requestblood.html">Request</a></li>
+                        <li><a class=" current" href="./contactdonor.html">Contact</a></li>
+                        <li><a href="./reservation.html">Reservation</a></li>
+                        <li><a onclick="logOut()" class="logOut" style="color: black; cursor: pointer;">Logout</a></li>
+                    </ul>
+                    <!-- <img src="../images/img.jpg" alt="profile image" class="profileImage"> -->
+                    <img src="../images/img.jpg" class="profileImage" alt="profile image" onclick="userProfile()">
+                </nav>
+            </div>
+            <!-- Ends Her -->
+        </header>
+        <!-- Modal -->
+        <div id="simpleModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="closeBtn" id="closeBtn">&times;</span>
+                </div>
+                <div>
+                    <p class="modal-body">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur alias soluta ducimus, tempore
+                        ipsum eius consequuntur distinctio, animi similique ullam itaque ipsam iure. Tempora unde nisi
+                        vitae velit odit vel.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="footer-text"></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <main id="about">
+            <div class="table-responsive">
+                <table class="table table-striped" style="z-index: 10;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Blood Group</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="user-list"></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <footer class="footer">
+        <div>
+            <h3>Contact Us</h3>
+            <br>
+            <p><i class="fas fa-phone-alt"></i> Mobile: +91-9368884718</p>
+            <p><i class="fas fa-envelope"></i> Email: dolaposokoya97@gmail.com</p>
+            <p><i class="far fa-compass"></i> Address: Shivam Vihar Colony Ghaziabad</p>
+        </div>
+        <div>
+            <h3>About Us</h3>
+            <p>
+                Deserunt perferendis ab, accusantium minima et dolorem assumenda nam ratione, esse a porro iusto tempore
+                possimus at repellat exercitationem.
+            </p>
+        </div>
+        <div>
+            <img src="../images/banner2.jpg" alt="">
+        </div>
+    </footer>
+    <footer id="footer">Copyright &copy 2020</footer>
+    <script src="../script/getUser.js"></script>
+    <script src="../script/main.js"></script>
+</body>
+
+</html>
