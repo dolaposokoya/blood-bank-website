@@ -8,10 +8,6 @@
     --table-color: #f8f6f6;
 }
 
-body,
-html {
-    height: 100%;
-}
 
 form {
     background-color: rgb(255, 255, 255);
@@ -130,6 +126,7 @@ h6 {
     from {
         right: -600px;
     }
+
     to {
         right: 0;
     }
@@ -189,30 +186,185 @@ main {
 }
 
 
+.emptySpace {
+    height: 50px;
+
+}
+
+/* User profile */
+.userProfile {
+    height: 100%;
+    width: 17%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-bottom: 1000px;
+    background-color: #d44040;
+    overflow: hidden;
+    padding-top: 30px;
+    margin-top: 40px;
+}
+
+.tabcontent {
+    width: 80%;
+    margin-left: 320px;
+}
+
+.userProfile li {
+    padding: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    border-bottom: rgb(12, 12, 12) solid 1px;
+    color: black;
+}
+
+.userProfile li:last-child {
+    border: none;
+}
+
+.userProfile li a {
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+    padding-bottom: 10px;
+}
+
+.userProfile li a.active,
+.userProfile li a:hover {
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
+#profile {
+    display: block;
+    overflow: auto;
+    padding-bottom: 10px;
+}
+
+#userrequest,
+#userstatus {
+    display: none;
+    overflow: auto;
+    padding-bottom: 10px;
+}
+
 /* Media Query */
+
+
+@media (max-width: 1400px) {
+    .tabcontent {
+        width: 80%;
+        margin-left: 250px;
+    }
+}
+
+@media (max-width: 1040px) {
+    .tabcontent {
+        width: 80%;
+        margin-left: 200px;
+    }
+}
+
+@media (max-width: 900px) {
+    .tabcontent {
+        width: 80%;
+        margin-left: 170px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tabcontent {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* User profile */
+    .userProfile {
+        z-index: 1000;
+        display: flex;
+        width: 100%;
+        margin-top: 60px;
+        justify-content: center;
+        height: 60px;
+        margin-bottom: 1000px;
+    }
+
+    .userProfile li {
+        transform: translateY(-38px);
+        margin: 0 10px;
+        padding-bottom: 50px;
+        color: black;
+    }
+
+    .userProfile li a {
+        color: black;
+        font-weight: bold;
+        font-size: 17px;
+        padding-bottom: 5px;
+    }
+}
+
+@media (max-width: 756px) {
+    .tabcontent {
+        width: 100%;
+        margin-left: 0;
+        /* margin-right: 20px; */
+    }
+
+    /* User profile */
+    .userProfile {
+        z-index: 1000;
+        display: flex;
+        width: 100%;
+        margin-top: 60px;
+        justify-content: center;
+        height: 60px;
+        margin-bottom: 1000px;
+    }
+
+    .userProfile li {
+        transform: translateY(-38px);
+        margin: 0 10px;
+        padding-bottom: 50px;
+        color: black;
+    }
+
+    .userProfile li a {
+        color: black;
+        font-weight: bold;
+        font-size: 17px;
+        padding-bottom: 5px;
+    }
+}
 
 @media (max-width: 730px) {
     table {
         margin: 0;
         margin-top: 100px;
     }
+
     .table thead {
         display: none;
     }
+
     .table tbody,
     tr,
     td {
         display: block;
         width: 100%;
     }
+
     .table tr {
         margin-bottom: 15px;
     }
+
     .table td {
         text-align: right;
         padding-left: 50%;
         position: relative;
     }
+
     .table td::before {
         content: attr(data-label);
         position: absolute;
@@ -225,28 +377,67 @@ main {
     }
 }
 
+@media (max-width: 700px) {
+
+    /* User profile */
+    .userProfile {
+        z-index: 1000;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        /* position: fixed; */
+        justify-content: center;
+        height: 60px;
+        margin-bottom: 1000px;
+    }
+
+    .userProfile li {
+        transform: translateY(-38px);
+        margin: 0 10px;
+        padding-bottom: 50px;
+        color: black;
+    }
+
+    .userProfile li a {
+        color: black;
+        font-weight: bold;
+        font-size: 17px;
+        padding-bottom: 5px;
+    }
+
+    /* li a.active,
+    a:hover {
+        border-bottom: 2px solid black;
+    } */
+}
+
 @media (max-width: 665px) {
     table {
         margin: 0;
         margin-top: 10px;
     }
+
     .table thead {
         display: none;
     }
+
     .table tbody,
     tr,
     td {
         display: block;
         width: 100%;
     }
+
     .table tr {
         margin-bottom: 15px;
     }
+
     .table td {
         text-align: right;
         padding-left: 50%;
         position: relative;
     }
+
     .table td::before {
         content: attr(data-label);
         position: absolute;
@@ -263,23 +454,28 @@ main {
     table {
         margin: 0;
     }
+
     .table thead {
         display: none;
     }
+
     .table tbody,
     tr,
     td {
         display: block;
         width: 100%;
     }
+
     .table tr {
         margin-bottom: 15px;
     }
+
     .table td {
         text-align: right;
         padding-left: 50%;
         position: relative;
     }
+
     .table td::before {
         content: attr(data-label);
         position: absolute;

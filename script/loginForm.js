@@ -1,6 +1,7 @@
-const env = `production`; 
-const url = env === 'development' ? `http://localhost:5000/api` : `https://api-bloodbank-v1.herokuapp.com/api`
+const env = `production`;
+const apiEndpoint = env === 'development' ? `http://localhost:5000/api` : `https://api-bloodbank-v1.herokuapp.com/api`
 const token = localStorage.getItem("userToken");
+const profileImage = document.querySelector('.profileImage')
 gsap.from(".form-card", { duration: 2.5, x: '-4500px', ease: "power4.out" });
 
 checkToken()
@@ -10,7 +11,7 @@ function showAlert(message, className, iconType) {
     alertMessage.innerHTML = `<div class="alert alert-${className}" role="alert">
     <i class="fa fa-${iconType}" aria-hidden="true"></i>  ${message}
   </div>`
-        // Vanish in 5 seconds
+    // Vanish in 5 seconds
     setTimeout(() => document.querySelector(".alert").remove(), 5000);
 }
 
@@ -24,7 +25,7 @@ function checkToken() {
         localStorage.removeItem("userToken");
         localStorage.removeItem("profileId");
     } else {
-        window.location.assign("../pages/contactdonor.html");
+        window.location.assign("../user/contactdonor.html");
     }
 };
 
@@ -49,7 +50,7 @@ async function loginForm() {
         showAlert("Password is empty", "warning", "exclamation-triangle");
     } else {
         try {
-            const apiURl = `${url}/user/loginUser`
+            const apiURl = `${apiEndpoint}/user/loginUser`
             const headers = {
                 "authorization": `Basic ${basicAuth}`,
                 "Content-Type": "application/json",
@@ -68,8 +69,9 @@ async function loginForm() {
                     document.querySelector(".main").classList.remove("spinner3");
                     document.querySelector(".back").classList.remove("backPop");
                     localStorage.setItem("userToken", data.data.token);
+                    localStorage.setItem("image", data.data.fileName);
                     localStorage.setItem("profileId", data.data.profile_id);
-                    window.location.assign("../pages/contactdonor.html");
+                    window.location.assign("../user/contactdonor.html");
                 }
             } else {
                 showAlert('Unable to load data', "warning", "exclamation-triangle");

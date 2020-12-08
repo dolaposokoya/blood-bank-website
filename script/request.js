@@ -1,8 +1,19 @@
 const env = `production`;
-const url = env === 'development' ? `http://localhost:5000/api` : `https://api-bloodbank-v1.herokuapp.com/api`
+const apiEndpoint = env === 'development' ? `http://localhost:5000/api` : `https://api-bloodbank-v1.herokuapp.com/api`
 const site_origin = `http://127.0.0.1:5500`;
+const baseUrl = env === 'development' ? `http://localhost:5000/images/` : `https://api-bloodbank-v1.herokuapp.com/images/`
+const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
 const token = localStorage.getItem("userToken")
+const profileImage = document.querySelector('.profileImage');
 
+const image = localStorage.getItem('image')
+profileImage.src = `${baseUrl}${image}`
+const headers = {
+    "content-type": "application/json",
+    accept: "application/json",
+    'authorization': `Basic ${basicAuth}`,
+};
+pageData()
 
 window.addEventListener("load", () => {
     if (!token) {
@@ -19,12 +30,11 @@ function logOut() {
 
 const submitBtn = document.getElementById('submitBtn')
 const myState = document.getElementById('myState')
+const state = document.getElementById('state')
 const myBlood = document.getElementById('myBlood')
+const blood_group = document.getElementById('blood_group')
 
 
-
-
-const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
 async function makeRequest() {
     // Process request field
     const patient_name = document.getElementById('patient_name');
@@ -86,7 +96,7 @@ async function makeRequest() {
                 "content-type": "application/json",
                 accept: "application/json",
             }
-            const requestUrl = `${url}/request/createRequest`;
+            const requestUrl = `${apiEndpoint}/request/createRequest`;
             const requestHeaders = {
                 method: 'POST',
                 headers: headers,
@@ -112,37 +122,33 @@ function myFunction() {
     document.getElementById("requestForm").reset();
 }
 
-// Fetch Some Data
-async function fetchData() {
-    const headers = {
-        "content-type": "application/json",
-        accept: "application/json",
-        'authorization': `Basic ${basicAuth}`,
-    };
-    const request = `${url}/bloodgroup/bloodAllGroup`
-    const response = await fetch(request, { headers: headers, })
+async function pageData() {
+    const response = await fetch(`${apiEndpoint}/bloodgroup/bloodAllGroup`, { headers: headers })
     const data = await response.json()
-    data.data.map(blood => {
-        let states = blood.state
-        states.forEach(bl => {
-            let group = bl.state
+
+    data.data.map(state => {
+        const statesData = state.state
+        statesData.forEach(states => {
+            let group = states.state
             let myOptions = document.createElement('option')
             myOptions.textContent = `${group}`;
-            myOptions.id = 'my-state'
             myOptions.classList.add("control");
+            myOptions.id = 'my-state'
+            myOptions.value = `${group}`
             myState.appendChild(myOptions)
         })
-        let group = blood.bloodgroup
-        group.forEach(bl => {
-            let group = bl.group
-            let myOptions = document.createElement('option')
-            myOptions.textContent = `${group}`;
-            myBlood.appendChild(myOptions)
-            myOptions.id = 'my-group'
-            myOptions.classList.add('blood_group')
+        state.bloodgroup.map(group => {
+            let options = document.createElement('option')
+            options.textContent = `${group.group}`;
+            options.classList.add("control");
+            options.id = 'my-group'
+            options.value = `${group.group}`
+            myBlood.appendChild(options)
+            // blood_group.appendChild(options)
         })
     })
 }
+
 
 // Show Alert Function
 function showAlert(message, className, iconType) {
@@ -150,8 +156,6 @@ function showAlert(message, className, iconType) {
     alertMessage.innerHTML = `<div class="alert alert-${className}" role="alert">
     <i class="fa fa-${iconType}" aria-hidden="true"></i>  ${message}
   </div>`
-        // Vanish in 5 seconds
+    // Vanish in 5 seconds
     setTimeout(() => document.querySelector(".alert").remove(), 5000);
 }
-
-fetchData()

@@ -1,6 +1,5 @@
-const env = `production`;
-const url = env === 'development' ? `http://localhost:5000/api` : `https://api-bloodbank-v1.herokuapp.com/api`
 const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
+const apiEndpoint = env === 'development' ? `http://localhost:5000/api` : `https://api-bloodbank-v1.herokuapp.com/api`
 const token = localStorage.getItem("userToken");
 document.querySelector(".back").classList.add("backPop");
 document.querySelector(".main").classList.add("spinner3");
@@ -24,8 +23,8 @@ const state = {
 function getUser() {
     try {
         var xhr = new XMLHttpRequest()
-        xhr.open('GET', `${url}/user/getAllUser`, true)
-        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+        xhr.open('GET', `${apiEndpoint}/user/getAllUser`, true)
+        xhr.setRequestHeader("content-type", "application/x-www-form-apiEndpointencoded")
         xhr.setRequestHeader('token', `Bearer ${token}`)
         xhr.setRequestHeader('authorization', `Basic ${basicAuth}`,)
         xhr.onload = function () {
@@ -54,7 +53,7 @@ function getUser() {
 
         xhr.send()
     } catch (error) {
-        showAlert('Something went wrongdssss', 'warning', "exclamation-triangle")
+        showAlert(`${error.message}`, 'warning', "exclamation-triangle")
         document.querySelector(".main").classList.remove("spinner3");
         document.querySelector(".back").classList.remove("backPop");
     }
@@ -67,7 +66,7 @@ function getUser() {
 function filterUser(search) {
     try {
         var xhr = new XMLHttpRequest()
-        xhr.open('GET', `${url}/user/filterUser?search=${search}`, true)
+        xhr.open('GET', `${apiEndpoint}/user/filterUser?search=${search}`, true)
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
         xhr.setRequestHeader('token', `Bearer ${token}`)
         xhr.setRequestHeader('authorization', `Basic ${basicAuth}`,)
@@ -156,7 +155,7 @@ $(document).on('click', '.contact-btn', function () {
     try {
         const item = $(this).val();
         var xhr = new XMLHttpRequest()
-        xhr.open('GET', `${url}/user/getUserById?id=${item}`, true)
+        xhr.open('GET', `${apiEndpoint}/user/getUserById?id=${item}`, true)
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
         xhr.setRequestHeader('token', `Bearer ${token}`)
         xhr.setRequestHeader('authorization', `Basic ${basicAuth}`)

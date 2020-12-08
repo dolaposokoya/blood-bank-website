@@ -1,4 +1,3 @@
-const env = `production`;
 const url = env === 'development' ? `http://localhost:5000/api` : `https://api-bloodbank-v1.herokuapp.com/api`
 const token = localStorage.getItem("userToken");
 
@@ -18,7 +17,7 @@ function showAlert(message, className, iconType) {
     <i class="fa fa-${iconType}" aria-hidden="true"></i>  ${message}
   </div>`
         // Vanish in 3 seconds
-    setTimeout(() => document.querySelector(".alert").remove(), 3000);
+    setTimeout(() => document.querySelector(".alert").remove(), 4000);
 }
 
 

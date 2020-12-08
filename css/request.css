@@ -64,6 +64,7 @@ input:focus {
     border-radius: 5px;
     font-size: 18px;
     cursor: pointer;
+    padding: 5px;
     border: 2px solid black;
 }
 

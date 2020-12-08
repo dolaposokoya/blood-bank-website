@@ -1,6 +1,5 @@
-const apiEndpoint = `https://api-bloodbank-v1.herokuapp.com`
-
-// const apiEndpoint = "http://localhost:5000/api/";
+const env = `production`;
+const apiEndpoint = env === 'development' ? `http://localhost:5000/api/` : `https://api-bloodbank-v1.herokuapp.com/api/`
 
 export const url = {
     userLoginUrl: apiEndpoint + "user/loginUser",
