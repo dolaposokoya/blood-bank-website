@@ -48,6 +48,38 @@ h6 {
     color: var(--hover-blood);
 }
 
+/* Pagonation button */
+.pagination {
+    padding: 0;
+    margin: 15px auto;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    outline: none;
+}
+
+.pagination>div {
+    padding: 5px;
+}
+
+.pagination>div>button {
+    border: none;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    margin: 5px;
+    color: black
+}
+
+.pagination>.active>button,
+.pagination>.active>button:hover,
+.pagination>.active>button:focus {
+    background-color: rgb(165, 165, 165);
+    border-color: none;
+    outline: none;
+}
 
 /* Spinner 3 */
 
