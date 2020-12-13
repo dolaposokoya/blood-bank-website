@@ -1,6 +1,9 @@
+const env = `production`;
 const apiEndpoint = env === 'development' ? `http://localhost:5000/api` : `https://api-bloodbank-v1.herokuapp.com/api`
+const baseUrl = env === 'development' ? `http://localhost:5000/images/` : `https://api-bloodbank-v1.herokuapp.com/images/`
 const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
 const token = localStorage.getItem("userToken");
+const scrollUp = document.querySelector('.scrollUp')
 const form = document.getElementById('userForm');
 const gender = document.getElementById("myGender");
 const mobile = document.getElementById('mobile');
@@ -10,11 +13,12 @@ const age = document.getElementById('age');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const date_of_birth = document.getElementById('date_of_birth');
-const blood_group = document.getElementById('blood_group');
+const blood_group = document.getElementById('userBlood');
 const address = document.getElementById('address');
 const zip_code = document.getElementById('zip_code');
 const city = document.getElementById('city');
-const myState = document.getElementById("state");
+const myState = document.getElementById("userState");
+console.log('my State0', myState)
 const list = document.querySelector("#user-list");
 const headers = {
     "content-type": "application/json",
@@ -51,8 +55,8 @@ async function pageData() {
 }
 
 
-date_of_birth.addEventListener('change', doThing);
-function doThing() {
+date_of_birth.addEventListener('change', getAge);
+function getAge() {
     let user_age = new Date().getFullYear() - new Date(this.value).getFullYear()
     age.value = user_age
 }
@@ -97,6 +101,7 @@ function getUserData() {
                     zip_code.value = userData.zip_code
                     city.value = userData.city
                     myState.value = userData.state
+                    console.log('myState.value', myState.value)
                 }
             }
         }
@@ -104,8 +109,6 @@ function getUserData() {
         xhr.send()
     } catch (error) {
         showAlert('Something went wrongdssss', 'warning', "exclamation-triangle")
-        document.querySelector(".main").classList.remove("spinner3");
-        document.querySelector(".back").classList.remove("backPop");
     }
 }
 
@@ -211,3 +214,46 @@ function showAlert(message, className, iconType) {
     // Vanish in 5 seconds
     setTimeout(() => document.querySelector(".alert").remove(), 4000);
 }
+
+/**
+ * Scroll button
+ */
+window.onscroll = function () { scrollFunction() };
+
+/**
+ * Scroll button
+ */
+function scrollFunction() {
+    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+        scrollUp.style.display = "block";
+    } else {
+        scrollUp.style.display = "none";
+    }
+}
+
+/**
+ * Scroll button
+ */
+function topButton() {
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0;
+}
+
+// Change between tabs
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+document.querySelector('.icon').addEventListener('click', () => {
+    document.querySelector('.mainMenu').classList.toggle('show')
+})

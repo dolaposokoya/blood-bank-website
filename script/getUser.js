@@ -1,13 +1,23 @@
+const env = `production`;
 const basicAuth = btoa(`bloodbank-api@gmail.com:e2b1b93e3082485a308992c8c30e06c1`)
 const apiEndpoint = env === 'development' ? `http://localhost:5000/api` : `https://api-bloodbank-v1.herokuapp.com/api`
+const baseUrl = env === 'development' ? `http://localhost:5000/images/` : `https://api-bloodbank-v1.herokuapp.com/images/`
 const token = localStorage.getItem("userToken");
 document.querySelector(".back").classList.add("backPop");
 document.querySelector(".main").classList.add("spinner3");
 document.querySelector(".grid-main").style.display = 'none';
 document.querySelector(".footer").style.display = 'none';
 const list = document.querySelector("#user-list");
+const scrollUp = document.querySelector('.scrollUp')
+const image = localStorage.getItem('image')
+const profileImage = document.querySelector('.profileImage');
+profileImage.src = image ? `${baseUrl}${image}` : '../images/image.png'
 checkToken();
 
+
+document.querySelector('.icon').addEventListener('click', () => {
+    document.querySelector('.mainMenu').classList.toggle('show')
+})
 // var intials = $('#firstName').text().charAt(0) + $('#lastName').text().charAt(0); set user image Icon
 const state = {
     data: '',
@@ -267,3 +277,27 @@ function showAlert(message, className, iconType) {
     // Vanish in 5 seconds
     setTimeout(() => document.querySelector(".alert").remove(), 5000);
 }
+
+
+function userProfile() {
+    window.location.assign('../user/profile.html')
+}
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+        scrollUp.style.display = "block";
+    } else {
+        scrollUp.style.display = "none";
+    }
+}
+
+
+
+function topButton() {
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0;
+}
+
+gsap.from(".table", { duration: 3, x: '-1500px', ease: "power3.out" });
+gsap.from(".search", { duration: 3, x: '-1500px', ease: "power3.out" });

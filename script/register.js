@@ -58,6 +58,8 @@ form.addEventListener('submit', async (event) => {
             clientBrowser: window.clientInformation.userAgent,
             clientVendor: window.clientInformation.vendor
         }
+        formData.first_name = formData.first_name.toLowerCase()
+        formData.last_name = formData.last_name.toLowerCase()
         if (first_name.value === '' || first_name.value === null) {
             showAlert('First name is empty', 'warning', 'exclamation-triangle')
         } else if (last_name.value === '' || last_name.value === null) {
@@ -97,6 +99,7 @@ form.addEventListener('submit', async (event) => {
                 headers: headers,
                 body: JSON.stringify(formData)
             })
+            console.log('formData', formData)
             const data = await response.json()
             if (!response) {
                 showAlert('No response', 'warning', 'exclamation-triangle')

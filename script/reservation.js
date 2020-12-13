@@ -1,5 +1,10 @@
+const env = `production`;
 const url = env === 'development' ? `http://localhost:5000/api` : `https://api-bloodbank-v1.herokuapp.com/api`
 const token = localStorage.getItem("userToken");
+const baseUrl = env === 'development' ? `http://localhost:5000/images/` : `https://api-bloodbank-v1.herokuapp.com/images/`
+const image = localStorage.getItem('image')
+const profileImage = document.querySelector('.profileImage');
+profileImage.src = image ? `${baseUrl}${image}` : '../images/image.png'
 
 function logOut() {
     localStorage.removeItem("userToken");
@@ -16,7 +21,7 @@ function showAlert(message, className, iconType) {
     alertMessage.innerHTML = `<div class="alert alert-${className}" role="alert">
     <i class="fa fa-${iconType}" aria-hidden="true"></i>  ${message}
   </div>`
-        // Vanish in 3 seconds
+    // Vanish in 3 seconds
     setTimeout(() => document.querySelector(".alert").remove(), 4000);
 }
 

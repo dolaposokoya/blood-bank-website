@@ -50,7 +50,7 @@ li {
 /* Navigation */
 .navContainer {
     background-color: var(--menu-background);
-    z-index: 1000000;
+    z-index: 88888888;
     position: fixed;
     top: 0;
     width: 100%;
@@ -73,7 +73,7 @@ li {
     position: absolute;
     top: 20px;
     right: 20px;
-    z-index: 333;
+    z-index: 99999999;
     display: none;
     font-size: 25px;
 }
@@ -132,25 +132,24 @@ li {
     .icon {
         display: block;
         position: fixed;
-        z-index: 999999999;
     }
 
     .icon.show {
-        transform: rotateX(30deg);
+        transform: rotate(30deg);
     }
 
     .mainNav ul {
-        z-index: 10000000;
+        z-index: 999999999;
         display: block;
         position: fixed;
         top: 0;
         left: 0;
-        background-color: #f2f2f2;
-        width: 50%;
-        height: 100%;
+        /* background-color: rgb(241, 184, 184); */
+        background-color: #e61919;
+        width: 52%;
+        /* height: 10%; */
         transform: translateX(-500px);
-        border-right: rgb(245, 245, 245) solid 1px;
-        opacity: 0.9;
+        opacity: 0.85;
         padding: 30px;
         transition: transform 1s ease-in-out;
     }
@@ -264,31 +263,6 @@ td .contact {
 
 
 @media(max-width: 720px) {
-    .banner-image1 {
-        display: flex;
-        width: 100px;
-        padding: 15px 10px 0 10px;
-        margin: auto;
-        padding-bottom: 10px;
-    }
-
-    .menu-btn {
-        display: block;
-        /* position: absolute; */
-        z-index: 3;
-        right: 35px;
-        top: 20px;
-        cursor: pointer;
-        transition: all 1s ease-out;
-    }
-
-    .btn-line {
-        width: 28px;
-        height: 3px;
-        margin: 0 0 5px 0;
-        background: red;
-        transition: all 0.2s ease-out;
-    }
 
     /* Rotate to X */
     .close .btn-line:nth-child(1) {
@@ -305,43 +279,8 @@ td .contact {
 
 }
 
-@media(max-width: 686px) {
-    .banner-image1 {
-        display: block;
-        float: left;
-        width: 100px;
-        padding: 15px 10px 0 10px;
-        margin: auto;
-        padding-bottom: 10px;
-    }
-}
 
 @media(max-width: 480px) {
-    .banner-image1 {
-        display: flex;
-        width: 100px;
-        padding: 15px 10px 0 10px;
-        margin: auto;
-        padding-bottom: 10px;
-    }
-
-    .menu-btn {
-        display: block;
-        position: absolute;
-        z-index: 3;
-        right: 35px;
-        top: 20px;
-        cursor: pointer;
-        transition: all 1s ease-out;
-    }
-
-    .btn-line {
-        width: 28px;
-        height: 3px;
-        margin: 0 0 5px 0;
-        background: red;
-        transition: all 0.2s ease-out;
-    }
 
     /* Rotate to X */
     .close .btn-line:nth-child(1) {

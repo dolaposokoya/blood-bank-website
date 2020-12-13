@@ -21,24 +21,23 @@
 </head>
 <style>
   .footer {
-    z-index: 99999999;
+    z-index: 999999;
     margin-left: 200px;
   }
 
   @media (max-width: 1184px) {
     .footer {
-        /* width: 80%; */
-        margin-left: 140px;
+      /* width: 80%; */
+      margin-left: 140px;
     }
-}
+  }
 
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
     .footer {
-        width: 100%;
-        margin-left: 0px;
+      width: 100%;
+      margin-left: 0px;
     }
-}
-
+  }
 </style>
 
 <body>
@@ -125,7 +124,7 @@
           </div> -->
           <div class="form-group col-md-4">
             <label for="blood_group">Blood Group</label>
-            <select id="blood_group" placeholder="Blood Group">
+            <select id="userBlood" placeholder="Blood Group">
               <option id="my-group" value="Choose..." selected>Choose...</option>
             </select>
           </div>
@@ -149,7 +148,7 @@
           </div>
           <div class="form-group col-md-4">
             <label for="state">State</label>
-            <select id="state" placeholder="State">
+            <select id="userState" placeholder="State">
               <option id="my-state" value="Choose..." selected>Choose...</option>
             </select>
           </div>
@@ -167,11 +166,12 @@
     </div>
 
     <div id="userstatus" class="tabcontent">
-      <h3 style="color: black;">Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, vitae quis!.</h3>
+      <h3 style="color: black;">Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate,
+        vitae quis!.</h3>
     </div>
     <div id="userrequest" class="tabcontent">
-      <h3 style="color: black7;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque, blanditiis.</h3>
-    </div> 
+      <h3 style="color: black;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque, blanditiis.</h3>
+    </div>
 
     <div class="emptySpace">
       <!-- <h3>Lorem ipsum dolor sit amet.</h3> -->
@@ -200,7 +200,7 @@
   <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
   <script src="../script/chat.js"></script>
-  <script src="../script/main.js"></script>
+  <!-- <script src="../script/main.js"></script> -->
   <script src="../script/getOneUser.js"></script>
 </body>
 
