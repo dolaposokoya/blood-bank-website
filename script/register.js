@@ -60,6 +60,7 @@ form.addEventListener('submit', async (event) => {
         }
         formData.first_name = formData.first_name.toLowerCase()
         formData.last_name = formData.last_name.toLowerCase()
+        formData.city = formData.city.toLowerCase()
         if (first_name.value === '' || first_name.value === null) {
             showAlert('First name is empty', 'warning', 'exclamation-triangle')
         } else if (last_name.value === '' || last_name.value === null) {
